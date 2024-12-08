@@ -1,18 +1,18 @@
 /* Navigation Bar Styling */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Logo on the left, links and profile on the right */
+  justify-content: space-between;
   align-items: center;
-  background-color: #ffffff; /* White background */
-  color: #1a98ff; /* Dodger Blue text */
-  padding: 1rem;
+  padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+  background-color: #ffffff;
+  height: 80px; /* Set a fixed height for the navbar */
+  box-sizing: border-box; /* Ensures padding is included in the height */
 }
 
-.navbar-left .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1a98ff;
-  text-decoration: none;
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-right {
@@ -52,6 +52,11 @@
   @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
 }
 
+.logo-image {
+  height: 200px; /* Adjust as needed */
+  width: auto;
+  object-fit: contain; /* Ensures the image maintains aspect ratio */
+}
 
 /* Divider Styling */
 .divider {
@@ -159,7 +164,7 @@
 }
 
 .dark .navbar {
-  @apply bg-gray-900 text-white; /* Dark mode styles */
+  @apply bg-black text-white; /* Dark mode styles */
 }
 
 /* Dropdown Menu */
@@ -168,7 +173,7 @@
 }
 
 .dark .dropdown-menu {
-  @apply bg-gray-800 text-white; /* Dark mode */
+  @apply bg-black text-white; /* Dark mode */
 }
 
 .dropdown-item:hover {
