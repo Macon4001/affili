@@ -15,13 +15,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar shadow-md">
-      {/* Logo on the Left */}
-      <div className="navbar-left">
-        <a href="/" className="logo">
-          Affili
-        </a>
-      </div>
+<nav className="navbar shadow-md">
+    {/* Logo on the Left */}
+    <div className="navbar-left">
+      <a href="/" className="logo">
+        <img 
+          src="/4.png" 
+          alt="NexAffil Logo" 
+          className="logo-image"
+        />
+      </a>
+    </div>
 
       {/* Navigation Links and Profile on the Right */}
       <div className="navbar-right">
