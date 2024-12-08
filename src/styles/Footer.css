@@ -1,0 +1,120 @@
+/* Footer Base Styles */
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9; /* Light mode background */
+    color: #333;
+    padding: 2rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* Pushes footer to the bottom */
+  }
+  
+  /* Footer Content */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Footer Section */
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: #1a98ff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #0a7aeb; /* Darker blue on hover */
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    font-size: 1.5rem;
+    color: #1a98ff;
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: #0a7aeb;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666; /* Subtle light mode text */
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+  }
+  
+  /* Dark Mode Styles */
+  .dark .footer {
+    background-color: #333; /* Dark mode background */
+    color: #fff;
+  }
+  
+  .dark .footer-links a {
+    color: #50ccff; /* Lighter blue in dark mode */
+  }
+  
+  .dark .footer-links a:hover {
+    color: #1a98ff;
+  }
+  
+  .dark .social-icon {
+    color: #50ccff;
+  }
+  
+  .dark .social-icon:hover {
+    color: #1a98ff;
+  }
+  
+  .dark .footer-bottom {
+    color: #999;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 1rem;
+    }
+  }
+  

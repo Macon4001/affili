@@ -1,0 +1,19 @@
+.testimonials {
+    background-color: #f4f4f4;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+  }
+  

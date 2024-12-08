@@ -1,0 +1,249 @@
+/* Navigation Bar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Logo on the left, links and profile on the right */
+  align-items: center;
+  background-color: #ffffff; /* White background */
+  color: #1a98ff; /* Dodger Blue text */
+  padding: 1rem;
+}
+
+.navbar-left .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a98ff;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 1rem; /* Space between links */
+}
+
+.nav-links a {
+  color: #1a98ff; /* Default Dodger Blue color */
+  text-decoration: none;
+  padding: 0.4rem 1rem; /* Adjusted padding for better centering */
+  font-size: 1rem;
+  display: inline-block; /* Ensures the hover effect respects padding */
+  text-align: center; /* Center text within the link */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+}
+
+.nav-links a:hover {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient hover effect */
+  color: #ffffff; /* White text on hover */
+  border-radius: 8px; /* Slightly rounded corners for hover effect */
+}
+
+.dark .nav-links a:hover {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
+}
+
+
+/* Divider Styling */
+.divider {
+  width: 1px; /* Thickness of the divider */
+  height: 20px; /* Height of the divider */
+  background-color: #1a98ff; /* Blue color for divider */
+  margin: 0 8px; /* Space around the divider */
+}
+
+.divider:hover {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient hover effect on the divider */
+  transition: background-color 0.3s ease; /* Smooth transition for the divider */
+}
+
+/* Profile Container Styling */
+.profile-container {
+  position: relative;
+  margin-left: 1rem;
+  display: inline-block;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Makes the image round */
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-container:hover .dropdown-menu {
+  display: block; /* Keep the dropdown visible when hovering over the profile */
+}
+
+/* Keyframes for smooth color cycling */
+@keyframes blue-ring-animation {
+  0% {
+    border-color: #edfaff; /* dodger-blue-50 */
+  }
+  20% {
+    border-color: #d7f2ff; /* dodger-blue-100 */
+  }
+  40% {
+    border-color: #b9ebff; /* dodger-blue-200 */
+  }
+  60% {
+    border-color: #50ccff; /* dodger-blue-400 */
+  }
+  80% {
+    border-color: #28b0ff; /* dodger-blue-500 */
+  }
+  100% {
+    border-color: #1a98ff; /* dodger-blue-600 */
+  }
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  position: absolute;
+  top: 50px; /* Adjust to position the dropdown below the photo */
+  right: 0;
+  background-color: #f9f9f9; /* Light gray dropdown background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px;
+  padding: 0; /* Remove padding to avoid gaps */
+  width: 200px; /* Adjust width for text alignment */
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+  display: none; /* Initially hidden */
+}
+
+.dropdown-item {
+  display: block; /* Full-width block for seamless hover effect */
+  padding: 1rem; /* Equal padding all around for consistent spacing */
+  color: #1a98ff; /* Dodger Blue for dropdown items */
+  text-decoration: none;
+  font-size: 1rem; /* Adjust text size for readability */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient effect spans the whole option */
+  color: #ffffff; /* White text on hover */
+}
+
+/* Top Item Hover Styling */
+.dropdown-item:first-child:hover {
+  border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+}
+
+/* Bottom Item Hover Styling */
+.dropdown-item:last-child:hover {
+  border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+}
+
+/* Ensure Middle Items Stay Flat */
+.dropdown-item:not(:first-child):not(:last-child):hover {
+  border-radius: 0; /* No rounding for middle items */
+}
+/* Navbar Styles */
+.navbar {
+  @apply bg-white text-blue-600; /* Default light mode styles */
+}
+
+.dark .navbar {
+  @apply bg-gray-900 text-white; /* Dark mode styles */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  @apply bg-gray-100 text-blue-600; /* Default light mode */
+}
+
+.dark .dropdown-menu {
+  @apply bg-gray-800 text-white; /* Dark mode */
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient hover effect */
+  color: #ffffff; /* White text on hover */
+  border-radius: 8px; /* Slightly rounded corners for hover effect */
+}
+
+.dark .dropdown-item:hover {
+
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
+}
+
+
+/* Dropdown Item Hover */
+.nav-links a:hover {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient hover effect */
+  color: #ffffff; /* White text on hover */
+  border-radius: 8px; /* Slightly rounded corners for hover effect */
+}
+.dark .nav-links a:hover {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
+}
+
+
+/* Container for the Toggle Button */
+.toggle-dark-mode {
+  position: relative;
+  width: 48px; /* Matches the image size */
+  height: 48px;
+  display: inline-block;
+  border-radius: 1000%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Image inside the Toggle Button */
+.toggle-dark-mode img {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%; /* Ensures the image is circular */
+  margin-left: 15%;
+}
+
+/* Gradient Ring Styling */
+.toggle-dark-mode::before {
+  content: '';
+  position: absolute;
+  top: -4px; /* Adjust to ensure the ring surrounds the image tightly */
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #edfaff, #1a98ff, #28b0ff, #b9ebff);
+  background-size: 300% 300%;
+  z-index: -1; /* Places the gradient behind the image */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+/* Show the Ring on Hover */
+.toggle-dark-mode:hover::before {
+  opacity: 1; /* Makes the gradient visible */
+  animation: gradient-flow 3s infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
