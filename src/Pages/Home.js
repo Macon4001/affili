@@ -1,5 +1,6 @@
 import React from 'react';
 import Testimonials from '../components/Testimonials';
+import HomeFeatures from '../components/HomeFeatures';
 import '../styles/Home.css';
 
 const HomePage = () => {
@@ -23,24 +24,8 @@ const HomePage = () => {
           <button className="cta-button">Join Now</button>
         </div>
       </section>
-      {/* Features Section */}
-      <section className="features shadow-md">
-        <h2>Why Choose Affili?</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h3>For Affiliates</h3>
-            <p>Find opportunities to partner with businesses and grow your revenue.</p>
-          </div>
-          <div className="feature-card">
-            <h3>For Businesses</h3>
-            <p>Expand your reach by connecting with top-performing affiliates.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Analytics</h3>
-            <p>Track your growth with our intuitive analytics tools.</p>
-          </div>
-        </div>
-      </section>
+      
+      <HomeFeatures />
 
       <Testimonials />
 
