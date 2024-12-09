@@ -50,9 +50,9 @@ const Navbar = () => {
           onClick={toggleDarkMode}
         >
           <img
-            src={isDarkMode ? '/Dark mode 2.png': '/Dark mode.png'}
+            src={isDarkMode ? '/Dark mode 2.png': '/Light mode.png'}
             alt={isDarkMode ? 'Light Mode' : 'Dark Mode'}
-            className="w-6 h-6"
+            className="w-4 h-4"
           />
         </button>
 
