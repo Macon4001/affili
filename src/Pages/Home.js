@@ -18,9 +18,9 @@ const HomePage = () => {
         {/* Gradient Overlay */}
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1>Welcome to Bloom</h1>
+          <h1>Welcome to NEX AFFIL</h1>
           <p>Connecting Businesses and Affiliates for Mutual Growth</p>
-          <button className="cta-button">Get Started</button>
+          <button className="cta-button">Join Now</button>
         </div>
       </section>
       {/* Features Section */}
