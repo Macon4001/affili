@@ -1,10 +1,9 @@
 import React from 'react';
 import HomeFeaturesCard from './HomeFeaturesCard';
 import '../styles/HomeFeatures.css';
-import { useNavigate } from 'react-router-dom'; // Import navigation hook
 
 const HomeFeatures = () => {
-  const navigate = useNavigate(); // Initialize navigation
+
 
   return (
     <section className="features shadow-md">
@@ -21,7 +20,7 @@ const HomeFeatures = () => {
                          With intuitive analytics and personalized support, 
                          your success is our mission."
           image="/Affiliate.jpg" // Path for Affiliates image
-          onClick={() => navigate('/affiliates')} // Route for Affiliates page
+
         />
         <HomeFeaturesCard
           title="For Businesses"
@@ -31,7 +30,7 @@ const HomeFeatures = () => {
             boost your brand visibility, and drive conversions with tailored affiliate 
             partnerships that work for your goals."
           image="/Business.jpg" // Path for Businesses image
-          onClick={() => navigate('/businesses')} // Route for Businesses page
+         
         />
         <HomeFeaturesCard
           title="Analytics"
@@ -41,7 +40,7 @@ const HomeFeatures = () => {
                       decisions to optimize your campaigns. Gain actionable insights 
                       that put you ahead of the competition."
           image="/Analytics.jpg" // Path for Analytics image
-          onClick={() => navigate('/analytics')} // Route for Analytics page
+ 
         />
       </div>
     </section>

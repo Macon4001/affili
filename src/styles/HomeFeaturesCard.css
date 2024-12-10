@@ -1,0 +1,131 @@
+/* Card Styles */
+.feature-card {
+    position: relative;
+    background-size: cover; /* Ensure the background covers the entire card */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+    border-radius: 16px; /* Rounded corners */
+    color: #fff; /* Ensure all text is white */
+    height: 550px; /* Adjust card height */
+    display: flex;
+    flex-direction: column; /* Allows dynamic growth for content */
+    justify-content: flex-end; /* Content stays at the bottom */
+    text-align: center;
+    overflow: hidden; /* Clip any overflow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+}
+
+/* Overlay to Cover Entire Card */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+    z-index: 1; /* Ensure the overlay is above the background */
+    transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transition for overlay */
+}
+
+/* Content Box with Blue Background */
+.feature-card-content {
+    position: relative;
+    z-index: 3; /* Ensure content is above all overlays */
+    padding: 1rem 1.5rem;
+    color: #fff; /* White text */
+    border: 1.5px solid #1a98ff; /* Subtle blue border */
+    background: rgba(26, 152, 255, 0.8); /* Blue overlay with opacity */
+    backdrop-filter: blur(5px); /* Subtle blur for modern effect */
+    border-radius: 16px; /* Match card corners for consistent style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+    text-align: center;
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease-in-out; /* Smooth animation */
+    height: 75%; /* Initial height */
+}
+
+/* Expand Content Box on Hover */
+.feature-card:hover .feature-card-content {
+    height: 80%; /* Expanded height */
+    transform: translateY(-10px); /* Subtle upward motion */
+    opacity: 1; /* Ensure visibility */
+}
+
+/* Header */
+.feature-card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase; /* Add emphasis with caps */
+}
+
+/* Paragraph */
+.feature-card-content p {
+    font-size: 1rem;
+    opacity: 0.9; /* Slight transparency for elegance */
+}
+
+/* Hover Effects */
+.feature-card:hover {
+    transform: translateY(-12px) scale(1.07); /* Noticeable hover effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Enhanced Overlay on Hover */
+.feature-card:hover::before {
+    background-color: rgba(26, 152, 255, 0.4); /* Brighter overlay on hover */
+}
+
+/* Subtitle Styles */
+.feature-card-content h4 {
+    font-size: 1rem;
+    font-weight: 500; /* Semi-bold for emphasis */
+    color: rgba(255, 255, 255, 0.9); /* Soft white with slight transparency */
+    margin-bottom: 0.9rem; /* Space below the subtitle */
+    text-transform: uppercase; /* Make it stand out */
+    letter-spacing: 0.05em; /* Add subtle spacing between letters */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover Effect for Subtitle */
+.feature-card:hover .feature-card-content h4 {
+    color: #88e0ff; /* Change to a lighter blue shade on hover */
+}
+
+
+/* Button Base Style */
+.feature-card-button {
+    position: absolute;
+    bottom: 20px; /* Adjust the position for spacing */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction when hidden */
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+    z-index: 3; /* Ensure it appears above other content */
+}
+
+/* Button Hover Effect */
+.feature-card-button:hover {
+    background: linear-gradient(to right, #50ccff, #1a98ff); /* Reverse gradient on hover */
+    transform: translateX(-50%) translateY(-5px) scale(1.1); /* Slightly enlarge the button */
+}
+
+/* Show Button on Card Hover */
+.feature-card:hover .feature-card-button {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px); /* Slide into view */
+}

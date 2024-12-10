@@ -59,12 +59,45 @@ body {
               letter-spacing 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Hero Content Heading */
 .hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(
+    to right,
+    #135495,
+    #0f61be,
+    #0a7aeb,
+    #1a98ff,
+    #28b0ff,
+    #50ccff,
+    #88e0ff,
+    #b9ebff,
+    #d7f2ff,
+    #edfaff
+  );
+  background-size: 300% 100%; /* Expand the gradient horizontally */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 5vw; /* Responsive size based on viewport width */
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  animation: flowing-gradient 15s infinite ease-in-out; /* Smooth looping animation */
 }
 
+/* Animation for Flowing Gradient */
+@keyframes flowing-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%; /* Move gradient fully to the right */
+  }
+  100% {
+    background-position: 0% 0%; /* Reset to the starting point */
+  }
+}
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
