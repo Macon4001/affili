@@ -5,8 +5,13 @@
   }
   
   .section-heading {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #1a98ff; /* Vibrant blue for title */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
   }
   
   .testimonials-grid {

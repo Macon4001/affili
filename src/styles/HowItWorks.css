@@ -78,26 +78,39 @@
 
 /* Step Content */
 .step-content {
-    position: relative;
-    z-index: 3;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.8); /* Translucent white background */
-    border-radius: 12px;
-    margin: 1rem;
-    backdrop-filter: blur(10px);
-    text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 1rem;
+  background: rgba(26, 152, 255, 0.85); /* Slightly more translucent blue */
+  border: 1.5px solid #50ccff; /* Subtle border to complement the background */
+  border-radius: 16px; /* More rounded for a modern touch */
+  margin: 1rem;
+  max-width: 90%; /* Ensures it doesn’t exceed the layout */
+  backdrop-filter: blur(8px); /* Maintain sleek blur */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add depth with subtle shadow */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transitions */
 }
+
+/* Hover Effect */
+.step-content:hover {
+  transform: translateY(-5px) scale(1.02); /* Slight lift and enlarge */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  background: rgba(80, 204, 255, 0.95); /* Slightly brighter background on hover */
+}
+
 
 .step-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #1a98ff; /* Vibrant blue for step titles */
+    color: #fff; /* Vibrant blue for step titles */
     margin-bottom: 0.5rem;
 }
 
 .step-description {
     font-size: 1rem;
-    color: #333; /* Dark gray for description */
+    color: #fff; /* Dark gray for description */
     line-height: 1.5;
 }
 
@@ -201,3 +214,61 @@
     transform: scale(1.01); /* Enlarge the image slightly */
   }
   
+  /* General Dark Mode */
+.dark .how-it-works {
+  background: linear-gradient(to bottom, #121212, #1a1a1a); /* Dark gradient background */
+  color: #fff; /* Text in white for readability */
+}
+
+.dark .how-it-works-title {
+  color: #50ccff; /* Vibrant blue for title in dark mode */
+}
+
+.dark .steps-grid .step-tile {
+  background-color: #135495; /* Neutral dark background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adjust shadow for dark mode */
+}
+
+.dark .steps-grid .step-tile:hover {
+  background-color: #135495; /* Slightly lighter on hover */
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.0); /* Enhanced shadow for dark mode hover */
+}
+
+.dark .step-tile::before {
+  background-color: rgba(0, 0, 0, 0.4); /* Darken overlay in dark mode */
+}
+
+.dark .step-title {
+  color: #fff; /* Bright blue for titles in dark mode */
+}
+
+.dark .step-description {
+  color: rgba(255, 255, 255, 0.8); /* Softer white for descriptions */
+}
+
+.dark .benefits-tile {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Adjust shadow for dark mode */
+  background: linear-gradient(to right, #135495, #0a7aeb);
+}
+
+.dark .benefits-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.0); /* Enhanced shadow on hover */
+}
+
+.dark .benefits-tile h3 {
+  color: #fff; /* Vibrant blue for benefits title */
+}
+
+.dark .benefits-tile ul {
+  color: rgba(255, 255, 255, 0.8); /* Softer white for list text */
+}
+
+.dark .benefits-tile li::before {
+  color: #fff; /* Blue checkmark icons */
+}
+
+.dark .benefits-image:hover img {
+  transform: scale(1.02); /* Slight enlargement on hover */
+}

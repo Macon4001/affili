@@ -36,7 +36,7 @@ const HomePage = () => {
       <section className="cta-section">
         <h2>Ready to Get Started?</h2>
         <p>Join thousands of businesses and affiliates already growing with Affili.</p>
-        <button className="cta-button">Sign Up Now</button>
+        <button2 className="cta-button">Sign Up Now</button2>
       </section>
     </div>
   );

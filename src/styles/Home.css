@@ -1,7 +1,8 @@
 /* General Page Styles */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa; /* Light background for a modern look */
 }
 
 .homepage {
@@ -9,33 +10,36 @@ body {
   flex-direction: column;
 }
 
+/* Hero Section */
 .hero {
   position: relative;
   color: #fff;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem; /* Increased padding for breathing space */
   overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
-              height 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
-              box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Apple-like animation */
-  height: 350px; /* Initial height */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother animation */
+  height: 500px; /* Larger initial height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero:hover {
-  transform: scale(1.02); /* Slightly enlarges the hero section */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for emphasis */
-  height: 450px; /* Increases the height */
+  transform: scale(1.03); /* Slightly more pronounced scaling */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Bolder shadow */
 }
 
 .hero-video {
   position: absolute;
-  top: 0; /* Always keep the top of the video at the top of the hero section */
+  top: 0;
   left: 0;
   width: 100%;
-  height: auto; /* Allow the height to adjust dynamically */
-  min-height: 100%; /* Ensure the video covers the entire height of the hero section */
-  object-fit: cover; /* Ensures the video scales appropriately */
-  z-index: -2; /* Places the video behind the content */
+  height: 100%; /* Full coverage of the hero section */
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(70%); /* Slightly dimmed for better text contrast */
 }
 
 .hero-overlay {
@@ -44,20 +48,88 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(26, 152, 255, 0) 0%, rgba(26, 152, 255, 1) 100%);
-  z-index: -1; /* Places the overlay above the video but behind the content */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(26, 152, 255, 0.8)); /* Softer gradient overlay */
+  z-index: -1;
+  mix-blend-mode: overlay; /* Adds depth by blending colors */
 }
 
 /* Hero Content */
 .hero-content {
-  position: relative; /* Ensures the content is above the video and overlay */
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
-              letter-spacing 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              letter-spacing 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  color: #fff;
 }
+
+/* Hero Title */
+.hero-content h1 {
+  text-transform: uppercase;
+  font-size: 4rem; /* Larger for more impact */
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background: linear-gradient(
+    to right,
+    #135495,
+    #0f61be,
+    #0a7aeb,
+    #1a98ff,
+    #28b0ff,
+    #50ccff,
+    #88e0ff
+  );
+  background-size: 200% auto; /* Animation for flowing gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowing-gradient 10s infinite linear;
+  margin-bottom: 1.5rem;
+}
+
+/* Animation for Flowing Gradient */
+@keyframes flowing-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Hero Subtext */
+.hero-content p {
+  font-size: 1.5rem;
+  max-width: 700px; /* Restrict width for better readability */
+  line-height: 1.8; /* Enhance spacing for legibility */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  background: linear-gradient(to right, #1a98ff, #50ccff);
+  color: #fff; /* Always keep the text white */
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1); /* Slightly enlarges on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #0a7aeb, #28b0ff); /* Slightly darker gradient */
+  color: #fff; /* Ensure the text remains white on hover */
+}
+
 
 /* Hero Content Heading */
 .hero-content h1 {
@@ -128,7 +200,7 @@ body {
   transform: translateY(0); /* Initial position */
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Ensure smooth return */
   background-color: #fff;
-  color: #1a98ff;
+  color: #fff;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -137,6 +209,17 @@ body {
   cursor: pointer;
 }
 
+.cta-button button2 {
+  transform: translateY(0); /* Initial position */
+  background-color: #fff;
+  color: fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 .cta-button:hover {
   background-color: #0a7aeb;
@@ -144,14 +227,13 @@ body {
   transform: translateY(100px); /* Moves the button down by 100px */
 }
 
-.dark .hero-overlay {
-  background: linear-gradient(to bottom, rgba(10, 122, 235, 0) 0%, rgba(19, 84, 149, 1) 100%);
+.dark .hero {
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a); /* Ensure a dark background */
 }
-
 
 .dark .cta-button {
   background-color: #333;
-  color: #50ccff;
+  color: #fff;
 }
 
 .dark .cta-button:hover {
@@ -277,4 +359,14 @@ body {
 .dark {
   background-color: #121212;
   color: #fff;
+}
+.dark .hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Full coverage of the hero section */
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(70%); /* Slightly dimmed for better text contrast */
 }
