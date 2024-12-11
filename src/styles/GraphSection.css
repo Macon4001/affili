@@ -1,0 +1,308 @@
+/* Graph Section */
+.graph-section {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  animation: fade-in 0.8s ease;
+}
+
+/* Header */
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.graph-header h2 {
+  font-size: 2rem; /* Larger and more prominent header */
+  font-weight: bold;
+  color: #1a1a2e;
+  background: linear-gradient(to right, #6211cb, #2575fc,#50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.graph-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.refresh-btn,
+.options-btn {
+  background: #1a98ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover,
+.options-btn:hover {
+  background: #50ccff;
+  transform: scale(1.05);
+}
+
+.options-dropdown {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 10;
+}
+
+.options-btn:hover + .options-dropdown {
+  display: block;
+}
+
+/* Line Chart */
+.line-chart-container {
+  position: relative;
+  height: 350px;
+  margin: 30px 0;
+}
+
+.line-chart {
+  width: 95%; /* Center graph within the container */
+  height: 100%;
+  margin: 0 auto; /* Align graph horizontally */
+}
+
+.line-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  position: absolute;
+  display: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.line-chart-container:hover .line-tooltip {
+  display: block;
+}
+
+/* Bottom Section */
+.graph-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.date-range {
+  font-size: 1rem;
+  color: #555;
+  flex: 1;
+}
+
+.widgets {
+  display: flex;
+  gap: 20px;
+}
+
+.widget {
+  background: #f9f9f9;
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.widget-title {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.widget-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1a98ff;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.line-chart-container {
+  background: linear-gradient(to bottom, #ffffff, #f8faff);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.line-chart {
+  width: 100%;
+  height: 300px;
+}
+
+.interactive-dot {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.interactive-dot:hover {
+  transform: scale(1.5);
+}
+
+.line-tooltip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #fff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip-date {
+  font-size: 0.8rem;
+  color: #ddd;
+}
+
+.tooltip-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tooltip-section p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+/* Tooltip Section */
+.tooltip-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.tooltip-section p:first-child {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.tooltip-section p:last-child {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.line-tooltip p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+}
+
+.graph-summary {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.graph-summary p2 {
+font-size: 1.2rem; /* Larger and more prominent header */
+font-weight: bold;
+color: #1a1a2e;
+background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient text */
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.widget {
+  flex: 1;
+  background: linear-gradient(to bottom right, #ffffff, #f0f8ff);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 150px;
+  margin: 0 10px;
+}
+
+.widget:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.widget-title {
+  font-size: 1rem;
+  color: #1a98ff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.widget-value {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  background: linear-gradient(to right, #50ccff, #1a98ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

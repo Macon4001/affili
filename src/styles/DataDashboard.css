@@ -1,0 +1,120 @@
+/* Performance Section */
+.performance-section {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    animation: fade-in 0.8s ease;
+  }
+  
+  .performance-section h2 {
+    font-size: 2rem; /* Larger and more prominent header */
+    font-weight: bold;
+    text-align: left; /* Align the header text to the left */
+    color: #1a1a2e;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  /* Performance Table */
+  .performance-table-container {
+    border-radius: 16px;
+    width: 100%; /* Full width container */
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  .performance-table {
+    border-radius: 16px;
+    width: 100%; /* Make the table full width */
+    border-collapse: collapse; /* Remove gaps between table cells */
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; /* Ensure consistent column width */
+  }
+  
+  .performance-table thead {
+    border-radius: 16px;
+    background: linear-gradient(to right, #2575fc, #50ccff);
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .performance-table thead th {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .performance-table tbody {
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  
+  .performance-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .performance-table tbody tr:hover {
+    background: #f7faff;
+    transform: translateY(-2px);
+  }
+  
+  .performance-table tbody td {
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #333;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Product and Assigned Info */
+  .product-info,
+  .assigned-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .product-image,
+  .assigned-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-info span,
+  .assigned-info span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a1a2e;
+  }
+  
+  /* Alternating Row Colors */
+  .performance-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  /* Scrollbar Customization */
+  .performance-table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .performance-table-container::-webkit-scrollbar-thumb {
+    background: #2575fc;
+    border-radius: 4px;
+  }
+  
+  .performance-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
