@@ -1,0 +1,99 @@
+/* Notifications Dropdown */
+.notifications-dropdown {
+  position: absolute;
+  top: 40px; /* Position below the bell icon */
+  left: 10px; /* Add margin to the left */
+  background: #ffffff; /* Clean white background */
+  width: 260px; /* Slimmer width */
+  border-radius: 8px; /* Smooth corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sleeker shadow */
+  z-index: 100;
+  padding: 10px;
+  max-height: 300px; /* Maximum height for scrollable content */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Header Section */
+.notifications-dropdown h3 {
+  font-size: 1.1rem; /* Slightly smaller for sleek design */
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 10px; /* Add spacing below the header */
+  border-bottom: 1px solid #f0f0f0; /* Divider below the header */
+  padding-bottom: 5px; /* Add padding below the header for spacing */
+  margin-left: 10px; /* Consistent left margin */
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Scrollbar Styling */
+.notifications-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications-dropdown::-webkit-scrollbar-thumb {
+  background: #d6d6d6; /* Subtle scrollbar color */
+  border-radius: 4px;
+}
+
+.notifications-dropdown::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* Notification Items */
+.notifications-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notifications-dropdown li {
+  display: flex;
+  flex-direction: column; /* Align text vertically */
+  padding: 8px 10px; /* Compact padding */
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.notifications-dropdown li.new {
+  background: #f7fbff; /* Highlight new notifications */
+}
+
+.notifications-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.notifications-dropdown li:hover {
+  background: #edfaff;
+  cursor: pointer;
+}
+
+/* Notification Header */
+.notifications-dropdown .header {
+  font-size: 0.9rem; /* Slimmer header text */
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #1a1a2e;
+  white-space: nowrap; /* Ensure header text stays on one line */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add "..." for long text */
+}
+
+/* Secondary Text */
+.notifications-dropdown .secondary-text {
+  font-size: 0.8rem; /* Slimmer secondary text */
+  color: #555;
+  white-space: nowrap; /* Ensure text stays on one line */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add "..." for long text */
+  margin-left: 10px; /* Consistent left margin */
+}
+
+/* Timestamp */
+.notifications-dropdown .time {
+  font-size: 0.7rem; /* Slimmer timestamp text */
+  color: #aaa;
+  text-align: right;
+  margin-left: 10px; /* Consistent left margin */
+}

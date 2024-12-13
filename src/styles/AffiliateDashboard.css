@@ -30,7 +30,9 @@
   
   .user-profile {
     text-align: center;
+    margin-top: 0px; 
     margin-bottom: 30px;
+    boder: solid black 3px; 
   }
   
   .profile-picture {
@@ -47,16 +49,18 @@
   .user-profile h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    margin-left: 70px;
   }
   
   .user-profile p {
     font-size: 0.9rem;
     color: #f1f1f1;
+    margin-left: 30px;
   }
   
   .sidebar-nav ul {
     list-style: none;
-    padding: 0;
+    padding: 10px;
   }
   
   .sidebar-nav li {
@@ -70,15 +74,20 @@
     transition: color 0.3s ease, padding-left 0.3s ease;
   }
   
-  .sidebar-nav a:hover,
+  .sidebar-nav a:hover {
+    color: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    padding-left: 0px;
+    font-size: 1.1rem; 
+    transition: 0.3s ease;}
+
   .sidebar-nav .active a {
     color: #edfaff;
     font-weight: bold;
-    padding-left: 10px;
-  }
+    padding-left: 0px;
+    font-size: 1.3rem;  }
   
   .sidebar-footer .upgrade-btn {
-    background: linear-gradient(to right, #50ccff, #1a98ff);
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
     color: #fff;
     padding: 10px 20px;
     border-radius: 20px;
@@ -90,7 +99,7 @@
   }
   
   .sidebar-footer .upgrade-btn:hover {
-    background: linear-gradient(to right, #1a98ff, #50ccff);
+    background: linear-gradient(to right,#6211cb,#2575fc);
     transform: scale(1.05);
   }
   
@@ -105,22 +114,95 @@
 }
 
 /* Total Earnings Section */
+.total-earnings-section {
+  display: flex;
+  justify-content: left; /* Center the card */
+  align-items: center;
+  padding-left: 20px; /* Space around the card */
+}
+
+.total-earnings-highlight {
+  width: 350px; /* Card width */
+  height: 200px; /* Card height */
+  background: linear-gradient(135deg, #89cff0, #add8e6, #7df7f3, #effb98);/* Card gradient background */
+  border-radius: 15px; /* Rounded corners for card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content */
+  align-items: center;
+  position: relative; /* For the gloss effect */
+  overflow: hidden; /* Ensure the gloss stays within the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+
+/* Wave-like gloss effect */
+.total-earnings-highlight::before {
+  content: "";
+  position: absolute;
+  top: -150%; /* Start off the card */
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Gloss effect overlay */
+.total-earnings-highlight::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Start halfway down the card */
+  left: -50%; /* Extend slightly to the left for diagonal effect */
+  width: 200%; /* Large enough to cover the bottom half diagonally */
+  height: 100%; /* Covers only the bottom half */
+  background: linear-gradient(
+    to top right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  ); /* Fades out diagonally */
+  transform: rotate(45deg); /* Creates the diagonal look */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
+}
+
+.total-earnings-highlight:hover::before {
+  opacity: 1; /* Make the gloss visible */
+  transform: translateY(-20%) rotate(45deg); /* Slightly animate the diagonal wave */
+}
+
+
+/* Hover state for the card */
+.total-earnings-highlight:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+}
+
+.total-earnings-highlight:hover::before {
+  opacity: 1; /* Make the gloss visible */
+  top: -50%; /* Adjust gloss position */
+  left: -50%;
+}
+
+/* Heading and gradient text */
 .total-earnings-highlight h9 {
-  font-size: 1.5rem; /* Prominent but smaller than the earnings value */
-  font-weight: bold; /* Bold black text */
-  color: #000; /* Solid black color */
-  margin-right: 10px; /* Space between h3 and the amount */
+  font-size: 1.2rem; /* Bold label */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 .total-earnings-highlight p6 {
-  font-size: 5rem; /* Huge font size for the earnings */
-  font-weight: 300; /* Slim and modern font */
-  margin-left: 0; /* Remove default margin */
+  font-size: 5rem; /* Huge font size for earnings */
+  font-weight: 300;
+  margin: 0;
   background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-cycle 5s infinite; /* Smooth gradient animation */
 }
+
 
 /* Gradient Animation */
 @keyframes gradient-cycle {
@@ -211,29 +293,38 @@ p6 {
   
   /* Highlights Section */
   .dashboard-highlights {
-    
     display: flex;
     gap: 20px;
   }
   
-  .highlight-card {
-    flex: 1;
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1.5rem; /* Huge font size for the earnings */
-    font-weight: 300; /* Slim and modern font */
-    margin-left: 0; /* Remove default margin */
-    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-cycle 5s infinite; /* Smooth gradient animation */
-  }
-  
+/* Highlights Section */
+.dashboard-highlights {
+  background: #f9f9f9; /* Light section background */
+  display: flex;
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+.highlight-card {
+  flex: 1;
+  background: #ffffff; /* Solid card background */
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gradient text for both h3 and p */
+.gradient-text {
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
+  -webkit-background-clip: text;
+  font-size: 1.5rem;
+  -webkit-text-fill-color: transparent; /* Gradient visible on text only */
+  animation: gradient-cycle 5s infinite; /* Optional smooth animation */
+}
+
   .highlight-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -304,4 +395,289 @@ p6 {
       transform: translateX(0);
     }
   }
-  
+/* Payment History Section */
+.payment-history {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.payment-history h3 {
+  font-size: 2rem; /* Larger and more prominent header */
+  font-weight: bold;
+  text-align: left; /* Align the header text to the left */
+  color: #1a1a2e;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.payment-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.payment-history li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #555;
+}
+
+.payment-history li:last-child {
+  border-bottom: none;
+}
+
+.payment-history li span {
+  font-weight: bold;
+  color: #1a98ff;
+}
+
+/* User Goals Section */
+.user-goals {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-goals h3 {
+  font-size: 2rem; /* Larger and more prominent header */
+  font-weight: bold;
+  text-align: left; /* Align the header text to the left */
+  color: #1a1a2e;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-goals p {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #555;
+}
+
+.user-goals p span {
+  font-weight: bold;
+  color: #1a98ff;
+}
+
+/* Resource Center Section */
+.resource-center {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.resource-center h3 {
+  font-size: 2rem; /* Larger and more prominent header */
+  font-weight: bold;
+  text-align: left; /* Align the header text to the left */
+  color: #1a1a2e;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.resource-center p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.resource-center .resources-btn {
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.resource-center .resources-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #6211cb, #2575fc);
+}
+
+/* Sidebar Header with Icons */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between; /* Space between user profile and icons */
+  align-items: center;
+  padding: 0px; /* Balanced padding for better spacing */
+  position: relative; /* For absolute positioning of dropdown or icons if needed */
+  border-bottom: 1px solid #e0e0e0; /* Divider for better visual structure */
+}
+
+/* Sidebar Icons Section */
+.sidebar-icons {
+  display: flex;
+  gap: 20px; /* Increased gap for better separation between icons */
+  align-items: center;
+  margin-left: auto; /* Push icons to the right */
+}
+
+.icon {
+  width: 28px; /* Slightly larger icon for visibility */
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth animation */
+}
+
+.icon:hover {
+  transform: scale(1.15); /* More noticeable hover effect */
+  filter: brightness(1.3); /* Subtle glow on hover */
+}
+
+/* Notification Bell with Red Dot */
+.notification-bell {
+  position: relative; /* For positioning the red dot */
+}
+
+.notification-dot {
+  position: absolute;
+  top: -4px; /* Fine-tuned position for better alignment */
+  right: -4px;
+  width: 12px; /* Slightly larger dot for emphasis */
+  height: 12px;
+  background: linear-gradient(135deg, #ff6f61, #ff3b30); /* Gradient for a vibrant red */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 0 6px rgba(255, 59, 48, 0.5); /* Enhanced glow effect */
+}
+
+/* Notifications Dropdown */
+.notifications-dropdown {
+  position: absolute;
+  top: 60px; /* Adjusted to align neatly below the bell icon */
+  right: 10px; /* Aligned with bell icon */
+  background: #ffffff; /* Clean white background */
+  width: 280px; /* Slightly wider for readability */
+  border-radius: 12px; /* Smoother corner radius */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* Softer shadow for a modern look */
+  padding: 15px;
+  z-index: 100;
+  animation: fade-in 0.2s ease-in-out; /* Smooth dropdown animation */
+}
+
+/* Notifications List */
+.notifications-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* Limit height for long lists */
+  overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.notifications-dropdown ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications-dropdown ul::-webkit-scrollbar-thumb {
+  background: #d6d6d6; /* Subtle scrollbar color */
+  border-radius: 4px;
+}
+
+.notifications-dropdown ul::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.notifications-dropdown li {
+  padding: 12px; /* More comfortable spacing */
+  border-bottom: 1px solid #f0f0f0; /* Divider for clear separation */
+  transition: background-color 0.2s ease;
+  color: #333;
+}
+
+.notifications-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.notifications-dropdown li:hover {
+  background: #f7fbff; /* Subtle hover effect */
+  cursor: pointer;
+}
+
+/* Notification Content */
+.notifications-dropdown .header {
+  font-size: 1.1rem; /* Slightly larger for emphasis */
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 5px; /* Spacing between header and text */
+}
+
+.notifications-dropdown .text {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4; /* Better readability for multiline content */
+}
+
+/* Animation for Dropdown */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State */
+.loading {
+  font-size: 1.5rem;
+  color: #1a98ff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Sidebar Collapsibility */
+.sidebar.collapsed {
+  width: 60px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-header,
+.sidebar.collapsed .sidebar-nav,
+.sidebar.collapsed .sidebar-footer {
+  display: none; /* Hide content in collapsed state */
+}
+
+.sidebar-toggle {
+  font-size: 1.2rem;
+  color: #fff;
+  background: #1a98ff;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: -20px; /* Adjust position for toggle button */
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* User Greeting */
+.user-greeting h1 {
+  font-size: 2rem;
+  color: #1a1a2e;
+}
+
+.user-greeting p {
+  font-size: 1rem;
+  color: #555;
+}
