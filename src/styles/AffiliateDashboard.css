@@ -1,0 +1,253 @@
+/* General Layout */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: linear-gradient(to bottom, #f7fbff, #edfaff);
+  overflow-y: hidden;
+}
+
+.dashboard-highlights {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  text-align: center; /* Center the content horizontally */
+  background: none; /* No background or shadow */
+  box-shadow: none; /* Ensure no shadows */
+}
+
+/* Total Earnings Section */
+.total-earnings-section {
+  display: flex;
+  justify-content: left; /* Center the card */
+  align-items: center;
+  padding-left: 20px; /* Space around the card */
+}
+
+.total-earnings-highlight {
+  width: 350px; /* Card width */
+  height: 200px; /* Card height */
+  background: linear-gradient(135deg, #89cff0, #add8e6, #7df7f3, #effb98); /* Card gradient background */
+  border-radius: 15px; /* Rounded corners for card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content */
+  align-items: center;
+  position: relative; /* For the gloss effect */
+  overflow: hidden; /* Ensure the gloss stays within the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+
+/* Wave-like gloss effect */
+.total-earnings-highlight::before {
+  content: "";
+  position: absolute;
+  top: -150%; /* Start off the card */
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Gloss effect overlay */
+.total-earnings-highlight::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Start halfway down the card */
+  left: -50%; /* Extend slightly to the left for diagonal effect */
+  width: 200%; /* Large enough to cover the bottom half diagonally */
+  height: 100%; /* Covers only the bottom half */
+  background: linear-gradient(
+    to top right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  ); /* Fades out diagonally */
+  transform: rotate(45deg); /* Creates the diagonal look */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
+}
+
+.total-earnings-highlight:hover::before {
+  opacity: 1; /* Make the gloss visible */
+  transform: translateY(-20%) rotate(45deg); /* Slightly animate the diagonal wave */
+}
+
+/* Hover state for the card */
+.total-earnings-highlight:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+}
+
+.total-earnings-highlight:hover::before {
+  opacity: 1; /* Make the gloss visible */
+  top: -50%; /* Adjust gloss position */
+  left: -50%;
+}
+
+/* Heading and gradient text */
+.total-earnings-highlight h9 {
+  font-size: 1.2rem; /* Bold label */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.total-earnings-highlight p6 {
+  font-size: 5rem; /* Huge font size for earnings */
+  font-weight: 300;
+  margin: 0;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient Animation */
+@keyframes gradient-cycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+p6 {
+  background: linear-gradient(90deg, #6211cb, #2575fc, #50ccff);
+  background-size: 300% 300%; /* Smooth animation */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Total Earnings Section */
+.total-earnings-section {
+  margin-bottom: 30px;
+}
+
+.total-earnings-highlight {
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.0);
+  text-align: left;
+  animation: fade-in 0.8s ease-in-out;
+}
+
+.total-earnings-title {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.total-earnings-value {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-top: 5px;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: slide-in 1s ease-in-out;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  background: #fff;
+  color: #1a98ff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #edfaff;
+  transform: scale(1.05);
+}
+
+/* Highlights Section */
+.dashboard-highlights {
+  background: #f9f9f9; /* Light section background */
+  display: flex;
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+.highlight-card {
+  flex: 1;
+  background: #ffffff; /* Solid card background */
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gradient text for both h3 and p */
+.gradient-text {
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
+  -webkit-background-clip: text;
+  font-size: 1.5rem;
+  -webkit-text-fill-color: transparent; /* Gradient visible on text only */
+  animation: gradient-cycle 5s infinite; /* Optional smooth animation */
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-title {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.highlight-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1a98ff;
+}
+
+/* Loading State */
+.loading {
+  font-size: 1.5rem;
+  color: #1a98ff;
+  text-align: center;
+  margin-top: 50px;
+}
