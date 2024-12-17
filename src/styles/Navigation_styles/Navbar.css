@@ -163,8 +163,8 @@
   @apply bg-white text-blue-600; /* Default light mode styles */
 }
 
-.dark .navbar  {
-  background-color: #222; /* Ensure links are white */
+.dark .navbar {
+  @apply bg-black text-white; /* Dark mode styles */
 }
 
 /* Dropdown Menu */
@@ -173,8 +173,7 @@
 }
 
 .dark .dropdown-menu {
-  background-color: #222;
-  color: #fff;
+  @apply bg-black text-white; /* Dark mode */
 }
 
 .dropdown-item:hover {
