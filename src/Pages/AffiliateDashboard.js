@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AffiliateDashboard.css";
 import GraphSection from "../components/GraphSection";
-import PerformanceTable from "../components/DataDashboard";
+import PerformanceTable from "../components/AffiliateDashboard/PerformanceTable";
 import Notifications from "../components/Notifications";
+import PaymentHistory from "../components/AffiliateDashboard/PaymentHistory";
+import ResourceCenter from "../components/AffiliateDashboard/ResourceCenter";
+import UserGoals from "../components/AffiliateDashboard/UserGoals";
+
 
 const AffiliateDashboard = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false); // Sidebar toggle state
@@ -131,9 +135,19 @@ const AffiliateDashboard = () => {
 
         {/* Graph Section */}
         <GraphSection />
-
+        
         {/* Performance Table */}
         <PerformanceTable />
+        
+        {/* Payment History */}
+        <PaymentHistory />
+        
+        {/* User Goals */}
+        <UserGoals />
+        
+        {/* Resource Center */}
+        <ResourceCenter />
+        
       </main>
     </div>
   );

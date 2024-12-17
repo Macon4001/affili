@@ -1,0 +1,29 @@
+/* User Goals Section */
+.user-goals {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-goals h3 {
+    font-size: 2rem; /* Larger and more prominent header */
+    font-weight: bold;
+    text-align: left; /* Align the header text to the left */
+    color: #1a1a2e;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .user-goals p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .user-goals p span {
+    font-weight: bold;
+    color: #1a98ff;
+  }

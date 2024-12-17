@@ -117,4 +117,22 @@
   .performance-table-container::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
+
+  .toggle-button {
+    margin-top: 15px;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #6211cb, #2575fc);
+  }
   
