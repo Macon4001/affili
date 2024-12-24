@@ -1,19 +1,108 @@
 /* General Layout */
 .dashboard-layout {
-  display: flex;
-  height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background: linear-gradient(to bottom, #f7fbff, #edfaff);
-  overflow-y: hidden;
-}
+    display: flex;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(to bottom, #f7fbff, #edfaff);
+    overflow-y: hidden;
+  }
 
-.dashboard-highlights {
-  margin-bottom: 50px;
-  display: flex;
-  gap: 10px;
-}
+  .dashboard-highlights {
+    margin-bottom: 50px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 280px;
+    background: linear-gradient(to bottom, #1a98ff, #50ccff);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+  }
+  
+  .user-profile {
+    text-align: center;
+    margin-top: 0px; 
+    margin-bottom: 30px;
+    boder: solid black 3px; 
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 70px;
+    align-self: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-profile h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    margin-left: 70px;
+  }
+  
+  .user-profile p {
+    font-size: 0.9rem;
+    color: #f1f1f1;
+    margin-left: 30px;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .sidebar-nav li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-nav a {
+    text-decoration: none;
+    color: #fefefe;
+    font-size: 1rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+  
+  .sidebar-nav a:hover {
+    color: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    padding-left: 0px;
+    font-size: 1.1rem; 
+    transition: 0.3s ease;}
 
+  .sidebar-nav .active a {
+    color: #edfaff;
+    font-weight: bold;
+    padding-left: 0px;
+    font-size: 1.3rem;  }
+  
+  .sidebar-footer .upgrade-btn {
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .sidebar-footer .upgrade-btn:hover {
+    background: linear-gradient(to right,#6211cb,#2575fc);
+    transform: scale(1.05);
+  }
+  
 /* Main Content */
 .main-content {
   flex: 1;
@@ -35,7 +124,7 @@
 .total-earnings-highlight {
   width: 350px; /* Card width */
   height: 200px; /* Card height */
-  background: linear-gradient(135deg, #89cff0, #add8e6, #7df7f3, #effb98); /* Card gradient background */
+  background: linear-gradient(135deg, #89cff0, #add8e6, #7df7f3, #effb98);/* Card gradient background */
   border-radius: 15px; /* Rounded corners for card */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   display: flex;
@@ -84,6 +173,7 @@
   transform: translateY(-20%) rotate(45deg); /* Slightly animate the diagonal wave */
 }
 
+
 /* Hover state for the card */
 .total-earnings-highlight:hover {
   transform: scale(1.05); /* Slightly enlarge the card */
@@ -113,6 +203,7 @@
   -webkit-text-fill-color: transparent;
 }
 
+
 /* Gradient Animation */
 @keyframes gradient-cycle {
   0% {
@@ -133,75 +224,82 @@ p6 {
   -webkit-text-fill-color: transparent;
 }
 
-/* Total Earnings Section */
-.total-earnings-section {
-  margin-bottom: 30px;
-}
-
-.total-earnings-highlight {
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.0);
-  text-align: left;
-  animation: fade-in 0.8s ease-in-out;
-}
-
-.total-earnings-title {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-}
-
-.total-earnings-value {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-top: 5px;
-  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Hero Section */
-.hero-section {
-  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-  color: #ffffff;
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  animation: slide-in 1s ease-in-out;
-}
-
-.hero-content h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.hero-btn {
-  background: #fff;
-  color: #1a98ff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.hero-btn:hover {
-  background: #edfaff;
-  transform: scale(1.05);
-}
-
+  
+  /* Total Earnings Section */
+  .total-earnings-section {
+    margin-bottom: 30px;
+  }
+  
+  .total-earnings-highlight {
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.0);
+    text-align: left;
+    animation: fade-in 0.8s ease-in-out;
+  }
+  
+  .total-earnings-title {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+  }
+  
+  .total-earnings-value {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 5px;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: slide-in 1s ease-in-out;
+  }
+  
+  .hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-btn {
+    background: #fff;
+    color: #1a98ff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .hero-btn:hover {
+    background: #edfaff;
+    transform: scale(1.05);
+  }
+  
+  /* Highlights Section */
+  .dashboard-highlights {
+    display: flex;
+    gap: 20px;
+  }
+  
 /* Highlights Section */
 .dashboard-highlights {
-  background: #f9f9f9; /* Light section background */
+  background: linear-gradient(to bottom, #f7fbff, #edfaff);
   display: flex;
   gap: 20px; /* Space between cards */
   padding: 20px;
@@ -227,21 +325,152 @@ p6 {
   animation: gradient-cycle 5s infinite; /* Optional smooth animation */
 }
 
-.highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  .highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .highlight-title {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .highlight-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1a98ff;
+  }
+
+/* Sidebar Header with Icons */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between; /* Space between user profile and icons */
+  align-items: center;
+  padding: 0px; /* Balanced padding for better spacing */
+  position: relative; /* For absolute positioning of dropdown or icons if needed */
+  border-bottom: 1px solid #e0e0e0; /* Divider for better visual structure */
 }
 
+<<<<<<< Updated upstream
+/* Sidebar Icons Section */
+.sidebar-icons {
+  display: flex;
+  gap: 20px; /* Increased gap for better separation between icons */
+  align-items: center;
+  margin-left: auto; /* Push icons to the right */
+=======
 .highlight-title {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 8px;
+  margin-bottom: 8px; 
+>>>>>>> Stashed changes
 }
 
-.highlight-value {
-  font-size: 1.8rem;
+.icon {
+  width: 28px; /* Slightly larger icon for visibility */
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth animation */
+}
+
+.icon:hover {
+  transform: scale(1.15); /* More noticeable hover effect */
+  filter: brightness(1.3); /* Subtle glow on hover */
+}
+
+/* Notification Bell with Red Dot */
+.notification-bell {
+  position: relative; /* For positioning the red dot */
+}
+
+.notification-dot {
+  position: absolute;
+  top: -4px; /* Fine-tuned position for better alignment */
+  right: -4px;
+  width: 12px; /* Slightly larger dot for emphasis */
+  height: 12px;
+  background: linear-gradient(135deg, #ff6f61, #ff3b30); /* Gradient for a vibrant red */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 0 6px rgba(255, 59, 48, 0.5); /* Enhanced glow effect */
+}
+
+/* Notifications Dropdown */
+.notifications-dropdown {
+  position: absolute;
+  top: 60px; /* Adjusted to align neatly below the bell icon */
+  right: 10px; /* Aligned with bell icon */
+  background: #ffffff; /* Clean white background */
+  width: 280px; /* Slightly wider for readability */
+  border-radius: 12px; /* Smoother corner radius */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* Softer shadow for a modern look */
+  padding: 15px;
+  z-index: 100;
+  animation: fade-in 0.2s ease-in-out; /* Smooth dropdown animation */
+}
+
+/* Notifications List */
+.notifications-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* Limit height for long lists */
+  overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.notifications-dropdown ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications-dropdown ul::-webkit-scrollbar-thumb {
+  background: #d6d6d6; /* Subtle scrollbar color */
+  border-radius: 4px;
+}
+
+.notifications-dropdown ul::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.notifications-dropdown li {
+  padding: 12px; /* More comfortable spacing */
+  border-bottom: 1px solid #f0f0f0; /* Divider for clear separation */
+  transition: background-color 0.2s ease;
+  color: #333;
+}
+
+.notifications-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.notifications-dropdown li:hover {
+  background: #f7fbff; /* Subtle hover effect */
+  cursor: pointer;
+}
+
+/* Notification Content */
+.notifications-dropdown .header {
+  font-size: 1.1rem; /* Slightly larger for emphasis */
   font-weight: bold;
-  color: #1a98ff;
+  color: #1a1a2e;
+  margin-bottom: 5px; /* Spacing between header and text */
+}
+
+.notifications-dropdown .text {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4; /* Better readability for multiline content */
+}
+
+/* Animation for Dropdown */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Loading State */
@@ -251,3 +480,214 @@ p6 {
   text-align: center;
   margin-top: 50px;
 }
+
+<<<<<<< Updated upstream
+/* Sidebar Collapsibility */
+.sidebar.collapsed {
+  width: 60px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-header,
+.sidebar.collapsed .sidebar-nav,
+.sidebar.collapsed .sidebar-footer {
+  display: none; /* Hide content in collapsed state */
+}
+
+.sidebar-toggle {
+  font-size: 1.2rem;
+  color: #fff;
+  background: #1a98ff;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: -20px; /* Adjust position for toggle button */
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* User Greeting */
+.user-greeting h1 {
+  font-size: 2rem;
+  color: #1a1a2e;
+}
+
+.user-greeting p {
+  font-size: 1rem;
+  color: #555;
+}
+=======
+.user-greeting {
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
+  -webkit-background-clip: text;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  -webkit-text-fill-color: transparent; /* Gradient visible on text only */
+  animation: gradient-cycle 5s infinite; /* Optional smooth animation */
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Flex container for Total Earnings and Offers */
+.earnings-and-offers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Offers Slideshow Section */
+.offers-slideshow {
+  height: 200px; /* Card height */
+  flex: 1;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: transparent;
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offers-slideshow:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Frosted Glass Effect Overlay */
+.offers-slideshow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; /* Card height */
+  background: rgba(255, 255, 255, 0.754); /* Slightly stronger glass effect */
+  backdrop-filter: blur(20px) saturate(1.5);
+  z-index: 1;
+  pointer-events: none; /* Ensure clicks pass through */
+}
+
+/* Subtle Gradient Glow */
+.offers-slideshow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Image Styling */
+.offer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 15px;
+}
+
+/* Offer Card Content */
+.offer-card {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  height: 200px; /* Card height */
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 100%; /* Fill the entire container */
+  color: #fff;
+}
+
+/* Centered Text Over Frosted Glass */
+.offer-content {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Card height */
+  z-index: 4;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* Slightly darker translucent background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(169, 169, 169, 0.15);
+  backdrop-filter: blur(1px);
+  max-width: 100%; /* Keep content within reasonable bounds */
+  margin: 0 auto; /* Center horizontally */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.offer-content:hover {
+  transform: translateY(-2px) scale (0.55);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title and Description */
+.offer-content h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.offer-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Slideshow Pagination */
+.slideshow-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 20px; /* Position at the bottom of the slideshow */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot:hover {
+  transform: scale(1.3); /* Highlight on hover */
+}
+
+.pagination-dot.active {
+  background: #1a98ff; /* Highlight active dot */
+  transform: scale(1.2); /* Slightly larger for active dot */
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+>>>>>>> Stashed changes
