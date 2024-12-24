@@ -31,6 +31,24 @@ const AffiliateDashboard = () => {
     pendingPayouts: "$450",
   };
 
+  // Mock offers data
+  const offers = [
+    { title: "50% Off All Electronics", description: "Limited time offer on select gadgets!" },
+    { title: "Earn Double Points", description: "Get double points on all purchases this week!" },
+    { title: "Free Shipping", description: "Enjoy free shipping on orders over $50!" },
+  ];
+
+  const [currentOfferIndex, setCurrentOfferIndex] = useState(0);
+
+  // Automatically rotate offers every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentOfferIndex((prevIndex) => (prevIndex + 1) % offers.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [offers.length]);
+
   return (
     <div className="dashboard-layout">
       {/* Sidebar */}
@@ -104,19 +122,48 @@ const AffiliateDashboard = () => {
         {/* User Greeting */}
         <section className="user-greeting">
           <h1>Welcome back, {user.name}!</h1>
-          <p>Here’s your dashboard overview.</p>
+          <p>Here’s your dashboard overview</p>
         </section>
 
-        {/* Total Earnings */}
-        <section className="total-earnings-section">
-          <div className="total-earnings-highlight">
-            <h9>Total Earnings</h9>
-            <div>
+        {/* Total Earnings and Offers */}
+        <div className="earnings-and-offers">
+          {/* Total Earnings */}
+          <section className="total-earnings-section">
+            <div className="total-earnings-highlight">
+              <h9>Total Earnings</h9>
               <p6>{user.totalEarnings}</p6>
             </div>
-          </div>
-        </section>
-
+          </section>
+        
+          {/* Offers Slideshow */}
+          <section className="offers-slideshow">
+            <div className="offer-card">
+              <img
+                src={`/Offers${currentOfferIndex + 1}.jpg`}
+                alt="Offer"
+                className="offer-image"
+              />
+              <div className="offer-content">
+                <h3>{offers[currentOfferIndex].title}</h3>
+                <p>{offers[currentOfferIndex].description}</p>
+              </div>
+              </div>
+            
+            {/* Pagination Dots */}
+            <div className="slideshow-pagination">
+              {offers.map((_, index) => (
+                <span
+                  key={index}
+                  className={`pagination-dot ${
+                    currentOfferIndex === index ? "active" : ""
+                  }`}
+                  onClick={() => setCurrentOfferIndex(index)}
+                ></span>
+              ))}
+            </div>
+          </section>
+        </div>
+          
         {/* Highlights */}
         <section className="dashboard-highlights">
           <div className="highlight-card">
