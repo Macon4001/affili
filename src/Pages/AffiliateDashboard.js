@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/AffiliateDashboard.css";
 import SidebarNavigation from "../components/Navigation/SideNavbar";
 import GraphSection from "../components/GraphSection";

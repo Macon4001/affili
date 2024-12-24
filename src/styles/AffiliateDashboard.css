@@ -352,19 +352,10 @@ p6 {
   border-bottom: 1px solid #e0e0e0; /* Divider for better visual structure */
 }
 
-<<<<<<< Updated upstream
-/* Sidebar Icons Section */
-.sidebar-icons {
-  display: flex;
-  gap: 20px; /* Increased gap for better separation between icons */
-  align-items: center;
-  margin-left: auto; /* Push icons to the right */
-=======
 .highlight-title {
   font-size: 1rem;
   color: #555;
   margin-bottom: 8px; 
->>>>>>> Stashed changes
 }
 
 .icon {
@@ -481,47 +472,6 @@ p6 {
   margin-top: 50px;
 }
 
-<<<<<<< Updated upstream
-/* Sidebar Collapsibility */
-.sidebar.collapsed {
-  width: 60px;
-  transition: width 0.3s ease;
-}
-
-.sidebar.collapsed .sidebar-header,
-.sidebar.collapsed .sidebar-nav,
-.sidebar.collapsed .sidebar-footer {
-  display: none; /* Hide content in collapsed state */
-}
-
-.sidebar-toggle {
-  font-size: 1.2rem;
-  color: #fff;
-  background: #1a98ff;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: -20px; /* Adjust position for toggle button */
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* User Greeting */
-.user-greeting h1 {
-  font-size: 2rem;
-  color: #1a1a2e;
-}
-
-.user-greeting p {
-  font-size: 1rem;
-  color: #555;
-}
-=======
 .user-greeting {
   background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
   -webkit-background-clip: text;
@@ -690,4 +640,3 @@ p6 {
     opacity: 1;
   }
 }
->>>>>>> Stashed changes
