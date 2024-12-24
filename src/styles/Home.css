@@ -83,7 +83,7 @@ body {
     #88e0ff
   );
   background-size: 200% auto; /* Animation for flowing gradient */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: flowing-gradient 10s infinite linear;
   margin-bottom: 1.5rem;
@@ -149,7 +149,7 @@ body {
     #edfaff
   );
   background-size: 300% 100%; /* Expand the gradient horizontally */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 5vw; /* Responsive size based on viewport width */
   font-family: 'Poppins', sans-serif;

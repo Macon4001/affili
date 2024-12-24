@@ -40,8 +40,8 @@ const AffiliateDashboard = () => {
       <main className="main-content">
         {/* User Greeting */}
         <section className="user-greeting">
-          <h1>Welcome back, {user.name}!</h1>
-          <p>Here’s your dashboard overview</p>
+          <h1>Welcome back {user.name}</h1>
+          <p>Here's your dashboard overview</p>
         </section>
 
         {/* Total Earnings and Offers */}

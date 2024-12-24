@@ -32,7 +32,6 @@
     text-align: center;
     margin-top: 0px; 
     margin-bottom: 30px;
-    boder: solid black 3px; 
   }
   
   .profile-picture {
@@ -199,7 +198,7 @@
   font-weight: 300;
   margin: 0;
   background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -220,7 +219,7 @@
 p6 {
   background: linear-gradient(90deg, #6211cb, #2575fc, #50ccff);
   background-size: 300% 300%; /* Smooth animation */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -249,7 +248,7 @@ p6 {
     font-weight: bold;
     margin-top: 5px;
     background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -319,7 +318,7 @@ p6 {
 /* Gradient text for both h3 and p */
 .gradient-text {
   background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
-  -webkit-background-clip: text;
+  background-clip: text;
   font-size: 1.5rem;
   -webkit-text-fill-color: transparent; /* Gradient visible on text only */
   animation: gradient-cycle 5s infinite; /* Optional smooth animation */
@@ -472,14 +471,61 @@ p6 {
   margin-top: 50px;
 }
 
-.user-greeting {
-  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient */
-  -webkit-background-clip: text;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  -webkit-text-fill-color: transparent; /* Gradient visible on text only */
-  animation: gradient-cycle 5s infinite; /* Optional smooth animation */
+@keyframes flowing-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
 }
+
+.user-greeting {
+  font-size: 3rem; /* Adjust font size as needed */
+  font-weight: bold;
+  text-align: center;/* For more spaced-out letters */
+  background: linear-gradient(
+    to right,
+    #6211cb,  /* Purple */
+    #7641d1,  /* Transition purple */
+    #2575fc,  /* Blue */
+    #50ccff,  /* Light Blue */
+    #2575fc,  /* Transition light blue */
+    #6211cb   /* Back to Purple for looping */
+  );
+  background-size: 300% auto; /* Allows the gradient to flow */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the gradient visible only on text */
+  animation: flowing-gradient 18s infinite linear; /* Smooth flowing gradient animation */
+  margin-bottom: 30px;
+  width: 75%; 
+  margin-left: 12.5%; /* Center alignment */
+}
+
+
+.user-greeting h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.user-greeting p {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 /*//////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -590,7 +636,7 @@ p6 {
   font-size: 2rem;
   margin-bottom: 10px;
   background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
