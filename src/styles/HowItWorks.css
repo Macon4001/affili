@@ -1,6 +1,6 @@
 /* Section Layout */
 .how-it-works {
-    padding: 4rem 2rem;
+    padding: 2%;
     background: linear-gradient(to bottom, #edfaff, #ffffff); /* Light gradient background */
     text-align: center;
 }
@@ -18,7 +18,7 @@
 /* Grid Layout */
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     gap: 2rem;
     align-items: center;
     justify-items: center; /* Center tiles */
@@ -29,7 +29,7 @@
     position: relative;
     height: 400px;
     width: 100%;
-    max-width: 350px; /* Restrict max width for consistency */
+    max-width: 100%; /* Restrict max width for consistency */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -271,4 +271,83 @@
 
 .dark .benefits-image:hover img {
   transform: scale(1.02); /* Slight enlargement on hover */
+}
+
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+  .how-it-works-title {
+    font-size: 2.5rem;
+  }
+
+  .step-tile {
+    height: 350px;
+  }
+
+  .step-content {
+    padding: 0.8rem;
+  }
+
+  .step-title {
+    font-size: 1.3rem;
+  }
+
+  .step-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 3rem 1rem;
+  }
+
+  .how-it-works-title {
+    font-size: 2rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .step-tile {
+    height: 300px;
+  }
+
+  .step-title {
+    font-size: 1.2rem;
+  }
+
+  .step-description {
+    font-size: 0.8rem;
+  }
+
+/* Ultra-Wide Screen Adjustments */
+@media (min-width: 1377px) {
+  .steps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjust minimum width to stretch tiles */
+    justify-content: space-evenly; /* Ensure even spacing between tiles */
+    gap: 3rem; /* Increase gap for better spacing on wide screens */
+  }
+
+  .step-tile {
+    max-width: 100%; /* Ensure tiles stretch equally */
+    height: 450px; /* Adjust height for better proportions on ultra-wide screens */
+  }
+
+  .step-content {
+    max-width: 90%; /* Ensure content doesn't overflow the tile */
+    margin: 0 auto; /* Center content within the tile */
+  }
+
+  .step-title {
+    font-size: 2.5rem; /* Larger titles for better readability */
+  }
+
+  .step-description {
+    font-size: 1.2rem;
+  }
+}
 }
