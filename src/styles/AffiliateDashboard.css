@@ -74,7 +74,7 @@
   }
   
   .sidebar-nav a:hover {
-    color: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
     padding-left: 0px;
     font-size: 1.1rem; 
     transition: 0.3s ease;}
@@ -627,7 +627,7 @@ p6 {
 }
 
 .offer-content:hover {
-  transform: translateY(-2px) scale (0.55);
+  transform: translateY(-2px) scale(0.55);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
