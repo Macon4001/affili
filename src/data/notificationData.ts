@@ -1,4 +1,13 @@
-const notificationsData = [
+interface NotificationData {
+    id: number;
+    header: string;
+    text: string;
+    time:string;
+    isNew: boolean;
+
+}
+
+const notificationsData: NotificationData [] = [
     {
       id: 1,
       header: "Payout Processed",

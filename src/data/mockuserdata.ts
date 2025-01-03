@@ -1,6 +1,17 @@
 // data/mockuserdata.js
 
-const mockUserData = {
+interface UserData{
+    name: string;
+    email: string;
+    password?: string;
+    profilePicture: string;
+    totalEarnings: string;
+    totalConversions: number;
+    totalClicks: number;
+    pendingPayouts: string;
+}
+
+const mockUserData: UserData = {
     name: "Jane Doe",
     email: "jane.doe@example.com",
     profilePicture: "/profile.jpg.png",

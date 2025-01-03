@@ -1,4 +1,11 @@
-const data = [
+interface Data{
+    date:string;
+    productsSold:number;
+    revenue:number;
+    earnings:number;
+}
+
+const data: Data[] = [
     { date: 'Jan 2022', productsSold: 110, revenue: 10813, earnings: 5914 },
     { date: 'Feb 2022', productsSold: 219, revenue: 3537, earnings: 2892 },
     { date: 'Mar 2022', productsSold: 221, revenue: 6555, earnings: 3920 },

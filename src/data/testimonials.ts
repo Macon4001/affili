@@ -1,6 +1,11 @@
-const testimonials = [
+interface testimonialData {
+    text: string;
+    author: string;
+}
+
+const testimonials : testimonialData [] = [
     {
-      text: "Affili helped me double my revenue in just 3 months!",
+      text: "Nex Affil helped me double my revenue in just 3 months!",
       author: "Jane D.",
     },
     {

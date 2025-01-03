@@ -2,8 +2,21 @@ import React, { useState } from "react";
 import originalData from "../../data/fakerevenuedata";
 import "../../styles/AffiliateDashboard_styles/PerformanceTable.css";
 
+interface AssignedBy {
+  name: string;
+  image: string;
+}
+
+interface TransformedData {
+  product: string;
+  revenue: string;
+  clicks: number;
+  conversions: number;
+  image: string;
+  assignedBy: AssignedBy;
+}
 // Transform data
-const transformedData = originalData.map((item, index) => ({
+const transformedData: TransformedData[] = originalData.map((item, index) => ({
   product: `Product ${index + 1}`, // Placeholder product names
   revenue: `$${item.revenue.toLocaleString()}`, // Format revenue
   clicks: Math.floor(Math.random() * 1000) + 500, // Random clicks
@@ -15,7 +28,7 @@ const transformedData = originalData.map((item, index) => ({
   },
 }));
 
-const PerformanceTable = () => {
+const PerformanceTable: React.FC = () => {
   // State to toggle between 4 rows and full table
   const [showAll, setShowAll] = useState(false);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import '../../styles/AffiliateDashboard_styles/ResourceCenter.css'
 
-const ResourceCenter = () => {
+const ResourceCenter: React.FC = () => {
   return (
     <section className="resource-center">
       <h3>Resource Center</h3>
