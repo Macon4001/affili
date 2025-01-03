@@ -29,6 +29,9 @@ interface ActiveLink {
 
 interface User {
   name: string;
+  email: string;
+  password?: string;
+  profilePicture: string;
   totalEarnings: string;
   totalConversions: number;
   totalClicks: number;
@@ -57,7 +60,7 @@ const AffiliateDashboard: React.FC = () => {
     return () => clearInterval(interval);
   }, [offers.length]);
 
-  const handleGenerateLink = (productId: number) => {
+  const handleGenerateLink = (productId: string) => {
     const newLink: ActiveLink = {
       id: activeLinks.length + 1,
       productName: `Product ${productId}`,

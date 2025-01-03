@@ -1,10 +1,13 @@
 import React from 'react';
 import Testimonials from '../components/Testimonials';
 import '../styles/Home.css';
-import HomeFeatures from '../components/HomeFeatures';
+import HomeFeatures from '../components/HomeFeatues';
 import HowItWorks from '../components/HowItWorks';
 
 const HomePage: React.FC = () => {
+    const handleFeatureClick = () => {
+        console.log('features clicked')
+    }
     return (
         <div className="homepage">
             {/* Hero Section */}
@@ -29,7 +32,12 @@ const HomePage: React.FC = () => {
             <HowItWorks />
 
             {/* Features Section */}
-            <HomeFeatures />
+            <HomeFeatures
+                title="For Affiliates"
+                subtitle="Empower Your Earnings"
+                description="Join our community and maximize your revenue potential by promoting products."
+                image="/Affiliate.jpg"
+                onClick={handleFeatureClick} />
 
             {/* Testimonials Section */}
             <Testimonials />

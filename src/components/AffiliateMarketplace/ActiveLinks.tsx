@@ -3,7 +3,7 @@ import '../../styles/AffiliateMarketplace_styles/ActiveLinks.css';
 
 // Define the type for each link object
 interface Link {
-    id: string;
+    id: number;
     productName: string;
     url: string;
     clicks: number;
@@ -53,7 +53,7 @@ const ActiveLinks: React.FC<ActiveLinksProps> = ({ links }) => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="5">No active links yet. Generate links to start promoting products!</td>
+                                <td colSpan={5}>No active links yet. Generate links to start promoting products!</td>
                             </tr>
                         )}
                     </tbody>

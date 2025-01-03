@@ -235,7 +235,7 @@ const GraphSection: React.FC = () => {
 
                 {/* Summary */}
                 <div className="graph-summary">
-                    <p2 className="date-range">January 1, 2024 - December 31, 2024</p2>
+                    <p className="date-range">January 1, 2024 - December 31, 2024</p>
                     <div className="widgets">
                         <div className="widget">
                             <p className="widget-title">Total Sales</p>

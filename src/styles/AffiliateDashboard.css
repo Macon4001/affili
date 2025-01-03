@@ -186,14 +186,14 @@
 }
 
 /* Heading and gradient text */
-.total-earnings-highlight h9 {
+.total-earnings-highlight h3 {
   font-size: 1.2rem; /* Bold label */
   font-weight: bold;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.total-earnings-highlight p6 {
+.total-earnings-highlight p {
   font-size: 5rem; /* Huge font size for earnings */
   font-weight: 300;
   margin: 0;

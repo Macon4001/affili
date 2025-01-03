@@ -14,7 +14,7 @@ interface HomeFeaturesProps {
 const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
   return (
     <section className="features shadow-md">
-      <h2>Why Choose Affili?</h2>
+      <h2>Why Choose Nex Affil?</h2>
       <div className="features-grid">
         {/* Each card has a unique image */}
         <HomeFeaturesCard
