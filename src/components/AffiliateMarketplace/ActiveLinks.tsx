@@ -1,7 +1,23 @@
 import React from "react";
 import '../../styles/AffiliateMarketplace_styles/ActiveLinks.css';
 
-const ActiveLinks = ({ links }) => {
+// Define the type for each link object
+interface Link {
+    id: string;
+    productName: string;
+    url: string;
+    clicks: number;
+    conversions: number;
+    revenue: number;
+}
+
+// Define the prop types for the component
+interface ActiveLinksProps {
+    links: Link[];
+}
+
+
+const ActiveLinks: React.FC<ActiveLinksProps> = ({ links }) => {
     return (
         <section className="active-links-section">
             <h2>Active Links</h2>

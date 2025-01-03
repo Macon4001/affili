@@ -1,9 +1,23 @@
-// src/components/ProductCard.js
-
 import React from "react";
 import '../../styles/AffiliateMarketplace_styles/ProductCard.css';
 
-const ProductCard = ({ product, onGenerateLink }) => {
+// Define the types for the product object
+interface Product {
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    commission: string;
+    image: string;
+}
+
+// Define the prop types for the component
+interface ProductCardProps {
+    product: Product;
+    onGenerateLink: (productId: string) => void;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, onGenerateLink }) => {
   return (
     <div className="product-card">
       <img src={product.image} alt={product.name} className="product-image" />
