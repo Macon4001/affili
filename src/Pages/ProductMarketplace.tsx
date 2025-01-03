@@ -19,9 +19,9 @@ interface ProductMarketplaceProps {
 
 // Mock products data
 const mockProducts: Product[] = [
-    { id: "1", name: "Wireless Earbuds", description: "High-quality sound", price: "$50", commission: "10%", image: "/images/earbuds.jpg" },
-    { id: "2", name: "Smart Watch", description: "Track fitness", price: "$100", commission: "15%", image: "/images/smartwatch.jpg" },
-    { id: "3", name: "Gaming Mouse", description: "Precision gaming", price: "$75", commission: "12%", image: "/images/mouse.jpg" },
+    { id: "1", name: "Wireless Earbuds", description: "High-quality sound", price: "$50", commission: "10%",image: "/Airbuds.jpg" },
+    { id: "2", name: "Smart Watch", description: "Track fitness", price: "$100", commission: "15%", image: "/smartwatch.jpg" },
+    { id: "3", name: "Gaming Mouse", description: "Precision gaming", price: "$75", commission: "12%", image: "/mouse.jpg" },
 ];
 
 const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ onGenerateLink }) => {

@@ -4,8 +4,9 @@
   padding: 25px 30px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+  margin-bottom: 3.5%;
   animation: fade-in 0.8s ease;
+  height: 130%;
 }
 
 /* Header */
@@ -237,14 +238,13 @@
 }
 
 .graph-summary {
-  margin-top: 30px;
+  margin-top: 8%;
   display: flex;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
 .graph-summary p {
-font-size: 1.2rem; /* Larger and more prominent header */
 font-weight: bold;
 color: #1a1a2e;
 background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient text */
@@ -283,6 +283,15 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
   background: linear-gradient(to right, #50ccff, #1a98ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.date-range{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    background: linear-gradient(to right, #50ccff, #1a98ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @keyframes fadeIn {
