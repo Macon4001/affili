@@ -1,5 +1,6 @@
 # Nexaffil - Affiliate Marketing Platform 
-![Nexaffil Image](public/1.png)
+
+<img src="public/4.png" alt="Nexaffil Image" width="200"/>
 
 Nexaffil is a platform designed to connect businesses and affiliates, allowing them to collaborate and grow together. Affiliates can promote business products and earn revenue through a commission-based model, while businesses can leverage affiliates to expand their reach and increase conversions.
 
