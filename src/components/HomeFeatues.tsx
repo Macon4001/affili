@@ -2,7 +2,16 @@ import React from 'react';
 import HomeFeaturesCard from './HomeFeaturesCard';
 import '../styles/HomeFeatures.css';
 
-const HomeFeatures = () => {
+
+interface HomeFeaturesProps {
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+    onClick: () => void; // Define the onClick prop type
+}
+
+const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
   return (
     <section className="features shadow-md">
       <h2>Why Choose Affili?</h2>
