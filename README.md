@@ -1,19 +1,23 @@
-Nexaffil - Affiliate Marketing Platform
+# Nexaffil - Affiliate Marketing Platform 
+![Nexaffil Image](public/1.png)
+
 Nexaffil is a platform designed to connect businesses and affiliates, allowing them to collaborate and grow together. Affiliates can promote business products and earn revenue through a commission-based model, while businesses can leverage affiliates to expand their reach and increase conversions.
 
-Getting Started
+## Getting Started
+
 Follow these steps to get started with the project:
 
-Prerequisites
-Ensure that you have the following installed on your machine:
+### Prerequisites
 
-Node.js: Download and install Node.js.
-npm (comes with Node.js): npm documentation.
-Installation
+Ensure that you have the following installed on your machine:  
+**Node.js**: [Download and install Node.js](https://nodejs.org/).  
+**npm** (comes with Node.js): [npm documentation](https://www.npmjs.com/).
+
+### Installation
+
 Clone the repository:
 
-bash
-Copy code
+```bash
 git clone https://github.com/yourusername/nexaffil.git
 Navigate to the project directory:
 
@@ -45,7 +49,6 @@ Your app is ready to be deployed!
 
 npm run eject
 Note: This is a one-way operation. Once you eject, you can't go back!
-
 If you need full control over the build configuration, you can eject at any time. This will remove the single build dependency from your project and copy the configuration files (webpack, Babel, ESLint, etc.) into your project for full customization.
 
 Learn More
@@ -53,11 +56,13 @@ You can learn more about React and project setup from the following resources:
 
 React Documentation
 React API Reference
+
 Deployment
 For deploying your Nexaffil app, follow these guides:
 
 Deploying to GitHub Pages
 Deploying to Firebase
+
 Troubleshooting
 If you face issues related to the npm run build or any dependencies, please refer to the official documentation for troubleshooting:
 
