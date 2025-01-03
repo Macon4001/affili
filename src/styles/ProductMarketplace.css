@@ -1,0 +1,34 @@
+/* General Layout */
+.product-marketplace {
+    padding: 60px;
+    background: linear-gradient(to bottom, #f8fcff, #e0f7ff);
+    border-radius: 25px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Section Heading */
+.product-marketplace h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #6a11cb, #2575fc, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-cycle 3s infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Grid Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
+    justify-items: center;
+}

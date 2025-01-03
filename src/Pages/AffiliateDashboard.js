@@ -6,6 +6,8 @@ import PerformanceTable from "../components/AffiliateDashboard/PerformanceTable"
 import PaymentHistory from "../components/AffiliateDashboard/PaymentHistory";
 import ResourceCenter from "../components/AffiliateDashboard/ResourceCenter";
 import UserGoals from "../components/AffiliateDashboard/UserGoals";
+import ProductMarketplace from "./ProductMarketplace";
+import ActiveLinks from "../components/AffiliateMarketplace/ActiveLinks";
 
 // Import mock user data
 import mockUserData from "../data/mockuserdata";
@@ -21,6 +23,7 @@ const AffiliateDashboard = () => {
   ];
 
   const [currentOfferIndex, setCurrentOfferIndex] = useState(0);
+  const [activeLinks, setActiveLinks] = useState([]);
 
   // Automatically rotate offers every 5 seconds
   useEffect(() => {
@@ -30,6 +33,20 @@ const AffiliateDashboard = () => {
 
     return () => clearInterval(interval);
   }, [offers.length]);
+
+  const handleGenerateLink = (productId) => {
+    const newLink = {
+      id: activeLinks.length + 1,
+      productName: `Product ${productId}`,
+      url: `https://affiliate.example.com/product/${productId}?ref=12345`,
+      clicks: 0,
+      conversions: 0,
+      revenue: 0,
+    };
+  
+    setActiveLinks((prevLinks) => [...prevLinks, newLink]);
+  };
+  
 
   return (
     <div className="dashboard-layout">
@@ -99,6 +116,17 @@ const AffiliateDashboard = () => {
           </div>
         </section>
 
+        {/* Product Marketplace */}
+        <section>
+          <ProductMarketplace onGenerateLink={handleGenerateLink} />
+        </section>
+        
+        {/* Active Links */}
+        <section>
+          <ActiveLinks links={activeLinks} />
+        </section>
+
+
         {/* Graph Section */}
         <GraphSection />
 
@@ -113,6 +141,8 @@ const AffiliateDashboard = () => {
 
         {/* Resource Center */}
         <ResourceCenter />
+
+
       </main>
     </div>
   );

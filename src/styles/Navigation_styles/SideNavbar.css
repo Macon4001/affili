@@ -230,3 +230,15 @@
     cursor: pointer;
   }
   
+  .nav-link {
+    display: inline-flex; /* Ensures text and icon align horizontally */
+    align-items: center; /* Vertically aligns the text and icon */
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px; /* Space between text and icon */
+}

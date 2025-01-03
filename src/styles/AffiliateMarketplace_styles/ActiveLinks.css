@@ -1,0 +1,84 @@
+.active-links-section {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    animation: fade-in 0.8s ease;
+}
+
+.active-links-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    color: #1a1a2e;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.active-links-table-container {
+    border-radius: 16px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.active-links-table {
+    border-radius: 16px;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+}
+
+.active-links-table thead {
+    background: linear-gradient(to right, #2575fc, #50ccff);
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.active-links-table thead th {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.active-links-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.active-links-table tbody tr:hover {
+    background: #f7faff;
+    transform: translateY(-2px);
+}
+
+.active-links-table tbody td {
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #333;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.active-links-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.active-links-table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.active-links-table-container::-webkit-scrollbar-thumb {
+    background: #2575fc;
+    border-radius: 4px;
+}
+
+.active-links-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}

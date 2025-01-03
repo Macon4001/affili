@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../styles/Navigation_styles/SideNavbar.css";
 import Notifications from "../Notifications";
 
+
 const SidebarNavigation = ({ activeItem, user }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [notificationsVisible, setNotificationsVisible] = useState(false);
@@ -74,6 +75,12 @@ const SidebarNavigation = ({ activeItem, user }) => {
               </li>
               <li className={activeItem === "earnings" ? "active" : ""}>
                 <a href="#earnings">Earnings</a>
+              </li>
+              <li className={activeItem === "marketplace" ? "active" : ""}>
+                <a href="#product-marketplace" className="nav-link">
+                  <span>Marketplace</span>
+                  <img src="/shop.png" alt="Shopping Cart" className="nav-icon" />
+                </a>
               </li>
             </ul>
           </nav>
