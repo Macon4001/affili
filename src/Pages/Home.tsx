@@ -1,7 +1,7 @@
 import React from 'react';
 import Testimonials from '../components/Testimonials';
 import '../styles/Home.css';
-import HomeFeatures from '../components/HomeFeatues';
+import HomeFeatures from '../components/HomeFeatures';
 import HowItWorks from '../components/HowItWorks';
 
 const HomePage: React.FC = () => {

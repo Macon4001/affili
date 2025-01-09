@@ -130,7 +130,11 @@
   
   .sidebar-nav a:hover {
     color: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
-    padding-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom:3px;
+    border-radius: 8px;
     font-size: 1.1rem;
     transition: 0.3s ease;
   }
@@ -138,7 +142,6 @@
   .sidebar-nav .active a {
     color: #edfaff;
     font-weight: bold;
-    padding-left: 0px;
     font-size: 1.3rem;
   }
   

@@ -1,60 +1,165 @@
-/* Features Section */
+/* General Styles */
 .features {
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  
-  .dark .features {
-    background-color: #333;
-    color: #fff;
-  }
-  
+  text-align: center;
+  background: linear-gradient(to right, #f7f8fc, #ffffff); /* Subtle light gradient background */
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.dark .features {
+  background: linear-gradient(to right, #1a1a1a, #333); /* Dark gradient for dark mode */
+  color: #fff;
+}
+
+.features h2 {
+  font-size: 3rem;
+  color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Poppins', sans-serif; /* Elegant and modern font */
+  transition: color 0.3s ease;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid with larger card minimum width */
+  gap: 3rem;
+  justify-items: center;
+  margin-top: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Feature Cards */
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.2); /* Soft frosted glass effect */
+  border-radius: 20px; /* More pronounced rounded corners */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12); /* More prominent shadow */
+  backdrop-filter: blur(12px); /* Enhanced blur effect */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px); /* Larger lift effect on hover */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18); /* Stronger shadow on hover */
+  background-color: rgba(255, 255, 255, 0.4); /* Slightly lightened background */
+}
+
+.dark .feature-card {
+  background-color: rgba(60, 60, 60, 0.4); /* Darker frosted effect for dark mode */
+  backdrop-filter: blur(10px); /* Slight blur for dark mode */
+  color: #fff;
+  border: 2px solid #444;
+}
+
+.dark .feature-card:hover {
+  background-color: rgba(70, 70, 70, 0.6);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); /* Darker shadow for dark mode */
+}
+
+/* Feature Card Title */
+.feature-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+/* Feature Card Text */
+.feature-card p {
+  color: #ffffff; /* Softer grey text */
+  font-size: 1.1rem;
+  line-height: 1.75;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.3s ease;
+  margin-bottom: 30%;
+}
+
+.dark .feature-card p {
+  color: #ccc; /* Lighter text color for dark mode */
+}
+
+/* Responsive Styles */
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
   .features h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    color: #1a98ff; /* Vibrant blue for title */
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-size: 2.8rem;
   }
-  
+
   .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.9rem;
+  }
+
+  .feature-card p {
+    font-size: 1rem;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .features {
+    padding: 3rem 1.5rem;
+  }
+
+  .features h2 {
+    font-size: 2.2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .feature-card {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    padding: 1.8rem;
   }
-  
-  .feature-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .dark .feature-card {
-    background-color: #444;
-    color: #fff;
-  }
-  
-  .dark .feature-card:hover {
-    background-color: #555;
-  }
-  
+
   .feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.7rem;
   }
-  
+
   .feature-card p {
-   color: #fff;
+    font-size: 1rem;
   }
-  
-  .dark .feature-card p {
-    color: #ccc;
+}
+
+/* Ultra-Wide Screen Adjustments */
+@media (min-width: 1377px) {
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3.5rem;
   }
+
+  .feature-card {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .feature-card h3 {
+    font-size: 2.2rem;
+  }
+
+  .feature-card p {
+    font-size: 1.25rem;
+  }
+}

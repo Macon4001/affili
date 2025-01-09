@@ -4,106 +4,99 @@
     background-size: cover; /* Ensure the background covers the entire card */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Avoid repeating the image */
-    border-radius: 16px; /* Rounded corners */
+    border-radius: 24px; /* Pronounced rounded corners for a modern look */
     color: #fff; /* Ensure all text is white */
-    height: 550px; /* Adjust card height */
+    height: 520px; /* Balanced card height */
     display: flex;
     flex-direction: column; /* Allows dynamic growth for content */
     justify-content: flex-end; /* Content stays at the bottom */
     text-align: center;
     overflow: hidden; /* Clip any overflow */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                height 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Elegant shadow for depth */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth animation */
 }
 
 /* Content Box */
 .feature-card-content {
     position: relative;
+    margin-top: 120px;
     z-index: 3; /* Ensure content is above all overlays */
-    padding: 1.5rem 2rem; /* Increased padding for better spacing */
-    height: 90%; /* Adjusted height to move the content higher */
+    padding: 2rem; /* Improved padding for better spacing */
+    height: 75%; /* Balanced height */
     color: #fff; /* White text */
-    border: 1.5px solid #1a98ff; /* Subtle blue border */
-    background: rgba(26, 152, 255, 0.8); /* Blue overlay with opacity */
-    backdrop-filter: blur(5px); /* Subtle blur for modern effect */
-    border-radius: 16px; /* Match card corners for consistent style */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+    background: rgba(26, 152, 255, 0.85); /* Soft frosted blue overlay */
+    backdrop-filter: blur(10px); /* Stronger blur for modern effect */
+    border-radius: 20px; /* Smooth rounded edges */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
     text-align: center;
-    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease-in-out; /* Smooth animation */
-    transform: translateY(-10%); /* Moves the content box higher */
+    transition: transform 0.4s ease, opacity 0.4s ease-in-out; /* Smooth animation */
+    transform: translateY(-10%); /* Slightly lift the content box */
 }
 
 /* Header */
 .feature-card-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem; /* Add spacing below header */
-    font-weight: 600;
+    font-size: 2rem; /* Larger font for emphasis */
+    margin-bottom: 1rem; /* Add spacing below the header */
+    font-weight: 700; /* Make it bold for hierarchy */
     text-transform: uppercase; /* Add emphasis with caps */
+    letter-spacing: 0.05em; /* Slight letter spacing for refinement */
 }
 
-/* Paragraph */
+/* Subtitle */
+.feature-card-content h4 {
+    font-size: 1.25rem; /* Improved subtitle size */
+    font-weight: 500; /* Semi-bold for emphasis */
+    color: rgba(255, 255, 255, 0.85); /* Softer white */
+    margin-bottom: 1.5rem; /* Space below the subtitle */
+    text-transform: capitalize; /* Clean, modern casing */
+    letter-spacing: 0.03em; /* Subtle spacing for style */
+}
+
+/* Description */
 .feature-card-content p {
     font-size: 1rem;
-    line-height: 1.8; /* Improved line spacing for readability */
-    margin-bottom: 1.5rem; /* Added spacing below paragraphs */
+    line-height: 1.8; /* Improved readability */
+    margin-bottom: 1.2rem; /* Adjust spacing for balance */
     opacity: 0.9; /* Slight transparency for elegance */
-}
-
-/* Subtitle Styles */
-.feature-card-content h4 {
-    font-size: 1rem;
-    font-weight: 500; /* Semi-bold for emphasis */
-    color: rgba(255, 255, 255, 0.9); /* Soft white with slight transparency */
-    margin-bottom: 1.5rem; /* Space below the subtitle */
-    text-transform: uppercase; /* Make it stand out */
-    letter-spacing: 0.05em; /* Add subtle spacing between letters */
 }
 
 /* Hover Effects */
 .feature-card:hover {
-    transform: translateY(-12px) scale(1.07); /* Noticeable hover effect */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-    height: 100%;
+    transform: translateY(-10px) scale(1.05); /* Subtle lift and scale */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 /* Expand Content Box on Hover */
 .feature-card:hover .feature-card-content {
-    transform: translateY(-12%); /* Moves the content even higher on hover */
-}
-
-/* Adjust Paragraph Spacing */
-.feature-card-content p:last-child {
-    margin-bottom: 2rem; /* Ensures proper spacing at the bottom */
+    transform: translateY(-15%); /* Slightly lift the content box more */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Add a subtle shadow */
 }
 
 /* Learn More Button */
 .feature-card-button {
     position: absolute;
-    bottom: 30px; /* Adjust the position for spacing */
+    bottom: 75px;
     left: 50%;
-    width: 70%;
-    transform: translateX(-50%) translateY(20px); /* Initially below view */
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    transform: translateX(-50%) translateY(20px); /* Initial off-screen position */
+    padding: 1rem 2rem; /* Comfortable button size */
+    font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
+    background: linear-gradient(to right, #1a98ff, #50ccff); /* Vibrant gradient */
     border: none;
-    border-radius: 8px;
+    border-radius: 12px; /* Softer button edges */
     cursor: pointer;
     opacity: 0; /* Hidden by default */
     visibility: hidden; /* Prevent interaction when hidden */
-    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth animation */
     z-index: 3; /* Ensure it appears above other content */
 }
 
 /* Button Hover Effect */
 .feature-card-button:hover {
-    background: linear-gradient(to right, #50ccff, #1a98ff); /* Reverse gradient on hover */
-    transform: translateX(-50%) translateY(15px) scale(1.1); /* Slightly enlarge the button */
+    background: linear-gradient(to right, #50ccff, #1a98ff); /* Reverse gradient */
+    transform: translateX(-50%) translateY(-5px) scale(1.1); /* Slight lift and scale */
 }
 
 /* Show Button on Card Hover */
@@ -111,4 +104,63 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0); /* Slide into view */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .feature-card {
+        height: 420px; /* Reduce height for smaller screens */
+    }
+
+    .feature-card-content {
+        padding: 1.5rem; /* Adjust padding */
+        height: 65%; /* Adjust height for balance */
+        transform: translateY(-8%); /* Adjust content positioning */
+    }
+
+    .feature-card-content h3 {
+        font-size: 1.6rem; /* Slightly smaller font size */
+    }
+
+    .feature-card-content h4 {
+        font-size: 1rem; /* Adjust subtitle font */
+    }
+
+    .feature-card-content p {
+        font-size: 0.9rem;
+    }
+
+    .feature-card-button {
+        padding: 0.8rem 1.5rem; /* Smaller button */
+        font-size: 0.95rem; /* Adjust font size */
+    }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 1200px) {
+    .feature-card {
+        height: 600px; /* Larger height for desktops */
+    }
+
+    .feature-card-content {
+        padding: 3rem; /* Spacious padding for better visuals */
+        height: 75%; /* Balanced height */
+    }
+
+    .feature-card-content h3 {
+        font-size: 2.25rem; /* Larger header font */
+    }
+
+    .feature-card-content h4 {
+        font-size: 1.5rem; /* Larger subtitle */
+    }
+
+    .feature-card-content p {
+        font-size: 1.2rem; /* Better readability */
+    }
+
+    .feature-card-button {
+        padding: 1.2rem 2.5rem; /* Bigger button for impact */
+        font-size: 1.2rem; /* Larger font for better visibility */
+    }
 }

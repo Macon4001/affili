@@ -18,7 +18,7 @@ const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
       <div className="features-grid">
         {/* Each card has a unique image */}
         <HomeFeaturesCard
-          title="For Affiliates"
+          title="FOR AFFILIATES"
           subtitle="Empower Your Earnings"
           description="Join our community of affiliates 
                        and unlock opportunities to partner with
@@ -30,7 +30,7 @@ const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
           onClick={() => (window.location.href = '/affiliates')} // Navigate to Affiliates page
         />
         <HomeFeaturesCard
-          title="For Businesses"
+          title="FOR BUSINESSES"
           subtitle="Expand Your Reach"
           description="Take your business to new heights by
                        connecting with top-performing affiliates. Tap into a global network,
@@ -40,7 +40,7 @@ const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
           onClick={() => (window.location.href = '/businesses')} // Navigate to Businesses page
         />
         <HomeFeaturesCard
-          title="Analytics"
+          title="ANALYTICS"
           subtitle="Insights that Inspire Growth"
           description="Harness the power of data with our advanced analytics tools.
                        Track your performance, identify trends, and make data-driven 

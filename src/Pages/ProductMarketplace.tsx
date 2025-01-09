@@ -34,7 +34,7 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ onGenerateLink 
 
     return (
         <div className="product-marketplace">
-            <h2>Available Products</h2>
+            <h2>My Products</h2>
             <div className="product-grid">
                 {products.map((product) => (
                     // Assign key to the outer element only, not passed as a prop
