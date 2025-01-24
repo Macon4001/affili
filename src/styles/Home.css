@@ -158,25 +158,16 @@ body {
   text-transform: uppercase;
   background: linear-gradient(
     to right,
-    #135495,
-    #0f61be,
-    #0a7aeb,
     #1a98ff,
     #28b0ff,
     #50ccff,
     #88e0ff,
     #b9ebff,
-    #d7f2ff,
-    #edfaff,
-    #d7f2ff,
     #b9ebff,
     #88e0ff,
     #50ccff,
     #28b0ff,
     #1a98ff,
-    #0a7aeb,
-    #0f61be,
-    #135495
   );
   background-size: 300% 100%; /* Expand the gradient horizontally */
   background-clip: text;
@@ -185,7 +176,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   letter-spacing: 0.05em;
-  animation: flowing-gradient 18s infinite ease-in-out; /* Smooth looping animation */
+  animation: flowing-gradient 30s infinite ease-in-out; /* Smooth looping animation */
 }
 
 /* Animation for Flowing Gradient */

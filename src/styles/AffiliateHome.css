@@ -512,10 +512,14 @@ body {
 
 /* Reason Title Styling */
 .affiliate-home__reason-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #1a98ff; /* Vibrant blue for title */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    text-align: center;
 }
 
 /* Reason Description Styling */

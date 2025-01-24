@@ -65,7 +65,7 @@ const HowItWorks: React.FC = () => {
                   ))}
                 </ul>
               </div>
-              <div className="benefits-image">
+              <div className="HIW-benefits-image">
                 <img src="/packages.png" alt="Affiliate Marketing Benefits" />
               </div>
             </div>

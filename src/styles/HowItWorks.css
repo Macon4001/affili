@@ -191,7 +191,7 @@
     margin-top: 10px;
   }
   
-  .benefits-image {
+  .HIW-benefits-image {
     flex: 0 1 60%; /* Allow the image to take up to 40% of the space */
     max-width: 400px; /* Restrict maximum width */
     margin-left: auto; /* Push the image to the right */
@@ -201,17 +201,17 @@
                 box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Apple-like animation */
   }
   
-  .benefits-image img {
+  .HIW-benefits-image img {
     width: 100%; /* Ensure the image fits within its container */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation for scaling */
   }
   
   /* Hover Effect */
-  .benefits-image:hover {
+  .HIW-benefits-image:hover {
     transform: scale(1.1); /* Enlarge the entire container slightly */
   }
   
-  .benefits-image:hover img {
+  .HIW-benefits-image:hover img {
     transform: scale(1.01); /* Enlarge the image slightly */
   }
   
@@ -270,7 +270,7 @@
   color: #fff; /* Blue checkmark icons */
 }
 
-.dark .benefits-image:hover img {
+.dark .HIW-benefits-image:hover img {
   transform: scale(1.02); /* Slight enlargement on hover */
 }
 

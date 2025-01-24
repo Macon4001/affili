@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import HomePage from './Pages/Home';
 import AffiliateDashboard from './Pages/AffiliateDashboard';
 import AffiliateHome from "./Pages/AfilliateHome";
+import BusinessHome from "./Pages/Businesshome";
 
 const App: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
                     <Route path="/" element={<HomePage />} /> {/* Home Page */}
                     <Route path="/affiliates" element={<AffiliateHome />} /> {/* Affiliate Home */}
                     <Route path="/dashboard" element={<AffiliateDashboard />} /> {/* Dashboard */}
+                    <Route path="/businesses" element={<BusinessHome />} /> {/* Dashboard */}
                 </Routes>
             </main>
             <Footer /> {/* Footer at the bottom */}
