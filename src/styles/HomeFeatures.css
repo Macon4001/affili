@@ -12,6 +12,7 @@
 }
 
 .features h2 {
+  margin-top: -30px;
   font-size: 3rem;
   color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
   font-weight: 600;

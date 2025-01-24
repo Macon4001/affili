@@ -37,7 +37,9 @@ const HomePage: React.FC = () => {
                 subtitle="Empower Your Earnings"
                 description="Join our community and maximize your revenue potential by promoting products."
                 image="/Affiliate.jpg"
-                onClick={handleFeatureClick} />
+                onClick={handleFeatureClick}
+            />
+
 
             {/* Testimonials Section */}
             <Testimonials />
@@ -46,9 +48,11 @@ const HomePage: React.FC = () => {
             <section className="cta-section">
                 <h2>Ready to Get Started?</h2>
                 <p>Join thousands of businesses and affiliates already growing with Affili.</p>
-                <button className="cta-button">Sign Up Now</button>
+                <button className="cta-button-2">Sign Up Now</button>
             </section>
+
         </div>
+
     );
 };
 

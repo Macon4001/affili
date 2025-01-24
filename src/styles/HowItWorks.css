@@ -144,6 +144,7 @@
 }
 /* Long Tile for Benefits Section */
 .benefits-tile {
+    margin-top: 40px;
     grid-column: 1 / -1; /* Spans the entire width of the grid */
     background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
     border-radius: 16px;

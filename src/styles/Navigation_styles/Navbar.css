@@ -48,7 +48,17 @@
   border-radius: 8px; /* Slightly rounded corners for hover effect */
 }
 
+.nav.active {
+  background: linear-gradient(90deg, #50ccff, #1a98ff); /* Gradient hover effect */
+  color: #ffffff; /* White text on hover */
+  border-radius: 8px; /* Slightly rounded corners for hover effect */
+}
+
 .dark .nav-links a:hover {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
+}
+
+.dark .nav.active {
   @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white; /* Dark mode */
 }
 

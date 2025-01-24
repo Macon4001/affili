@@ -108,7 +108,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Call-to-Action Button */
+/* Call-to-Action Buttons */
 .cta-button {
   background: linear-gradient(to right, #1a98ff, #50ccff);
   color: #fff; /* Always keep the text white */
@@ -124,6 +124,27 @@ body {
 }
 
 .cta-button:hover {
+  transform: scale(1.1); /* Slightly enlarges on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #0a7aeb, #28b0ff); /* Slightly darker gradient */
+  color: #fff; /* Ensure the text remains white on hover */
+}
+
+.cta-button-2 {
+  background: linear-gradient(to right, #1a98ff, #50ccff);
+  color: #fff; /* Always keep the text white */
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.cta-button-2:hover {
   transform: scale(1.1); /* Slightly enlarges on hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   background: linear-gradient(to right, #0a7aeb, #28b0ff); /* Slightly darker gradient */
@@ -218,10 +239,10 @@ body {
   cursor: pointer;
 }
 
-.cta-button button2 {
+.cta-button button {
   transform: translateY(0); /* Initial position */
   background-color: #fff;
-  color: fff;
+  color: #fff;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -236,6 +257,35 @@ body {
   transform: translateY(100px); /* Moves the button down by 100px */
 }
 
+.cta-button-2 {
+  transform: translateY(0); /* Initial position */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Ensure smooth return */
+  background-color: #fff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cta-button-2 button {
+  transform: translateY(0); /* Initial position */
+  background-color: #fff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cta-button-2:hover {
+  background-color: #0a7aeb;
+  color: #fff;
+}
 .dark .hero {
   background: linear-gradient(to bottom, #0a0a0a, #1a1a1a); /* Ensure a dark background */
 }
@@ -246,6 +296,16 @@ body {
 }
 
 .dark .cta-button:hover {
+  background-color: #1a98ff;
+  color: #fff;
+}
+
+.dark .cta-button-2 {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark .cta-button-2:hover {
   background-color: #1a98ff;
   color: #fff;
 }

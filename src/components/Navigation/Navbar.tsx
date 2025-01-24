@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; // Import NavLink
 import '../../styles/Navigation_styles/Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -18,37 +19,53 @@ const Navbar: React.FC = () => {
       <nav className="navbar shadow-md">
         {/* Logo on the Left */}
         <div className="navbar-left">
-          <a href="/" className="logo">
-            <img
-                src="/4.png"
-                alt="NexAffil Logo"
-                className="logo-image"
-            />
-          </a>
+          <NavLink to="/" className="logo">
+            <img src="/4.png" alt="NexAffil Logo" className="logo-image" />
+          </NavLink>
         </div>
 
         {/* Navigation Links and Profile on the Right */}
         <div className="navbar-right">
           <ul className="nav-links">
             <li>
-              <a href="/products">Affiliates</a>
+              <NavLink
+                  to="/"
+                  className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+              >
+                Home
+              </NavLink>
             </li>
             <div className="divider"></div>
             <li>
-              <a href="/about">Businesses</a>
+              <NavLink
+                  to="/affiliates"
+                  className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+              >
+                Affiliates
+              </NavLink>
             </li>
             <div className="divider"></div>
             <li>
-              <a href="/contact">Contact Us</a>
+              <NavLink
+                  to="/businesses"
+                  className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+              >
+                Businesses
+              </NavLink>
             </li>
             <div className="divider"></div>
+            <li>
+              <NavLink
+                  to="/contact"
+                  className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+              >
+                Contact Us
+              </NavLink>
+            </li>
           </ul>
 
           {/* Dark Mode Toggle Button */}
-          <button
-              className="toggle-dark-mode ml-4"
-              onClick={toggleDarkMode}
-          >
+          <button className="toggle-dark-mode ml-4" onClick={toggleDarkMode}>
             <img
                 src={isDarkMode ? '/Dark mode 2.png' : '/Light mode.png'}
                 alt={isDarkMode ? 'Light Mode' : 'Dark Mode'}
@@ -65,12 +82,22 @@ const Navbar: React.FC = () => {
             <img src="/profile.jpg.png" alt="Profile" className="profile-photo" />
             {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <a href="/sign-in" className="dropdown-item">
+                  <NavLink
+                      to="/sign-in"
+                      className={({ isActive }) =>
+                          isActive ? 'dropdown-item active' : 'dropdown-item'
+                      }
+                  >
                     Sign In
-                  </a>
-                  <a href="/sign-up" className="dropdown-item">
+                  </NavLink>
+                  <NavLink
+                      to="/sign-up"
+                      className={({ isActive }) =>
+                          isActive ? 'dropdown-item active' : 'dropdown-item'
+                      }
+                  >
                     Sign Up
-                  </a>
+                  </NavLink>
                 </div>
             )}
           </div>
