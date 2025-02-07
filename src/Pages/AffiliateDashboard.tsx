@@ -98,7 +98,7 @@ const AffiliateDashboard: React.FC = () => {
 
             {/* Offers Slideshow */}
             <section className="offers-slideshow">
-              <div className="offer-card">
+              <div className="offer-card"> 
                 <img
                     src={`/Offers${currentOfferIndex + 1}.jpg`}
                     alt="Offer"
