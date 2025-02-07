@@ -1,0 +1,191 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a7aeb, #1a98ff);
+    color: #ffffff;
+    /*overflow: hidden; /* Prevent unwanted scrollbars */
+}
+
+.login-page {
+    display: flex;
+    height: 100vh;
+}
+
+.info-section {
+    flex: 1;
+    padding: 20px; /* Maintain general padding */
+    background: linear-gradient(180deg,#f9f9f9, #f9f9f9);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    text-align: center;
+    position: relative;
+    gap: 10px; /* Add spacing between elements */
+}
+
+.info-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a98ff, transparent);
+    z-index: -1;
+}
+
+.company-logo {
+    max-width: 100px;
+    margin-bottom: 50px; /* Reduce bottom margin to bring it closer to the center */
+    padding-top: 190px; /* Remove negative padding */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.info-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: -40px;
+    color: #ffffff;
+    animation: slideIn 1s ease-out;
+}
+
+.info-section p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    max-width: 400px;
+    margin-top: -30px;
+    line-height: 1.6;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.auth-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(180deg,#1a98ff, #f9f9f9);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    position: relative;
+}
+
+.auth-form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a98ff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.auth-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    box-shadow: inset 0 2px 10px rgba(26, 152, 255, 0.5);
+    border-color: #1a98ff;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1a98ff, #50ccff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 152, 255, 0.3);
+}
+
+.auth-form button:hover {
+    background: linear-gradient(135deg, #50ccff, #1a98ff);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 152, 255, 0.5);
+}
+
+.auth-form .error {
+    border: 1px solid #ffccd5; /* Light pink border */
+    background: rgba(255, 204, 213, 0.2); /* Light pink background */
+    color: #ff4d4f; /* Red text */
+    padding: 6px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.toggle-auth {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #1a98ff;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.toggle-auth:hover {
+    color: #50ccff;
+    text-shadow: 0px 2px 6px rgba(26, 152, 255, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

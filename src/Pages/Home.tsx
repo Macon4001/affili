@@ -3,6 +3,7 @@ import Testimonials from '../components/Testimonials';
 import '../styles/Home.css';
 import HomeFeatures from '../components/HomeFeatures';
 import HowItWorks from '../components/HowItWorks';
+import {Link} from "react-router-dom";
 
 const HomePage: React.FC = () => {
     const handleFeatureClick = () => {
@@ -24,7 +25,7 @@ const HomePage: React.FC = () => {
                 <div className="hero-content">
                     <h1>Welcome to NEX AFFIL</h1>
                     <p>Connecting Businesses and Affiliates for Mutual Growth</p>
-                    <button className="cta-button">Join Now</button>
+                    <Link to="/sign-up" className="cta-button">Join Now</Link>
                 </div>
             </section>
 

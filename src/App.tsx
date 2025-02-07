@@ -6,6 +6,8 @@ import HomePage from './Pages/Home';
 import AffiliateDashboard from './Pages/AffiliateDashboard';
 import AffiliateHome from "./Pages/AfilliateHome";
 import BusinessHome from "./Pages/Businesshome";
+import LoginPage from "./Pages/Login";
+
 
 const App: React.FC = () => {
     return (
@@ -17,6 +19,8 @@ const App: React.FC = () => {
                     <Route path="/affiliates" element={<AffiliateHome />} /> {/* Affiliate Home */}
                     <Route path="/dashboard" element={<AffiliateDashboard />} /> {/* Dashboard */}
                     <Route path="/businesses" element={<BusinessHome />} /> {/* Dashboard */}
+                    <Route path="/sign-in" element={<LoginPage mode={"sign-in"} />} />  {/* Sign-In Mode */}
+                    <Route path="/sign-up" element={<LoginPage mode="register" />} /> {/* Register Mode */}
                 </Routes>
             </main>
             <Footer /> {/* Footer at the bottom */}
