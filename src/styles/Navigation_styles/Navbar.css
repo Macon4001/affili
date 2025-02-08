@@ -1,3 +1,12 @@
+/* Font Face Declaration specifically for navbar */
+@font-face {
+  font-family: 'Geist Mono Nav';
+  src: url('../../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Navigation Bar Styling */
 .navbar {
   position: sticky;
@@ -13,8 +22,9 @@
   border-radius: 17px;
   margin: 20px 37px;
   box-shadow: none;
-  font-family: var(--mono-font);
+  font-family: 'Geist Mono Nav', monospace;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* Scrolled state */
@@ -60,11 +70,11 @@
 
 .nav-links a {
   color: #1a98ff;
-  font-weight: bold;
+  font-weight: 600;
   padding: 0.4rem 1rem;
   font-size: 1rem;
   transition: all 0.3s ease;
-  font-family: var(--mono-font);
+  font-family: 'Geist Mono Nav', monospace;
 }
 
 .logo-image {
@@ -127,7 +137,8 @@
   color: #1a98ff;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-family: var(--mono-font);
+  font-family: 'Geist Mono Nav', monospace;
+  font-weight: 500;
 }
 
 /* Active States */
@@ -152,4 +163,13 @@
 
 .dark .dropdown-item {
   color: #fff;
+}
+.dark .navbar{
+  background-color: #000000;
+}
+
+/* Scrolled state */
+.dark .navbar.scrolled {
+  background-color: #1a1a1a;;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }

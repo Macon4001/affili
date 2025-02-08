@@ -26,6 +26,17 @@ body {
   min-height: 100vh;
 }
 
+/* Dark mode styles */
+.dark :root {
+  background-color: #000000;
+}
+
+.dark body,
+.dark #root {
+  background-color: #000000;
+  color: #fff;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

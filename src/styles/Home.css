@@ -1,12 +1,29 @@
 /* General Page Styles */
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: var(--font-family);
+  font-family: 'Geist', sans-serif;
 }
+
 
 h1 {
   margin: 0;
-  font-family: var(--font-family);
+  font-family: 'Geist', sans-serif;
 }
 
 .homepage {
@@ -73,10 +90,15 @@ h1 {
 
 /* Hero Title */
 .hero-content h1 {
-  font-family: var(--font-family);
+  font-family: 'Geist', sans-serif;
   font-size: 6rem;
-  font-weight: bold;
+  line-height: 1.8 !important;
+  font-weight: 600;
+  letter-spacing: -0.04em;
   text-align: center;
+  background-color: #ffffff;
+/*
+
   background: linear-gradient(
     to right,
     #0a7aeb,
@@ -87,7 +109,7 @@ h1 {
     #50ccff,
     #1a98ff,
     #0a7aeb
-  );
+  );*/
   background-size: 200% auto; /* Animation for flowing gradient */
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -107,12 +129,13 @@ h1 {
 
 /* Hero Subtext */
 .hero-content p {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  max-width: 700px; /* Restrict width for better readability */
-  line-height: 1.8; /* Enhance spacing for legibility */
+  font-size: 1.75rem !important;
+  line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
+  font-family: 'Geist Mono', monospace;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
 .buttons-container {
@@ -136,16 +159,13 @@ h1 {
 
 /* Call-to-Action Buttons */
 .cta-button {
-
-  /*background: linear-gradient(to right, #1a98ff, #50ccff);*/
   background-color: #000000;
-  color: #fff; /* Always keep the text white */
+  color: #fff;
   padding: 0.5rem 2rem;
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-
   border: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -194,8 +214,6 @@ h1 {
   font-family: var(--font-family);
 }
 
-.hero:hover .hero-content {
-}
 
 .hero:hover .hero-content h1 {
   letter-spacing: 2px; /* Increases letter spacing for a subtle spread effect */
@@ -238,13 +256,15 @@ h1 {
 }
 
 .dark .cta-button {
-  background-color: #333;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .dark .cta-button:hover {
-  background-color: #1a98ff;
-  color: #fff;
+  background-color: #f0f0f0;
+  color: #000000;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
 }
 
 .dark .cta-button-2 {
@@ -310,7 +330,7 @@ h1 {
 }
 
 .feature-card p {
-  font-family: var(--mono-font);
+  font-family: 'Geist Mono', monospace;
   color: #666;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -369,10 +389,10 @@ h1 {
   padding: 4rem 2rem;
   border-radius: 15px;
   margin: 20px 20px;
-}
-
-.dark .cta-section {
-  background: linear-gradient(to right, #135495, #0a7aeb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta-section h2 {
@@ -382,8 +402,55 @@ h1 {
 }
 
 .cta-section p {
+  font-family: var(--mono-font);
   margin-bottom: 2rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+}
+
+.cta-section .buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 0.25rem;
+  border: 1px solid rgba(195, 195, 195, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* CTA Button styles */
+.cta-section .cta-button {
+  background-color: #000000;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
   font-family: var(--font-family);
+}
+
+/* Dark mode styles for CTA button */
+.dark .cta-section .cta-button {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Hover states */
+.cta-section .cta-button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark .cta-section .cta-button:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Global Dark Mode */
@@ -397,12 +464,22 @@ h1 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Full coverage of the hero section */
+  height: 100%;
   object-fit: cover;
-  z-index: -2;
-  filter: brightness(70%); /* Slightly dimmed for better text contrast */
+  z-index: 1;
+  filter: brightness(70%);
 }
 
 .hero-text {
   font-family: var(--font-family);
+}
+
+/* Button container styles for dark mode */
+.dark .buttons-container {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .buttons-container:hover {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
 }

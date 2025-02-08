@@ -1,8 +1,22 @@
-/* Import Geist Sans and Geist Mono */
-@import '@geist-ui/font/dist/geist-sans/index.css';
-@import '@geist-ui/font/dist/geist-mono/index.css';
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
-/* Update default font family */
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Remove the @vercel/font imports since we're using local files */
+/* Define font variables */
 :root {
   --font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono-font: 'Geist Mono', monospace;
@@ -20,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* Apply JetBrains Mono to all paragraph text */
+/* Apply Geist Mono to all paragraph text */
 p {
   font-family: var(--mono-font);
   line-height: 1.6;

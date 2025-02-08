@@ -1,25 +1,43 @@
+/* General Page Styles */
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Section Layout */
 .how-it-works {
     padding: 2%;
-    background: linear-gradient(to bottom, #edfaff, #ffffff); /* Light gradient background */
+    background: #f5f5f5; /* Light gradient background */
     text-align: center;
 }
 
 .how-it-works-title {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    color: #1a98ff; /* Vibrant blue for title */
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: var(--font-family); /* Modern sans-serif font */
+  margin-bottom: 50px;
+  font-size: 3rem;
+  color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Geist', sans-serif;
+  transition: color 0.3s ease;
 }
 
 /* Grid Layout */
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-    gap: 2rem;
+    gap: 4rem;
     align-items: center;
     justify-items: center; /* Center tiles */
 }
@@ -27,9 +45,12 @@
 /* Step Tiles */
 .step-tile {
     position: relative;
+    font-family: 'Geist', sans-serif;
     height: 400px;
-    width: 100%;
-    max-width: 100%; /* Restrict max width for consistency */
+    width: 750px; 
+    padding: 10px;
+    margin: 20px;
+    max-width: 110%; /* Restrict max width for consistency */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -46,7 +67,6 @@
 
 /* On Hover */
 .step-tile:hover {
-    transform: scale(1.05) translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -58,7 +78,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.0); /* Darken the image */
     z-index: 1;
     transition: background-color 0.3s ease;
 }
@@ -109,7 +128,8 @@
 }
 
 .step-description {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-family: 'Geist Mono', sans-serif;
     color: #fff; /* Dark gray for description */
     line-height: 1.5;
 }
@@ -118,7 +138,7 @@
 .step-tile:not(:last-child)::after {
     content: '';
     position: absolute;
-    margin-left: 250px; /* Adjust the margin to match the tile width */
+    margin-left: 340px;
     right: -25px; /* Position the arrow to the right of the tile */
     top: 50%; /* Center the arrow vertically */
     transform: translateY(-50%);
@@ -145,6 +165,7 @@
 /* Long Tile for Benefits Section */
 .benefits-tile {
     margin-top: 40px;
+    width: 103%;
     grid-column: 1 / -1; /* Spans the entire width of the grid */
     background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
     border-radius: 16px;
@@ -156,11 +177,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 98%;
   }
   
   .benefits-tile:hover {
-    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   
@@ -168,13 +187,18 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    font-family: 'Geist', sans-serif;
+    margin-left: 40px;
+    margin-top: 20px;
   }
   
+
   .benefits-tile ul {
-    margin: 0;
+    margin-top: 50px;
     padding: 0;
     list-style: none;
   }
+
   
   .benefits-tile li {
     font-size: 1.2rem;
@@ -182,20 +206,24 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: 'Geist Mono', sans-serif;
+    margin-top: 20px;
+    margin-left: 40px;
   }
   
   .benefits-tile li::before {
-    content: '✅'; /* Checkmark icon */
+    content: '⟢'; /* Checkmark icon */
     color: #fff;
     font-weight: bold;
-    margin-top: 10px;
+
   }
   
   .HIW-benefits-image {
     flex: 0 1 60%; /* Allow the image to take up to 40% of the space */
     max-width: 400px; /* Restrict maximum width */
     margin-left: auto; /* Push the image to the right */
-    margin-top: -180px; /* Move the image upwards */
+    margin-top: -330px; /* Move the image upwards */
+    margin-right: 50px;
     position: relative; /* Necessary for using top */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Apple-like animation */
@@ -217,7 +245,7 @@
   
   /* General Dark Mode */
 .dark .how-it-works {
-  background: linear-gradient(to bottom, #121212, #1a1a1a); /* Dark gradient background */
+  background: #000000;/* Dark gradient background */
   color: #fff; /* Text in white for readability */
 }
 
@@ -226,18 +254,13 @@
 }
 
 .dark .steps-grid .step-tile {
-  background-color: #135495; /* Neutral dark background */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adjust shadow for dark mode */
+  background-color: transparent; /* Remove the tint */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .dark .steps-grid .step-tile:hover {
-  background-color: #135495; /* Slightly lighter on hover */
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.0); /* Enhanced shadow for dark mode hover */
-}
-
-.dark .step-tile::before {
-  background-color: rgba(0, 0, 0, 0.4); /* Darken overlay in dark mode */
+  background-color: transparent; /* Remove hover tint */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dark .step-title {
