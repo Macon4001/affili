@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
     return (
         <div className="homepage">
             {/* Hero Section */}
-            <section className="hero shadow-lg">
+            <section className="hero">
                 <video
                     className="hero-video"
                     src="/Homepage Hero.mp4"
@@ -22,9 +22,11 @@ const HomePage: React.FC = () => {
                 />
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <h1>Welcome to NEX AFFIL</h1>
-                    <p>Connecting Businesses and Affiliates for Mutual Growth</p>
+                    <h1>WELCOME to NEX AFFIL</h1>
+                    <div className="buttons-container">
                     <button className="cta-button">Join Now</button>
+                    </div>
+                    <p>Connecting Businesses and Affiliates for Mutual Growth</p>
                 </div>
             </section>
 
@@ -48,7 +50,9 @@ const HomePage: React.FC = () => {
             <section className="cta-section">
                 <h2>Ready to Get Started?</h2>
                 <p>Join thousands of businesses and affiliates already growing with Affili.</p>
-                <button className="cta-button-2">Sign Up Now</button>
+                <div className="buttons-container">
+                <button className="cta-button">Sign-Up Now</button>
+                </div>
             </section>
 
         </div>

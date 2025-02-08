@@ -20,7 +20,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+        'sans': ['Roboto', 'ui-sans-serif', 'system-ui'],
+        'serif': ['Roboto', 'ui-serif', 'Georgia'],
+        'mono': ['Roboto Mono', 'ui-monospace', 'SFMono-Regular'],
+        'display': ['Roboto', 'system-ui'],
+        'body': ['Roboto', 'system-ui'],
       },
     },
   },

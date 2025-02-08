@@ -22,9 +22,10 @@ const App: React.FC = () => {
             <Footer /> {/* Footer at the bottom */}
 
             {/* The Affiliate Dashboard */}
-            <AffiliateDashboard />
+            {/* <AffiliateDashboard /> */}
         </div>
     );
 };
+
 
 export default App;

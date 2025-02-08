@@ -12,7 +12,7 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-family: var(--font-family); /* Modern sans-serif font */
 }
 
 /* Grid Layout */
@@ -85,7 +85,7 @@
   border: 1.5px solid #50ccff; /* Subtle border to complement the background */
   border-radius: 16px; /* More rounded for a modern touch */
   margin: 1rem;
-  max-width: 90%; /* Ensures it doesn’t exceed the layout */
+  max-width: 90%; /* Ensures it doesn't exceed the layout */
   backdrop-filter: blur(8px); /* Maintain sleek blur */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add depth with subtle shadow */

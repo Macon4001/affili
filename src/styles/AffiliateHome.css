@@ -221,11 +221,13 @@ body {
 }
 
 .affiliate-home__about-description {
+    font-family: var(--mono-font);
     margin-top: 2rem;
     font-size: clamp(1.2rem, 1.8vw, 1.6rem);
     margin-bottom: 0.75rem;
     color: #555;
     line-height: 1.8;
+    letter-spacing: -0.01em;
     opacity: 0.9;
     margin-left: 15px;
 }

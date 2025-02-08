@@ -1,13 +1,18 @@
 /* General Page Styles */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f7fa; /* Light background for a modern look */
+  font-family: var(--font-family);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-family);
 }
 
 .homepage {
   display: flex;
   flex-direction: column;
+  margin: 0 15px;
 }
 
 /* Hero Section */
@@ -15,19 +20,20 @@ body {
   position: relative;
   color: #fff;
   text-align: center;
-  padding: 6rem 2rem; /* Increased padding for breathing space */
+  padding: 6rem 2rem;
   overflow: hidden;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
               height 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother animation */
-  height: 500px; /* Larger initial height */
+              box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 15px;
+  margin: 20px 10px;
 }
 
 .hero:hover {
-  transform: scale(1.03); /* Slightly more pronounced scaling */
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Bolder shadow */
 }
 
@@ -36,10 +42,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Full coverage of the hero section */
+  height: 100%;
   object-fit: cover;
-  z-index: -2;
-  filter: brightness(70%); /* Slightly dimmed for better text contrast */
+  z-index: 1;
 }
 
 .hero-overlay {
@@ -48,45 +53,46 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(26, 152, 255, 0.8)); /* Softer gradient overlay */
-  z-index: -1;
-  mix-blend-mode: overlay; /* Adds depth by blending colors */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+  z-index: 2;
+  opacity: 0.5;
 }
 
 /* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
               letter-spacing 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   color: #fff;
+  margin-bottom: 5.5rem;
 }
 
 /* Hero Title */
 .hero-content h1 {
-  text-transform: uppercase;
-  font-size: 4rem; /* Larger for more impact */
+  font-family: var(--font-family);
+  font-size: 6rem;
   font-weight: bold;
   text-align: center;
-  letter-spacing: 0.1em;
   background: linear-gradient(
     to right,
-    #135495,
-    #0f61be,
     #0a7aeb,
     #1a98ff,
     #28b0ff,
     #50ccff,
-    #88e0ff
+    #88e0ff,
+    #50ccff,
+    #1a98ff,
+    #0a7aeb
   );
   background-size: 200% auto; /* Animation for flowing gradient */
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: flowing-gradient 10s infinite linear;
-  margin-bottom: 1.5rem;
+
 }
 
 /* Animation for Flowing Gradient */
@@ -102,32 +108,55 @@ body {
 /* Hero Subtext */
 .hero-content p {
   font-size: 1.5rem;
+  margin-top: 2rem;
   max-width: 700px; /* Restrict width for better readability */
   line-height: 1.8; /* Enhance spacing for legibility */
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
 }
 
+.buttons-container {
+  display: flex;
+  padding: 0.25rem 0.25rem;
+  border: 1px solid rgba(195, 195, 195, 0.3); /* Faded border using rgba */
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Add border transition */
+}
+
+.buttons-container:hover {
+  border: 1px solid rgba(195, 195, 195, 1); /* Solid border on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove the individual button hover transforms since the container will handle it */
+.buttons-container :hover {
+  color: #fff;
+}
+
 /* Call-to-Action Buttons */
 .cta-button {
-  background: linear-gradient(to right, #1a98ff, #50ccff);
+
+  /*background: linear-gradient(to right, #1a98ff, #50ccff);*/
+  background-color: #000000;
   color: #fff; /* Always keep the text white */
-  padding: 1rem 2rem;
-  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+
   border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  font-family: var(--font-family);
 }
 
 .cta-button:hover {
-  transform: scale(1.1); /* Slightly enlarges on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to right, #0a7aeb, #28b0ff); /* Slightly darker gradient */
-  color: #fff; /* Ensure the text remains white on hover */
+  transform: none; /* Remove individual button transform */
+  color: #fff;
+  transform: none; /* Remove individual button transform */
 }
 
 .cta-button-2 {
@@ -142,110 +171,48 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  font-family: var(--font-family);
 }
 
 .cta-button-2:hover {
-  transform: scale(1.1); /* Slightly enlarges on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to right, #0a7aeb, #28b0ff); /* Slightly darker gradient */
-  color: #fff; /* Ensure the text remains white on hover */
+  transform: scale(1.1); /* Remove individual button transform */
+  color: #fff;
+  transform: none; /* Remove individual button transform */
 }
 
 
-/* Hero Content Heading */
-.hero-content h1 {
-  text-align: center;
-  text-transform: uppercase;
-  background: linear-gradient(
-    to right,
-    #1a98ff,
-    #28b0ff,
-    #50ccff,
-    #88e0ff,
-    #b9ebff,
-    #b9ebff,
-    #88e0ff,
-    #50ccff,
-    #28b0ff,
-    #1a98ff,
-  );
-  background-size: 300% 100%; /* Expand the gradient horizontally */
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 5vw; /* Responsive size based on viewport width */
-  font-family: 'Poppins', sans-serif;
+.cta-button button, .cta-button-2 button {
+  transform: translateY(0); /* Initial position */
+  background-color: #fff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
-  letter-spacing: 0.05em;
-  animation: flowing-gradient 30s infinite ease-in-out; /* Smooth looping animation */
-}
-
-/* Animation for Flowing Gradient */
-@keyframes flowing-gradient {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 0%; /* Move gradient fully to the right */
-  }
-  100% {
-    background-position: 0% 0%; /* Reset to the starting point */
-  }
-}
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family);
 }
 
 .hero:hover .hero-content {
-  transform: scale(1.1); /* Slightly enlarges the content */
 }
 
 .hero:hover .hero-content h1 {
-  transform: translateY(-10px); /* Moves the heading slightly upwards */
   letter-spacing: 2px; /* Increases letter spacing for a subtle spread effect */
 }
 
 .hero:hover .hero-content p {
-  transform: translateY(10px); /* Moves the paragraph slightly downwards */
   letter-spacing: 1px; /* Increases letter spacing slightly */
 }
 
-
 .hero:hover .cta-button {
-  transform: translateY(50px); /* Moves the button down by 50px */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
-}
-
-.cta-button {
-  transform: translateY(0); /* Initial position */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Ensure smooth return */
-  background-color: #fff;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.cta-button button {
-  transform: translateY(0); /* Initial position */
-  background-color: #fff;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
+  transform: none; /* Remove individual button transform */
 }
 
 .cta-button:hover {
   background-color: #0a7aeb;
   color: #fff;
-  transform: translateY(100px); /* Moves the button down by 100px */
+  transform: none; /* Remove individual button transform */
 }
 
 .cta-button-2 {
@@ -261,22 +228,11 @@ body {
   cursor: pointer;
 }
 
-.cta-button-2 button {
-  transform: translateY(0); /* Initial position */
-  background-color: #fff;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .cta-button-2:hover {
   background-color: #0a7aeb;
   color: #fff;
 }
+
 .dark .hero {
   background: linear-gradient(to bottom, #0a0a0a, #1a1a1a); /* Ensure a dark background */
 }
@@ -305,6 +261,8 @@ body {
 .features {
   padding: 4rem 2rem;
   text-align: center;
+  border-radius: 15px;
+  margin: 20px 20px;
 }
 
 .dark .features {
@@ -315,6 +273,7 @@ body {
 .features h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  font-family: var(--font-family);
 }
 
 .features-grid {
@@ -347,10 +306,14 @@ body {
 .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: var(--font-family);
 }
 
 .feature-card p {
+  font-family: var(--mono-font);
   color: #666;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .dark .feature-card p {
@@ -362,6 +325,8 @@ body {
   background-color: #f4f4f4;
   padding: 4rem 2rem;
   text-align: center;
+  border-radius: 15px;
+  margin: 20px 20px;
 }
 
 .dark .testimonials {
@@ -371,6 +336,7 @@ body {
 .testimonials h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  font-family: var(--font-family);
 }
 
 .testimonials-grid {
@@ -386,6 +352,7 @@ body {
   background-color: #fff;
   border-left: 4px solid #1a98ff;
   border-radius: 8px;
+  font-family: var(--font-family);
 }
 
 .dark .testimonial {
@@ -400,6 +367,8 @@ body {
   color: #fff;
   text-align: center;
   padding: 4rem 2rem;
+  border-radius: 15px;
+  margin: 20px 20px;
 }
 
 .dark .cta-section {
@@ -409,10 +378,12 @@ body {
 .cta-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  font-family: var(--font-family);
 }
 
 .cta-section p {
   margin-bottom: 2rem;
+  font-family: var(--font-family);
 }
 
 /* Global Dark Mode */
@@ -420,6 +391,7 @@ body {
   background-color: #121212;
   color: #fff;
 }
+
 .dark .hero-video {
   position: absolute;
   top: 0;
@@ -429,4 +401,8 @@ body {
   object-fit: cover;
   z-index: -2;
   filter: brightness(70%); /* Slightly dimmed for better text contrast */
+}
+
+.hero-text {
+  font-family: var(--font-family);
 }
