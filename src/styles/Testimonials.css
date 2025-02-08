@@ -1,17 +1,36 @@
+/* General Page Styles */
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .testimonials {
     background-color: #f4f4f4;
     padding: 4rem 2rem;
     text-align: center;
+    font-family: 'Geist', sans-serif;
   }
   
   .section-heading {
+    margin-bottom: 50px;
     font-size: 3rem;
-    margin-bottom: 3rem;
-    color: #1a98ff; /* Vibrant blue for title */
-    font-weight: bold;
+    color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-family: 'Geist', sans-serif;
+    transition: color 0.3s ease;
   }
   
   .testimonials-grid {

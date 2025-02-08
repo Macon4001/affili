@@ -1,3 +1,20 @@
+/* General Page Styles */
+@font-face {
+    font-family: 'Geist';
+    src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
 /* Card Styles */
 .feature-card {
     position: relative;
@@ -21,7 +38,7 @@
     position: relative;
     margin-top: 120px;
     z-index: 3; /* Ensure content is above all overlays */
-    padding: 2rem; /* Improved padding for better spacing */
+    padding: 1rem; /* Improved padding for better spacing */
     height: 75%; /* Balanced height */
     color: #fff; /* White text */
     border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
@@ -36,30 +53,35 @@
 
 /* Header */
 .feature-card-content h3 {
-    font-size: 2rem; /* Larger font for emphasis */
+    font-size: 1rem; /* Larger font for emphasis */
     margin-bottom: 1rem; /* Add spacing below the header */
     font-weight: 700; /* Make it bold for hierarchy */
     text-transform: uppercase; /* Add emphasis with caps */
     letter-spacing: 0.05em; /* Slight letter spacing for refinement */
+    font-family: 'Geist', sans-serif;
 }
 
 /* Subtitle */
 .feature-card-content h4 {
-    font-size: 1.25rem; /* Improved subtitle size */
-    font-weight: 500; /* Semi-bold for emphasis */
+    font-size: 1.05rem !important; /* Improved subtitle size */
+    font-weight: 700; /* Semi-bold for emphasis */
     color: rgba(255, 255, 255, 0.85); /* Softer white */
     margin-bottom: 1.5rem; /* Space below the subtitle */
     text-transform: capitalize; /* Clean, modern casing */
     letter-spacing: 0.03em; /* Subtle spacing for style */
+    font-family: 'Geist Mono', sans-serif;
 }
 
 /* Description */
 .feature-card-content p {
-    font-size: 1rem;
-    line-height: 1.8; /* Improved readability */
-    margin-bottom: 1.2rem; /* Adjust spacing for balance */
-    opacity: 0.9; /* Slight transparency for elegance */
-}
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    letter-spacing: 0.02rem !important;
+    display: flex;
+    align-items: center;
+    font-family: 'Geist Mono', sans-serif;
+    margin-top: 20px;
+  }
 
 /* Hover Effects */
 .feature-card:hover {

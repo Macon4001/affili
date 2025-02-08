@@ -1,6 +1,23 @@
+/* General Page Styles */
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Footer Base Styles */
 .footer {
-    display: flex;
+    display: left;
     flex-direction: column;
     justify-content: space-between;
     background-color: #f9f9f9; /* Light mode background */
@@ -10,22 +27,24 @@
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    text-transform: capitalize;
     margin-top: auto; /* Pushes footer to the bottom */
   }
   
   /* Footer Content */
   .footer-content {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 4rem;
     margin-bottom: 1rem;
+    margin-left: 30px;
   }
   
   /* Footer Section */
   .footer-section {
-    flex: 1;
-    min-width: 200px;
+    flex: 0 1 auto;
+    min-width: 150px;
+    text-align: left;
   }
   
   .footer-heading {
@@ -37,21 +56,38 @@
   .footer-links {
     list-style: none;
     padding: 0;
+    text-align: left;
     margin: 0;
+    font-family: 'Geist', sans-serif;
   }
   
   .footer-links li {
     margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-family: 'Geist', sans-serif;
   }
   
   .footer-links a {
-    color: #1a98ff;
+    color: #a69a9a;
     text-decoration: none;
     transition: color 0.3s;
+    font-family: 'Geist', sans-serif;
+  }
+  
+  .footer-links a::after {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-left: 5px;
+  }
+  
+  .footer-links a:hover::after {
+    content: '🡥';
+    opacity: 1;
   }
   
   .footer-links a:hover {
-    color: #0a7aeb; /* Darker blue on hover */
+    color: #3c3c3c; /* Darker version of #a69a9a */
   }
   
   /* Social Icons */
@@ -86,11 +122,11 @@
   }
   
   .dark .footer-links a {
-    color: #50ccff; /* Lighter blue in dark mode */
+    color: #a69a9a;
   }
   
   .dark .footer-links a:hover {
-    color: #1a98ff;
+    color: #847777;
   }
   
   .dark .social-icon {
@@ -108,13 +144,20 @@
   /* Responsive Adjustments */
   @media (max-width: 768px) {
     .footer-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-left: 30px;
     }
-  
+
     .footer-section {
-      margin-bottom: 1rem;
+        text-align: left;
+        margin-bottom: 0;
     }
+  }
+  
+  /* Explicitly ensure main links don't show the arrow */
+  .main-links a::after {
+    content: none !important;
   }
   

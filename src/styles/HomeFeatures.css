@@ -1,13 +1,35 @@
+/* General Page Styles */
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* General Styles */
 .features {
   text-align: center;
-  background: linear-gradient(to right, #f7f8fc, #ffffff); /* Subtle light gradient background */
+  background: #ffffff; /* Subtle light gradient background */
   transition: background 0.3s ease, transform 0.3s ease;
   position: relative;
+  border : 1px solid #cccccc;
+  margin: 10px 5px;
+  margin-top: 110px;
 }
 
+
+
 .dark .features {
-  background: linear-gradient(to right, #1a1a1a, #333); /* Dark gradient for dark mode */
+  background: #000000; /* Dark gradient for dark mode */
   color: #fff;
 }
 
@@ -18,9 +40,10 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-family: 'Poppins', sans-serif; /* Elegant and modern font */
+  font-family: 'Geist', sans-serif;
   transition: color 0.3s ease;
 }
+
 
 /* Features Grid */
 .features-grid {
@@ -80,11 +103,12 @@
 /* Feature Card Text */
 .feature-card p {
   color: #ffffff; /* Softer grey text */
-  font-size: 1.1rem;
-  line-height: 1.75;
-  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-family: 'Geist Mono', sans-serif;
   transition: color 0.3s ease;
   margin-bottom: 30%;
+
 }
 
 .dark .feature-card p {

@@ -12,7 +12,7 @@ interface Testimonial {
 const Testimonials: React.FC = () => {
     return (
         <section className="testimonials">
-            <h2 className="section-heading">What Our Users Say</h2>
+            <h1 className="section-heading">What Our Users Say</h1>
             <div className="testimonials-grid">
                 {testimonials.map((testimonial: Testimonial, index: number) => (
                     <TestimonialCard

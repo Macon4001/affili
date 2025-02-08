@@ -1,0 +1,42 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Remove the @vercel/font imports since we're using local files */
+/* Define font variables */
+:root {
+  --font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono-font: 'Geist Mono', monospace;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+/* Apply to all heading elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Apply Geist Mono to all paragraph text */
+p {
+  font-family: var(--mono-font);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
