@@ -386,7 +386,7 @@ h1 {
   background: linear-gradient(to right, #50ccff, #1a98ff);
   color: #fff;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4rem 2.5%;
   border-radius: 15px;
   margin: 20px 20px;
   display: flex;

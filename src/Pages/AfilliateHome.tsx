@@ -5,9 +5,9 @@ import Testimonials from "../components/Testimonials";
 
 const AffiliateHome: React.FC = () => {
     return (
-        <div>
+        <div className="affiliate-home__container"> 
             {/* Hero Section */}
-            <section className="affiliate-home__hero">
+            <section className="affiliate-home__hero mt-40">
                 {/* Background Video */}
                 <video
                     className="affiliate-home__hero-video"
@@ -45,7 +45,8 @@ const AffiliateHome: React.FC = () => {
                 <div className="affiliate-home__about-content">
                     <h2 className="affiliate-home__about-title">About Us</h2>
                     <p className="affiliate-home__about-description">
-                        At <strong>Affiliate Platform</strong>, we’re committed to building
+
+                        At <strong>Affiliate Platform</strong>, we're committed to building
                         long-lasting partnerships with our affiliates. We empower you with
                         the tools, training, and resources needed to succeed. Our mission
                         is to bridge the gap between businesses and affiliates, creating
@@ -62,10 +63,13 @@ const AffiliateHome: React.FC = () => {
                 </div>
                 <div className="affiliate-home__about-image-wrapper">
                     <div className="affiliate-home__about-image">
-                        <img
-                            src="/workspace.jpg"
-                            alt="Affiliate Platform Office"
+                        <video
+                            src="/aboutusvideo.mp4"
+                            autoPlay
+                            loop
+                            muted
                             className="affiliate-home__about-img"
+                            aria-label="About Us Video"
                         />
                     </div>
                 </div>

@@ -17,9 +17,11 @@
 
 /* Section Layout */
 .how-it-works {
-    padding: 2%;
+    min-width: 100px;
     background: #f5f5f5; /* Light gradient background */
     text-align: center;
+    margin: 20px -3%;  /* Match hero section margins */
+    border-radius: 15px;  /* Match hero section border-radius */
 }
 
 .how-it-works-title {
@@ -36,10 +38,14 @@
 /* Grid Layout */
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;  /* Reduced to 2% gap */
     align-items: center;
-    justify-items: center; /* Center tiles */
+    justify-items: center;
+    padding: 0;  /* Remove padding */
+    width: calc(100% - 40px);  /* Account for left and right margins */
+    margin: 0 20px;  /* Add 20px margin on both sides */
+    padding: 0 2.1%;
 }
 
 /* Step Tiles */
@@ -47,10 +53,9 @@
     position: relative;
     font-family: 'Geist', sans-serif;
     height: 400px;
-    width: 750px; 
+    width: 100%;  /* Take full width of grid column */
     padding: 10px;
-    margin: 20px;
-    max-width: 110%; /* Restrict max width for consistency */
+    margin: 23px 10px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,8 +66,6 @@
     text-align: center;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* On Hover */
@@ -164,9 +167,9 @@
 }
 /* Long Tile for Benefits Section */
 .benefits-tile {
+    grid-column: 1 / -1;  /* Ensure it spans all columns */
+    width: 100%;
     margin-top: 40px;
-    width: 103%;
-    grid-column: 1 / -1; /* Spans the entire width of the grid */
     background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
     border-radius: 16px;
     color: #fff;
@@ -223,14 +226,14 @@
     max-width: 400px; /* Restrict maximum width */
     margin-left: auto; /* Push the image to the right */
     margin-top: -330px; /* Move the image upwards */
-    margin-right: 50px;
+    margin-right: -80px;
     position: relative; /* Necessary for using top */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Apple-like animation */
   }
   
   .HIW-benefits-image img {
-    width: 100%; /* Ensure the image fits within its container */
+    width: 80%; /* Ensure the image fits within its container */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation for scaling */
   }
   
@@ -332,12 +335,13 @@
   }
 
   .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    margin: 0 20px;  /* Maintain margins on mobile */
   }
 
   .step-tile {
-    height: 300px;
+    height: 300px;  /* Reduce height on mobile */
   }
 
   .step-title {

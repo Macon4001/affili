@@ -7,43 +7,70 @@ body {
     color: #333;
 }
 
-.business-page {
+.business-page-business {
     width: 100%;
     overflow-x: hidden;
+    background-color: #f5f5f5;
+}
+
+.dark .business-page-business {
+    background-color: #000000;
 }
 
 /* Hero Section */
-.hero-section {
+.hero-section-business {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: baseline;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 20px;
-    position: relative;
+    align-items: flex-start;
+    justify-content: center;
+    height: 80vh;
+    color: #fff;
+    padding: 20px 8%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 30px 2.1% 20px 2.1%;
+    isolation: isolate;
+    background: #000000;
 }
 
-.hero-section::before {
-    content: "";
+/* Background Video/Image */
+.hero-video-business,
+.hero-section-business img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Slight overlay for text legibility */
+    object-fit: cover;
+    object-position: center;
     z-index: 1;
+    opacity: 0.7;
 }
 
-.hero-content {
+/* Hero Content */
+.hero-content-business {
+    max-width: 600px;
+    z-index: 3;
     position: relative;
-    z-index: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 4%;
 }
 
-.hero-title {
-    font-size: 2.5rem;
-    margin: 0 0 20px;
+.hero-title-business {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    color: #ffffff;
+    font-family: 'Geist', sans-serif;
+    text-align: left;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
@@ -51,269 +78,418 @@ body {
     margin: 0 0 30px;
 }
 
-/* Marketing Section */
-.marketing-section {
-    padding: 100px 20px;
-    background: linear-gradient(to right, #50ccff, #1a98ff);
-    color: #ffffff;
+/* Button Styles - matching Home */
+.affiliate-home__btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-.marketing-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff;
-    margin-top: -40px;
-}
-
-.marketing-description {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
-
-.marketing-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-}
-
-.marketing-item {
-    position: relative;
-    width: 275px;
-    height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background:  #1a98ff; /* Fallback background color */
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.marketing-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+.affiliate-home__btn--secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
 }
 
-.marketing-image {
+.affiliate-home__btn--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Dark mode support */
+.dark .hero-section-business {
+    background: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section-business {
+        height: 70vh;
+        padding: 0 6%;
+    }
+    
+    .hero-content-business {
+        padding: 2rem;
+        margin-left: 0;
+    }
+    
+    .hero-title-business {
+        font-size: 2.5rem;
+    }
+}
+
+/* Marketing Section */
+.marketing-section-business {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px 2.1%;
+    padding: 5% 2rem;
+    text-align: center;
+}
+
+.dark .marketing-section-business {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Marketing Section Header */
+.marketing-title-business {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a98ff;  /* Changed to blue */
+    font-family: 'Geist', sans-serif;
+}
+
+.marketing-description-business {
+    color: #1a98ff;  /* Changed to blue */
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Marketing Grid */
+.marketing-grid-business {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+    overflow-x: auto;
+    min-width: 0;
+}
+
+.marketing-item-business {
+    position: relative;
+    height: 400px;
+    min-width: 250px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.dark .marketing-item-business {
+    background: #2a2a2a;
+}
+
+.marketing-item-business:hover {
+    transform: translateY(-5px);
+}
+
+.marketing-image-business {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 
-.marketing-overlay {
+.marketing-overlay-business {
     position: absolute;
-    top: 100px;
+    top: 50%;
     left: 17px;
     right: 17px;
     width: 89%;
-    height: 55%;
-    border-radius: 15px; /* Slightly rounded corners for modern feel */
-    background: rgba(50, 150, 255, 0.2); /* Light blue for frosted glass effect */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Light 3D shadow for depth */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle inner border for frosted look */
+    height: 65%;
+    min-height: 65%;
+    transform: translateY(-50%);
+    border-radius: 15px;
+    background: rgba(50, 150, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 2;
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-
-    &:hover {
-        background: rgba(50, 150, 255, 0.4); /* Slightly darker glass on hover */
-        border-color: #1a98ff; /* Bright blue glow border */
-        box-shadow: 0 8px 40px rgba(26, 152, 255, 0.6); /* Blue glowing shadow */
-    }
-
-    &:hover::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-        transform: rotate(0deg);
-        animation: shimmer 1.5s infinite;
-        pointer-events: none; /* Prevent the shimmer effect from interfering with pointer events */
-    }
-
-    @keyframes shimmer {
-        0% {
-            transform: rotate(0deg);
-            opacity: 0.6;
-        }
-        100% {
-            transform: rotate(45deg);
-            opacity: 0;
-        }
-    }
-
-}
-
-.marketing-text {
-    position: relative;
-    z-index: 3;
+    transition: all 0.3s ease;
     padding: 20px;
-    text-align: center;
-    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    transition: opacity 0.3s ease;
-}
-
-.marketing-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.marketing-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #f9f9f9;
-}
-
-/* Benefits Section */
-.benefits-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #50ccff, #1a98ff);
-    color: #ffffff;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    margin: 40px 40px;
-    max-width: 1200px;
-    position: relative;
-}
-
-.benefits-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.benefits-description {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    color: #ffffff;
-}
-
-.benefits-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    gap: 40px;
-}
-
-.benefits-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-}
-
-/* Benefit Card */
-.benefit-card {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.benefit-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.benefit-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(50, 150, 255, 0.1), rgba(255, 255, 255, 0.1)); /* Frosted glass gradient */
-    backdrop-filter: blur(12px); /* Slightly stronger blur for a clean frosted effect */
-    border-radius: 15px; /* Rounded corners for a modern feel */
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
-    z-index: 2;
-    transition: all 0.4s ease; /* Smooth transition for hover effects */
-}
-
-.benefit-card:hover .benefit-overlay {
-    background: linear-gradient(135deg, rgba(50, 150, 255, 0.3), rgba(255, 255, 255, 0.4)); /* Enhanced gradient on hover */
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.2), 0 8px 30px rgba(50, 150, 255, 0.4); /* Add glow and inner shadow */
-    transform: scale(1.02); /* Subtle zoom effect for overlay */
-}
-
-
-.benefit-text {
-    position: relative;
-    z-index: 3;
-    padding: 20px;
     color: white;
 }
 
-.benefit-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.marketing-overlay-business h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    padding: 0 10px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    height: auto;  /* Allow height to adjust */
 }
 
-.benefit-text p {
-    font-size: 1rem;
+.marketing-overlay-business p {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #f9f9f9;
+    text-align: center;
+    max-width: 95%;
+    padding: 0 5px;
+    margin: 0;
+    font-weight: 400;
+    height: auto;  /* Allow height to adjust */
+}
+
+/* Benefits Section */
+.benefits-section-business {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px 2.1%;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.dark .benefits-section-business {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.benefits-title-business {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a98ff;  /* Changed to blue */
+    font-family: 'Geist', sans-serif;
+}
+
+.benefits-description-business {
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.2rem;
     line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #1a98ff;  /* Changed to blue */
 }
 
-/* Standalone Benefits Image */
-.benefits-image {
-    flex: 1;
-    max-width: 500px;
+.benefits-layout-business {
+    display: flex;
+    gap: 4rem;
+    padding: 2rem;
+    align-items: stretch;
+    position: relative;
+}
+
+.benefits-grid-business {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 60%;
+}
+
+.benefit-card-business {
+    position: relative;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.dark .benefit-card-business {
+    background: #2a2a2a;
+}
+
+.benefit-card-business:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-image-business {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensure the full width of the image is used */
-    object-position: center; /* Center the image */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Moving Bar */
-.moving-bar {
-    height: 4px;
+.benefit-overlay-business {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    right: 30px;
+    width: 89%;
+    height: 65%;
+    min-height: 65%;
+    transform: translateY(-50%);
+    border-radius: 15px;
+    background: rgba(50, 150, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    transition: all 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.benefit-overlay-business h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-align: center;
     width: 100%;
-    background: linear-gradient(90deg, #1a98ff, #50ccff, #d7f2ff, #50ccff, #1a98ff);
-    background-size: 200%;
-    animation: gradient-move 8s infinite linear;
-    margin-top: 40px;
-    border-radius: 2px;
+    padding: 0 10px;
+    line-height: 1.2;
 }
 
-/* Keyframes for Moving Gradient */
-@keyframes gradient-move {
-    0% {
-        background-position: 0%;
+.benefit-overlay-business p {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #f9f9f9;
+    text-align: center;
+    max-width: 95%;
+    margin: 0;
+    padding: 0 5px;
+}
+
+/* Remove the separate text div as we're moving text into overlay */
+.benefit-text-business {
+    display: none;
+}
+
+/* Right side image */
+.benefits-image-business {
+    position: sticky;
+    top: 2rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Container for the right image to maintain aspect ratio */
+.benefits-image-container-business {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: calc(40% - 4rem);
+    margin-left: 2rem;
+}
+
+.benefits-image-container-business {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: calc(40% - 4rem);
+    margin-left: 2rem;
+}
+
+/* Moving bar */
+.moving-bar-business {
+    display: none; /* Hidden as per new design */
+}
+
+@media (max-width: 1024px) {
+    .benefits-layout-business {
+        flex-direction: column;
+        gap: 2rem;
     }
-    100% {
-        background-position: 200%;
+    
+    .benefits-grid-business,
+    .benefits-image-container-business {
+        width: 100%;
+        position: relative;
+    }
+    
+    .benefits-image-container-business {
+        height: 400px;
+        position: relative;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        margin-left: 0;
+    }
+}
+
+/* CTA Section */
+.cta-section-business {
+    background: linear-gradient(to right, #50ccff, #1a98ff);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2.5%;
+    border-radius: 15px;
+    margin: 20px 2.1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Typography */
+.marketing-title-business,
+.benefits-title-business,
+.cta-section-business h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: 'Geist', sans-serif;
+}
+
+.marketing-description-business,
+.benefits-description-business,
+.cta-section-business p {
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styles */
+.cta-button-business {
+    background-color: #000000;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark .cta-button-business {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .marketing-grid-business {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .marketing-title-business,
+    .benefits-title-business,
+    .cta-section-business h2 {
+        font-size: 2rem;
     }
 }

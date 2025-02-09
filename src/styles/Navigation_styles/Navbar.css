@@ -47,7 +47,7 @@
   justify-self: center;  /* Center the links */
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 110%;
 }
 
 .navbar-right {
