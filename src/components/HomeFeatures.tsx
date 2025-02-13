@@ -25,7 +25,7 @@ const HomeFeatures: React.FC<HomeFeaturesProps> = () => {
                        leading businesses. Maximize your revenue
                        potential by promoting brands you believe in. 
                        With intuitive analytics and personalized support, 
-                       your success is our mission."
+                       your mission is our mission."
           image="/Affiliate.jpg" // Path for Affiliates image
           onClick={() => (window.location.href = '/affiliates')} // Navigate to Affiliates page
         />

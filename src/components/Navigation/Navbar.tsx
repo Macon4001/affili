@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'; // Import NavLink
 import '../../styles/Navigation_styles/Navbar.css';
+import { useAffiliatePreload } from '../../hooks/PreLoading/AffiliateHomePreLoad';
+import { useBusinessPreload } from '../../hooks/PreLoading/BusinessHomePreLoad';
+import { useHomePreload } from '../../hooks/PreLoading/HomePreLoad';
 
 const Navbar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  // Initialize preload hooks
+  useAffiliatePreload();
+  useBusinessPreload();
+  useHomePreload();
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -48,7 +56,10 @@ const Navbar: React.FC = () => {
           </li>
           <div className="divider"></div>
           <li>
-            <NavLink to="/affiliates" className={({ isActive }) => (isActive ? 'nav active' : 'nav')}>
+            <NavLink 
+              to="/affiliates" 
+              className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+            >
               Affiliates
             </NavLink>
           </li>
