@@ -77,6 +77,10 @@
   background-color: rgba(255, 255, 255, 0.4); /* Slightly lightened background */
 }
 
+.dark .features{
+  border : 1px solid #000000;
+}
+
 .dark .feature-card {
   background-color: rgba(60, 60, 60, 0.4); /* Darker frosted effect for dark mode */
   backdrop-filter: blur(10px); /* Slight blur for dark mode */
@@ -112,7 +116,7 @@
 }
 
 .dark .feature-card p {
-  color: #ccc; /* Lighter text color for dark mode */
+  color: #ffffff; /* Lighter text color for dark mode */
 }
 
 /* Responsive Styles */

@@ -158,6 +158,28 @@ h1 {
 }
 
 /* Call-to-Action Buttons */
+.cta-button-hero {
+  background-color: #000000;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  font-family: var(--font-family);
+}
+
+.cta-button-hero:hover {
+  transform: none; /* Remove individual button transform */
+  color: #fff;
+  transform: none; /* Remove individual button transform */
+}
+
 .cta-button {
   background-color: #000000;
   color: #fff;
@@ -482,4 +504,29 @@ h1 {
 .dark .buttons-container:hover {
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+.how-it-works-section {
+    width: 100%;
+    max-width: 1200px; /* Match the max-width of the hero section */
+    margin: 0 auto; /* Center the section */
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.how-it-works-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.how-it-works-content > * {
+    flex: 1 1 30%; /* Adjust the flex-basis as needed */
+    margin: 1rem;
+    min-width: 250px; /* Ensure a minimum width for smaller screens */
 }

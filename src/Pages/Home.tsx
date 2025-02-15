@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Loading from '../components/Functions/Loading';
 import { useLazyComponent } from '../hooks/useLazyComponent';
+import { useBusinessPrefetch } from '../hooks/PreFetching/BusinessHomePrefetch';
 import '../styles/Home.css';
 
 // Cache control settings
@@ -56,7 +57,7 @@ const HeroSection: React.FC = () => {
             <div className="hero-content">
                 <h1>Welcome to NEX AFFIL</h1>
                 <p>Connecting Businesses and Affiliates for Mutual Growth</p>
-                <Link to="/sign-up" className="cta-button">Join Now</Link>
+                <Link to="/sign-up" className="cta-button-hero">Join Now</Link>
             </div>
         </section>
     );
@@ -77,6 +78,8 @@ const HomeFeatures = lazy(() => import('../components/HomeFeatures')) as unknown
 const HowItWorks = lazy(() => import('../components/HowItWorks')) as unknown as React.ComponentType;
 
 const HomePage: React.FC = () => {
+    useBusinessPrefetch(); // Prefetch Business page assets
+
     const howItWorks = useLazyComponent();
     const features = useLazyComponent();
     const testimonials = useLazyComponent();
