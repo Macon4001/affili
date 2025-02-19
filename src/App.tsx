@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
 import Footer from './components/Footer';
 import Loading from './components/Functions/Loading';
-
+import Contact from './Pages/Contact';
 // Interface for LoginPage props
 interface LoginPageProps {
     mode: 'sign-in' | 'register';
@@ -27,6 +27,7 @@ const App: React.FC = () => {
                             <Route path="/businesses" element={<BusinessHome />} /> {/* Business Home */}
                             <Route path="/affiliates" element={<AffiliateHome />} /> {/* Affiliate Home */}
                             <Route path="/dashboard" element={<AffiliateDashboard />} /> {/* Dashboard */}
+                            <Route path="/contact" element={<Contact />} /> {/* Contact */}
                             <Route path="/sign-in" element={<LoginPage mode="sign-in" />} />  {/* Sign-In Mode */}
                             <Route path="/sign-up" element={<LoginPage mode="register" />} /> {/* Register Mode */}
                         </Routes>

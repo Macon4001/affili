@@ -10,11 +10,12 @@ body {
 .login-page {
     display: flex;
     height: 100%;
-    max-width: 1200px; /* Match homepage max-width */
+    max-width: 100%; /* Match homepage max-width */
     margin: 0 auto; /* Center the content */
-    margin-top: 53px;
+    margin-top: 60px;
     margin-bottom: 53px;
-
+    margin-left: 1.5%;
+    margin-right: 1.5%;
 }
 
 .info-section {
@@ -70,7 +71,7 @@ body {
     background: #ffffff;
     padding: 40px;
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     text-align: center;
     transition: transform 0.3s ease;
     height: auto;
