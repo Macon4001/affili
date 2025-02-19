@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Loading from '../components/Functions/Loading';
 import { useLazyComponent } from '../hooks/useLazyComponent';
 import { useBusinessPrefetch } from '../hooks/PreFetching/BusinessHomePrefetch';
+import { useAffiliateHomePrefetch } from '../hooks/PreFetching/AffiliateHomePrefetch';
 import '../styles/Home.css';
 
 // Cache control settings
@@ -78,7 +79,9 @@ const HomeFeatures = lazy(() => import('../components/HomeFeatures')) as unknown
 const HowItWorks = lazy(() => import('../components/HowItWorks')) as unknown as React.ComponentType;
 
 const HomePage: React.FC = () => {
-    useBusinessPrefetch(); // Prefetch Business page assets
+    // Initialize both prefetch hooks
+    useBusinessPrefetch();
+    useAffiliateHomePrefetch();
 
     const howItWorks = useLazyComponent();
     const features = useLazyComponent();
