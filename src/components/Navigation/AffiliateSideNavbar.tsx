@@ -41,6 +41,17 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
     window.location.href = "/sign-in";
   };
 
+  const handlePerformanceClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById('revenue-section');
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
       <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""} ${isDarkMode ? 'dark' : ''}`}>
         {/* Sidebar Toggle */}
@@ -115,7 +126,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
                     <a href="#overview">Overview</a>
                   </li>
                   <li className={activeItem === "performance" ? "active" : ""}>
-                    <a href="#performance">Performance</a>
+                    <a href="#performance" onClick={handlePerformanceClick}>Performance</a>
                   </li>
                   <li className={activeItem === "offers" ? "active" : ""}>
                     <a href="#offers">Offers</a>
@@ -124,9 +135,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
                     <a href="#earnings">Earnings</a>
                   </li>
                   <li className={activeItem === "marketplace" ? "active" : ""}>
-                    <a href="#product-marketplace" className="nav-link">
-                      <span>Marketplace</span>
-                      <img src="/shop.png" alt="Shopping Cart" className="nav-icon" />
+                    <a href="#product-marketplace" className="nav-link" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+                        <span>Marketplace</span>
+                        <img src="/shop.png" alt="Shopping Cart" className="nav-icon" style={{ width: '20px', height: '20px' }} />
                     </a>
                   </li>
                 </ul>

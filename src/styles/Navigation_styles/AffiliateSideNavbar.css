@@ -249,11 +249,36 @@
     cursor: pointer;
 }
 
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;  /* Space between icon and text */
+}
+
+.nav-item img {
+    width: 24px;  /* Or whatever size matches your other icons */
+    height: 24px;
+    object-fit: contain;  /* Maintains aspect ratio */
+}
+
+.nav-item span {
+    line-height: 24px;  /* Matches icon height */
+}
+
 .nav-link {
-    display: inline-flex; /* Ensures text and icon align horizontally */
-    align-items: center; /* Vertically aligns the text and icon */
-    text-decoration: none;
-    color: inherit;
+    display: flex;
+    align-items: center;  /* Vertically centers items */
+    gap: 12px;  /* Consistent spacing between icon and text */
+}
+
+.nav-icon {
+    width: 24px;  /* Consistent icon size */
+    height: 24px;
+    object-fit: contain;
+}
+
+.nav-link span {
+    line-height: 24px;  /* Matches icon height */
 }
 
 .nav-icon {
@@ -345,6 +370,15 @@
 
 .logo:hover {
     transform: scale(1.05);
+}
+
+.upgrade-btn {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+    border: none;
+    padding: 10% ;
+    border-radius: 8px;
+    margin-left: 10% !important;
 }
 
 /* Dark mode styles */

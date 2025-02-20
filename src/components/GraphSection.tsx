@@ -80,7 +80,7 @@ const GraphSection: React.FC = () => {
     };
 
     return (
-        <div className="graph-section">
+        <div className="graph-section" id="revenue-section">
             <header className="graph-header">
                 <h2>Revenue and Earnings Overview</h2>
             </header>

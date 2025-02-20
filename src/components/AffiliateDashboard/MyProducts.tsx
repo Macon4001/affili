@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ProductCard from "../components/AffiliateMarketplace/ProductCard";
-import "../styles/ProductMarketplace.css";
+import ProductCard from "../AffiliateMarketplace/ProductCard";
+import "../../styles/AffiliateDashboard_styles/MyProducts.css";
+import mockProducts from "../../data/fakeproductdata";
 
-// Define Product type (ensure the id is a number)
+// Define Product type
 interface Product {
     id: string;
     name: string;
@@ -10,21 +11,15 @@ interface Product {
     price: string;
     commission: string;
     image: string;
+    imageUrl: string;
 }
 
 // Define props for ProductMarketplace
-interface ProductMarketplaceProps {
+interface MyProductsProps {
     onGenerateLink: (productId: string) => void;  // Expect productId as number
 }
 
-// Mock products data
-const mockProducts: Product[] = [
-    { id: "1", name: "Wireless Earbuds", description: "High-quality sound", price: "$50", commission: "10%",image: "/Airbuds.jpg" },
-    { id: "2", name: "Smart Watch", description: "Track fitness", price: "$100", commission: "15%", image: "/smartwatch.jpg" },
-    { id: "3", name: "Gaming Mouse", description: "Precision gaming", price: "$75", commission: "12%", image: "/mouse.jpg" },
-];
-
-const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ onGenerateLink }) => {
+const MyProducts: React.FC<MyProductsProps> = ({ onGenerateLink }) => {
     const [products, setProducts] = useState<Product[]>([]);
 
     // Simulate API call to fetch products
@@ -47,4 +42,4 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ onGenerateLink 
     );
 };
 
-export default ProductMarketplace;
+export default MyProducts;

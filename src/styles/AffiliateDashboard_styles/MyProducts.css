@@ -33,6 +33,21 @@
     justify-items: center;
 }
 
+.dark .product-info p, 
+.dark .product-description, 
+.dark .product-details p {
+    color: #ffffff !important;
+}
+
+.dark p {
+    color: #ffffff !important;
+}
+
+.dark .product-marketplace {
+    background: #121212; /* Darker background for better contrast */
+}
+
+
 /* Dark mode styles */
 .dark .product-marketplace {
     background: #1a1a1a;

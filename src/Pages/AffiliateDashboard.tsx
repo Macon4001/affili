@@ -6,7 +6,7 @@ import PerformanceTable from "../components/AffiliateDashboard/PerformanceTable"
 import PaymentHistory from "../components/AffiliateDashboard/PaymentHistory";
 import ResourceCenter from "../components/AffiliateDashboard/ResourceCenter";
 import UserGoals from "../components/AffiliateDashboard/UserGoals";
-import ProductMarketplace from "./ProductMarketplace";
+import ProductMarketplace from "../components/AffiliateDashboard/MyProducts";
 import ActiveLinks from "../components/AffiliateMarketplace/ActiveLinks";
 import { useTheme } from '../context/ThemeContext';
 

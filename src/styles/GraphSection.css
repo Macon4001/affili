@@ -333,6 +333,17 @@ background-clip: text;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Ensure axis labels are white in dark mode */
+.dark .line-chart text {
+    fill: #ffffff !important;
+}
+
+/* Ensure axis lines are visible in dark mode */
+.dark .line-chart line {
+    stroke: #ffffff !important;
+}
+
+
 /* Tooltip in dark mode */
 .dark .line-tooltip {
     background: #333333;
