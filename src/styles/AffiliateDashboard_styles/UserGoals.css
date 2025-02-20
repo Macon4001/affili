@@ -13,7 +13,7 @@
     text-align: left; /* Align the header text to the left */
     color: #1a1a2e;
     background: linear-gradient(to right, #6211cb, #2575fc, #50ccff); /* Gradient text */
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   

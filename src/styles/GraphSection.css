@@ -23,6 +23,7 @@
   color: #1a1a2e;
   background: linear-gradient(to right, #6211cb, #2575fc,#50ccff); /* Gradient text */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -135,9 +136,13 @@
 }
 
 .widget-value {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #1a98ff;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  background: linear-gradient(to right, #50ccff, #1a98ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Animations */
@@ -248,7 +253,7 @@
 font-weight: bold;
 color: #1a1a2e;
 background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient text */
--webkit-background-clip: text;
+background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 
@@ -276,21 +281,12 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
   margin-bottom: 10px;
 }
 
-.widget-value {
-  font-size: 1.8rem;
-  color: #333;
-  font-weight: 700;
-  background: linear-gradient(to right, #50ccff, #1a98ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .date-range{
     font-size: 1.5rem;
     color: #333;
     font-weight: 700;
     background: linear-gradient(to right, #50ccff, #1a98ff);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -315,15 +311,6 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
     transform: translateY(0);
   }
 }
-/* Ensure axis labels are white in dark mode */
-.dark .line-chart text {
-  fill: #ffffff !important;
-}
-
-/* Ensure axis lines are visible in dark mode */
-.dark .line-chart line {
-  stroke: #ffffff !important;
-}
 
 /* Dark mode styles */
 .dark .graph-section {
@@ -336,6 +323,7 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
     color: #ffffff;
     background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -377,12 +365,14 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
 .dark .widget-value {
     background: linear-gradient(to right, #50ccff, #1a98ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .dark .date-range {
     background: linear-gradient(to right, #50ccff, #1a98ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -408,33 +398,4 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
 /* Interactive elements in dark mode */
 .dark .interactive-dot:hover {
     filter: brightness(1.2);
-}
-
-/* Graph axis colors in dark mode */
-.dark .line-chart-container {
-    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dark .line-chart {
-    color: #ffffff;
-}
-
-/* Specific axis styling for dark mode */
-.dark .line-chart .recharts-cartesian-axis-line,
-.dark .line-chart .recharts-cartesian-axis-tick-line {
-    stroke: #ffffff;
-}
-
-.dark .line-chart .recharts-cartesian-axis-tick-value {
-    fill: #ffffff;
-}
-
-.dark .line-chart .recharts-text {
-    fill: #ffffff;
-}
-
-.dark .line-chart .recharts-cartesian-grid-horizontal line,
-.dark .line-chart .recharts-cartesian-grid-vertical line {
-    stroke: #333333;
 }
