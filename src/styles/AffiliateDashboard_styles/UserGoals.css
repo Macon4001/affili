@@ -19,11 +19,30 @@
   
   .user-goals p {
     font-size: 1rem;
+    text-align: left;
     margin: 10px 0;
-    color: #555;
+    color: #000000;
+  }
+
+  .dark .user-goals p {
+    font-size: 1rem;
+    text-align: left;
+    margin: 10px 0;
+    color: #ffffff;
   }
   
   .user-goals p span {
     font-weight: bold;
     color: #1a98ff;
   }
+
+  /* Dark mode styles */
+  .dark .user-goals {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .user-goals h3 {
+    color: #ffffff;
+  }
+  

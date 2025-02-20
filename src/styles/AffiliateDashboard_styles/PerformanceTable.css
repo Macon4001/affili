@@ -136,3 +136,60 @@
     background: linear-gradient(to right, #6211cb, #2575fc);
   }
   
+  /* Dark mode styles */
+  .dark .performance-section {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .performance-table {
+    background: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .performance-table thead {
+    background: #2a2a2a;
+  }
+
+  .dark .performance-table thead th {
+    color: #ffffff;
+  }
+
+  .dark .performance-table tbody tr {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+  }
+
+  .dark .performance-table tbody tr:nth-child(even) {
+    background-color: #2a2a2a;
+  }
+
+  .dark .performance-table tbody tr:hover {
+    background: #333333;
+  }
+
+  .dark .performance-table tbody td {
+    color: #ffffff;
+  }
+
+  /* Scrollbar for dark mode */
+  .dark .performance-table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .dark .performance-table-container::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+  }
+
+  .dark .performance-table-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  /* Product and Assigned Info in dark mode */
+  .dark .product-info span,
+  .dark .assigned-info span {
+    color: #ffffff;
+  }
+  

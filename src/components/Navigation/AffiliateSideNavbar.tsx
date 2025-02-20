@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "../../styles/Navigation_styles/SideNavbar.css";
+import "../../styles/Navigation_styles/AffiliateSideNavbar.css";
 import Notifications from "../Notifications";
+import { useTheme } from '../../context/ThemeContext';
 
 // Define types for user object
 interface User {
@@ -18,6 +19,8 @@ interface SidebarNavigationProps {
 const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [notificationsVisible, setNotificationsVisible] = useState<boolean>(false);
+  const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const toggleSidebar = () => {
     setSidebarCollapsed((prev) => !prev);
@@ -27,20 +30,46 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
     setNotificationsVisible((prev) => !prev);
   };
 
+  const toggleDropdown = () => {
+    setDropdownVisible((prev) => !prev);
+  };
+
+  const handleSignOut = () => {
+    // Clear authentication tokens or session data
+    localStorage.removeItem("authToken"); // Example: remove token from localStorage
+    // Redirect to login page
+    window.location.href = "/sign-in";
+  };
+
   return (
-      <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
+      <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""} ${isDarkMode ? 'dark' : ''}`}>
         {/* Sidebar Toggle */}
         <div className="sidebar-toggle" onClick={toggleSidebar}>
           {sidebarCollapsed ? ">" : "<"}
         </div>
 
+
         {/* Sidebar Icons */}
         <div className="sidebar-icons">
-          <img
-              src={`${process.env.PUBLIC_URL}/Cog.png`}
-              alt="Settings"
-              className="icon cog-icon"
+          <img 
+            src={isDarkMode ? "/Dark mode 2.png" : "/Light mode.png"}
+            alt="Theme Toggle" 
+            className="icon"
+            onClick={toggleDarkMode}
           />
+          <div className="dropdown-container">
+            <img
+                src="/cog.png"
+                alt="Settings"
+                className="icon"
+                onClick={toggleDropdown}
+            />
+            {dropdownVisible && (
+                <div className="dropdown-menu">
+                  <button onClick={handleSignOut}>Sign Out</button>
+                </div>
+            )}
+          </div>
           <div className="notification-bell" onClick={toggleNotifications}>
             <img
                 src={`${process.env.PUBLIC_URL}/Bell.png`}
@@ -57,6 +86,12 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
               <Notifications />
             </div>
         )}
+
+        {/* Logo */}
+            <div className="logo-container">
+              <img src={`${process.env.PUBLIC_URL}/2.png`} alt="Logo" className="logo" />
+            </div>
+
 
         {!sidebarCollapsed && (
             <>

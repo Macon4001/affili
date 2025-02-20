@@ -82,3 +82,54 @@
 .active-links-table-container::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
+/* Dark mode styles */
+.dark .active-links-section {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark .active-links-table {
+    background: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark .active-links-table thead {
+    background: #2a2a2a;
+}
+
+.dark .active-links-table thead th {
+    color: #ffffff;
+}
+
+.dark .active-links-table tbody tr {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.dark .active-links-table tbody tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.dark .active-links-table tbody tr:hover {
+    background: #333333;
+}
+
+.dark .active-links-table tbody td {
+    color: #ffffff;
+}
+
+/* Scrollbar for dark mode */
+.dark .active-links-table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.dark .active-links-table-container::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+.dark .active-links-table-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}

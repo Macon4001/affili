@@ -13,3 +13,12 @@ html, body {
     flex: 1; /* Pushes the footer to the bottom */
   }
   
+  /* This should override any existing dark mode paragraph styles */
+  .dark p,
+  .dark-mode p,
+  .dark .product-info p,
+  .dark .content p,
+  .dark .container p {
+    color: #ffffff !important;
+  }
+  
