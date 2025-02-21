@@ -62,6 +62,12 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
 
         {/* Sidebar Icons */}
         <div className="sidebar-icons">
+            {/* Logo */}
+              <div className="logo-container">
+              <img src={`${process.env.PUBLIC_URL}/2.png`} alt="Logo" className="logo" />
+            </div>
+
+
           <img 
             src={isDarkMode ? "/Dark mode 2.png" : "/Light mode.png"}
             alt="Theme Toggle" 
@@ -89,6 +95,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
             />
             <span className="notification-dot"></span>
           </div>
+
         </div>
 
         {/* Notifications Dropdown */}
@@ -98,10 +105,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
             </div>
         )}
 
-        {/* Logo */}
-            <div className="logo-container">
-              <img src={`${process.env.PUBLIC_URL}/2.png`} alt="Logo" className="logo" />
-            </div>
 
 
         {!sidebarCollapsed && (
