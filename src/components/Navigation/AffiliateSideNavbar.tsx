@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../styles/Navigation_styles/AffiliateSideNavbar.css";
 import Notifications from "../Notifications";
 import { useTheme } from '../../context/ThemeContext';
@@ -21,6 +21,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
   const [notificationsVisible, setNotificationsVisible] = useState<boolean>(false);
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
   const { isDarkMode, toggleDarkMode } = useTheme();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleSidebar = () => {
     setSidebarCollapsed((prev) => !prev);
@@ -52,6 +53,19 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setDropdownVisible(false);
+        }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
       <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""} ${isDarkMode ? 'dark' : ''}`}>
         {/* Sidebar Toggle */}
@@ -74,7 +88,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
             className="icon"
             onClick={toggleDarkMode}
           />
-          <div className="dropdown-container">
+          <div className="dropdown-container" ref={dropdownRef}>
             <img
                 src="/cog.png"
                 alt="Settings"

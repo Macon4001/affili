@@ -6,25 +6,33 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 3%;
   animation: fade-in 0.8s ease;
-  height: 70%;
+  height: auto; /* Allow it to grow */
+  min-height: 700px; /* Make sure it's long enough */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Header */
 .graph-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Align items to the left */
   align-items: center;
   margin-bottom: 30px;
+  width: 100%; /* Ensures it spans full width */
 }
 
 .graph-header h2 {
-  font-size: 2rem; /* Larger and more prominent header */
+  font-size: 2rem;
   font-weight: bold;
   color: #1a1a2e;
-  background: linear-gradient(to right, #6211cb, #2575fc,#50ccff); /* Gradient text */
+  background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0; /* Ensure no unnecessary margins */
+  text-align: left; /* Explicitly align text */
 }
 
 .graph-controls {
@@ -105,8 +113,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 30px;
+  margin-top: 40px; /* Push it down so it's properly spaced */
   gap: 20px;
+  width: 100%;
 }
 
 .date-range {
