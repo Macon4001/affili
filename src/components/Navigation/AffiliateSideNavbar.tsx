@@ -12,11 +12,12 @@ interface User {
 
 // Define the types for the component props
 interface SidebarNavigationProps {
-  activeItem: string;
+  activeSection: string;
+  onSectionChange: (section: string) => void;
   user: User;
 }
 
-const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user }) => {
+const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeSection, onSectionChange, user }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [notificationsVisible, setNotificationsVisible] = useState<boolean>(false);
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
@@ -42,7 +43,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
     window.location.href = "/sign-in";
   };
 
-  const handlePerformanceClick = (e: React.MouseEvent) => {
+  const handleOverviewClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById('overview-section');
+    if (section) {
+      section.scrollIntoView({
+         behavior: 'smooth', 
+         block: 'start' 
+        });
+    }
+  };
+
+    const handlePerformanceClick = (e: React.MouseEvent) => {
     e.preventDefault();
     const section = document.getElementById('revenue-section');
     if (section) {
@@ -59,6 +71,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
             setDropdownVisible(false);
         }
     };
+
+
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -139,26 +153,31 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({ activeItem, user 
               {/* Navigation Links */}
               <nav className="sidebar-nav">
                 <ul>
-                  <li className={activeItem === "overview" ? "active" : ""}>
-                    <a href="#overview">Overview</a>
+                  <li className={activeSection === "overview" ? "active" : ""}>
+                    <a href="#overview" onClick={(e) => { e.preventDefault(); handleOverviewClick(e); onSectionChange("overview"); }}>
+                      Overview
+                      </a>
                   </li>
-                  <li className={activeItem === "performance" ? "active" : ""}>
-                    <a href="#performance" onClick={handlePerformanceClick}>Performance</a>
+                  <li className={activeSection === "performance" ? "active" : ""}>
+                    <a href="#performance" onClick={(e) => { e.preventDefault(); handlePerformanceClick(e); onSectionChange("performance"); }}>
+                      Performance
+                    </a>
                   </li>
-                  <li className={activeItem === "offers" ? "active" : ""}>
-                    <a href="#offers">Offers</a>
+                  <li className={activeSection === "offers" ? "active" : ""}>
+                    <a href="#offers" onClick={() => onSectionChange("offers")}>Offers</a>
                   </li>
-                  <li className={activeItem === "earnings" ? "active" : ""}>
-                    <a href="#earnings">Earnings</a>
+                  <li className={activeSection === "earnings" ? "active" : ""}>
+                    <a href="#earnings" onClick={() => onSectionChange("earnings")}>Earnings</a>
                   </li>
-                  <li className={activeItem === "marketplace" ? "active" : ""}>
-                    <a href="#product-marketplace" className="nav-link" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-                        <span>Marketplace</span>
-                        <img src="/shop.png" alt="Shopping Cart" className="nav-icon" style={{ width: '20px', height: '20px' }} />
+                  <li className={activeSection === "marketplace" ? "active" : ""}>
+                    <a href="#product-marketplace" onClick={() => onSectionChange("marketplace")} className="nav-link" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+                      <span>Marketplace</span>
+                      <img src="/shop.png" alt="Shopping Cart" className="nav-icon" style={{ width: '20px', height: '20px' }} />
                     </a>
                   </li>
                 </ul>
               </nav>
+
 
               {/* Footer */}
               <div className="sidebar-footer">

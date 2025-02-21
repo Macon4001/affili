@@ -159,9 +159,23 @@
 }
 
 .sidebar-nav .active a {
-    color: #edfaff;
-    font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-family: 'Geist Mono', monospace;
+    background: transparent;
+    background: linear-gradient(to right, #2575fc, #1a98ff, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 0px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar-nav .active a:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    -webkit-text-fill-color: white;
+    color: white;
+    padding-left: 10px;
 }
 
 /* Sidebar Footer */
@@ -348,26 +362,6 @@
     cursor: pointer;
 }
 
-/* Overview specific styling */
-.sidebar-nav li:first-child a {
-    font-size: 1.6rem;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    font-family: 'Geist Mono', monospace;
-    background: transparent;
-    background: linear-gradient(to right, #2575fc, #1a98ff, #50ccff);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-left: 0px;
-    transition: padding-left 0.3s ease;
-}
-
-.sidebar-nav li:first-child a:hover {
-    background: linear-gradient(45deg, #1a98ff, #50ccff);
-    -webkit-text-fill-color: white;
-    color: white;
-    padding-left: 10px;
-}
 
 .upgrade-btn {
     background: linear-gradient(45deg, #1a98ff, #50ccff);

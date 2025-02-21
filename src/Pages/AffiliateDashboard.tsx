@@ -6,7 +6,8 @@ import PerformanceTable from "../components/AffiliateDashboard/PerformanceTable"
 import PaymentHistory from "../components/AffiliateDashboard/PaymentHistory";
 import ResourceCenter from "../components/AffiliateDashboard/ResourceCenter";
 import UserGoals from "../components/AffiliateDashboard/UserGoals";
-import ProductMarketplace from "../components/AffiliateDashboard/MyProducts";
+import ProductMarketplace from "./ProductMarketplace";
+import MyProducts from "../components/AffiliateDashboard/MyProducts";
 import ActiveLinks from "../components/AffiliateMarketplace/ActiveLinks";
 import { useTheme } from '../context/ThemeContext';
 
@@ -28,6 +29,17 @@ interface ActiveLink {
   revenue: number;
 }
 
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  commission: number;
+  price: number;
+  category: string;
+  image: string;
+  conversionRate: string;
+}
+
 interface User {
   name: string;
   email: string;
@@ -42,6 +54,7 @@ interface User {
 const AffiliateDashboard: React.FC = () => {
   const { isDarkMode } = useTheme();
   const user: User = mockUserData;
+  const [activeSection, setActiveSection] = useState<string>('overview'); // Track active section
 
   // Mock offers data
   const offers: Offer[] = [
@@ -52,6 +65,7 @@ const AffiliateDashboard: React.FC = () => {
 
   const [currentOfferIndex, setCurrentOfferIndex] = useState<number>(0);
   const [activeLinks, setActiveLinks] = useState<ActiveLink[]>([]);
+  const [myProducts, setMyProducts] = useState<Product[]>([]); // Store user-added products
 
   // Automatically rotate offers every 5 seconds
   useEffect(() => {
@@ -62,6 +76,12 @@ const AffiliateDashboard: React.FC = () => {
     return () => clearInterval(interval);
   }, [offers.length]);
 
+  // Function to add products to "My Products"
+  const addToMyProducts = (product: Product) => {
+    setMyProducts((prevProducts) => [...prevProducts, product]);
+  };
+
+  // Function to generate a tracking link
   const handleGenerateLink = (productId: string) => {
     const newLink: ActiveLink = {
       id: activeLinks.length + 1,
@@ -77,102 +97,121 @@ const AffiliateDashboard: React.FC = () => {
 
   return (
     <div className={`dashboard-layout ${isDarkMode ? 'dark' : ''}`}>
-      {/* Sidebar Navigation */}
-      <SidebarNavigation activeItem="overview" user={user} />
-
-      {/* Main Content */}
-      <main className="main-content">
-        {/* User Greeting */}
-        <section className="user-greeting">
-          <h1>Welcome back, {user.name}</h1>
-          <p>Here's your dashboard overview</p>
-        </section>
-
-        {/* Container for Total Earnings and Offers */}
-        <div className="earnings-offers-container">
-          {/* Total Earnings and Offers */}
-          <div className="earnings-and-offers">
-            {/* Total Earnings */}
-            <section className="total-earnings-section">
-              <div className="total-earnings-highlight">
-                <h3>Total Earnings</h3>
-                <p>{user.totalEarnings}</p>
-              </div>
+      <SidebarNavigation 
+        activeSection={activeSection}
+        onSectionChange={setActiveSection} // Update section on click
+        user={user}
+      />
+      <main className="main-content" >
+        {activeSection === 'marketplace' ? (
+          <ProductMarketplace addToMyProducts={addToMyProducts} />
+        ) : (
+          <>
+            <section className="user-greeting" id="overview-section">
+              <h1>Welcome back, {user.name}</h1>
+              <p>Here's your dashboard overview</p>
             </section>
 
-            {/* Offers Slideshow */}
-            <section className="offers-slideshow">
-              <div className="offer-card"> 
-                <img
-                    src={`/Offers${currentOfferIndex + 1}.jpg`}
-                    alt="Offer"
-                    className="offer-image"
-                />
-                <div className="offer-content">
-                  <h3>{offers[currentOfferIndex].title}</h3>
-                  <p>{offers[currentOfferIndex].description}</p>
+            {/* Container for Total Earnings and Offers */}
+            <div className="earnings-offers-container" >
+              <div className="earnings-and-offers">
+                <section className="total-earnings-section">
+                  <div className="total-earnings-highlight">
+                    <h3>Total Earnings</h3>
+                    <p>{user.totalEarnings}</p>
+                  </div>
+                </section>
+
+                {/* Offers Slideshow */}
+                <section className="offers-slideshow">
+                  <div className="offer-card"> 
+                    <img
+                        src={`/Offers${currentOfferIndex + 1}.jpg`}
+                        alt="Offer"
+                        className="offer-image"
+                    />
+                    <div className="offer-content">
+                      <h3>{offers[currentOfferIndex].title}</h3>
+                      <p>{offers[currentOfferIndex].description}</p>
+                    </div>
+                  </div>
+
+                  {/* Pagination Dots */}
+                  <div className="slideshow-pagination">
+                    {offers.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`pagination-dot ${currentOfferIndex === index ? "active" : ""}`}
+                            onClick={() => setCurrentOfferIndex(index)}
+                        ></span>
+                    ))}
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            {/* Dashboard Highlights/Metrics Section */}
+            <div className="section-container">
+              <h2 className="section-title">Metrics</h2>
+              <div className="dashboard-highlights">
+                <div className="highlight-card">
+                  <h3 className="gradient-text">Conversions</h3>
+                  <p className="gradient-text">{user.totalConversions}</p>
+                </div>
+                <div className="highlight-card">
+                  <h3 className="gradient-text">Total Clicks</h3>
+                  <p className="gradient-text">{user.totalClicks}</p>
+                </div>
+                <div className="highlight-card">
+                  <h3 className="gradient-text">Pending Payouts</h3>
+                  <p className="gradient-text">{user.pendingPayouts}</p>
                 </div>
               </div>
+            </div>
 
-              {/* Pagination Dots */}
-              <div className="slideshow-pagination">
-                {offers.map((_, index) => (
-                    <span
-                        key={index}
-                        className={`pagination-dot ${
-                            currentOfferIndex === index ? "active" : ""
-                        }`}
-                        onClick={() => setCurrentOfferIndex(index)}
-                    ></span>
-                ))}
-              </div>
+            {/* My Products */}
+            <section>
+              <MyProducts onGenerateLink={handleGenerateLink} />
             </section>
-          </div>
-        </div>
 
-        {/* Dashboard Highlights/Metrics Section */}
-        <div className="section-container">
-          <h2 className="section-title">Metrics</h2>
-          <div className="dashboard-highlights">
-            <div className="highlight-card">
-              <h3 className="gradient-text">Conversions</h3>
-              <p className="gradient-text">{user.totalConversions}</p>
-            </div>
-            <div className="highlight-card">
-              <h3 className="gradient-text">Total Clicks</h3>
-              <p className="gradient-text">{user.totalClicks}</p>
-            </div>
-            <div className="highlight-card">
-              <h3 className="gradient-text">Pending Payouts</h3>
-              <p className="gradient-text">{user.pendingPayouts}</p>
-            </div>
-          </div>
-        </div>
+            {/* Active Links */}
+            <section>
+              <ActiveLinks links={activeLinks} />
+            </section>
 
-        {/* Product Marketplace */}
+            {/* Graph Section */}
+            <GraphSection />
+
+            {/* Performance Table */}
+            <PerformanceTable />
+
+            {/* Payment History */}
+            <PaymentHistory />
+
+            {/* User Goals */}
+            <UserGoals />
+
+            {/* Resource Center */}
+            <ResourceCenter />
+          </>
+        )}
         <section>
-          <ProductMarketplace onGenerateLink={handleGenerateLink} />
+          <h2>My Products</h2>
+          <div className="products-list">
+            {myProducts.length > 0 ? (
+              myProducts.map((product) => (
+                <div key={product.id} className="product-card">
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <button onClick={() => handleGenerateLink(product.id)}>Generate Link</button>
+                </div>
+              ))
+            ) : (
+              <p>No products added yet.</p>
+            )}
+          </div>
         </section>
 
-        {/* Active Links */}
-        <section>
-          <ActiveLinks links={activeLinks} />
-        </section>
-
-        {/* Graph Section */}
-        <GraphSection />
-
-        {/* Performance Table */}
-        <PerformanceTable />
-
-        {/* Payment History */}
-        <PaymentHistory />
-
-        {/* User Goals */}
-        <UserGoals />
-
-        {/* Resource Center */}
-        <ResourceCenter />
       </main>
     </div>
   );
