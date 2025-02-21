@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AffiliateDashboard.css";
-import SidebarNavigation from "../components/Navigation/SideNavbar";
+import SidebarNavigation from "../components/Navigation/AffiliateSideNavbar";
 import GraphSection from "../components/GraphSection";
 import PerformanceTable from "../components/AffiliateDashboard/PerformanceTable";
 import PaymentHistory from "../components/AffiliateDashboard/PaymentHistory";
 import ResourceCenter from "../components/AffiliateDashboard/ResourceCenter";
 import UserGoals from "../components/AffiliateDashboard/UserGoals";
-import ProductMarketplace from "./ProductMarketplace";
+import ProductMarketplace from "../components/AffiliateDashboard/MyProducts";
 import ActiveLinks from "../components/AffiliateMarketplace/ActiveLinks";
+import { useTheme } from '../context/ThemeContext';
 
 // Import mock user data
 import mockUserData from "../data/mockuserdata";
@@ -39,6 +40,7 @@ interface User {
 }
 
 const AffiliateDashboard: React.FC = () => {
+  const { isDarkMode } = useTheme();
   const user: User = mockUserData;
 
   // Mock offers data
@@ -74,18 +76,20 @@ const AffiliateDashboard: React.FC = () => {
   };
 
   return (
-      <div className="dashboard-layout">
-        {/* Sidebar Navigation */}
-        <SidebarNavigation activeItem="overview" user={user} />
+    <div className={`dashboard-layout ${isDarkMode ? 'dark' : ''}`}>
+      {/* Sidebar Navigation */}
+      <SidebarNavigation activeItem="overview" user={user} />
 
-        {/* Main Content */}
-        <main className="main-content">
-          {/* User Greeting */}
-          <section className="user-greeting">
-            <h1>Welcome back, {user.name}</h1>
-            <p>Here's your dashboard overview</p>
-          </section>
+      {/* Main Content */}
+      <main className="main-content">
+        {/* User Greeting */}
+        <section className="user-greeting">
+          <h1>Welcome back, {user.name}</h1>
+          <p>Here's your dashboard overview</p>
+        </section>
 
+        {/* Container for Total Earnings and Offers */}
+        <div className="earnings-offers-container">
           {/* Total Earnings and Offers */}
           <div className="earnings-and-offers">
             {/* Total Earnings */}
@@ -98,7 +102,7 @@ const AffiliateDashboard: React.FC = () => {
 
             {/* Offers Slideshow */}
             <section className="offers-slideshow">
-              <div className="offer-card">
+              <div className="offer-card"> 
                 <img
                     src={`/Offers${currentOfferIndex + 1}.jpg`}
                     alt="Offer"
@@ -124,9 +128,12 @@ const AffiliateDashboard: React.FC = () => {
               </div>
             </section>
           </div>
+        </div>
 
-          {/* Highlights */}
-          <section className="dashboard-highlights">
+        {/* Dashboard Highlights/Metrics Section */}
+        <div className="section-container">
+          <h2 className="section-title">Metrics</h2>
+          <div className="dashboard-highlights">
             <div className="highlight-card">
               <h3 className="gradient-text">Conversions</h3>
               <p className="gradient-text">{user.totalConversions}</p>
@@ -139,34 +146,35 @@ const AffiliateDashboard: React.FC = () => {
               <h3 className="gradient-text">Pending Payouts</h3>
               <p className="gradient-text">{user.pendingPayouts}</p>
             </div>
-          </section>
+          </div>
+        </div>
 
-          {/* Product Marketplace */}
-          <section>
-            <ProductMarketplace onGenerateLink={handleGenerateLink} />
-          </section>
+        {/* Product Marketplace */}
+        <section>
+          <ProductMarketplace onGenerateLink={handleGenerateLink} />
+        </section>
 
-          {/* Active Links */}
-          <section>
-            <ActiveLinks links={activeLinks} />
-          </section>
+        {/* Active Links */}
+        <section>
+          <ActiveLinks links={activeLinks} />
+        </section>
 
-          {/* Graph Section */}
-          <GraphSection />
+        {/* Graph Section */}
+        <GraphSection />
 
-          {/* Performance Table */}
-          <PerformanceTable />
+        {/* Performance Table */}
+        <PerformanceTable />
 
-          {/* Payment History */}
-          <PaymentHistory />
+        {/* Payment History */}
+        <PaymentHistory />
 
-          {/* User Goals */}
-          <UserGoals />
+        {/* User Goals */}
+        <UserGoals />
 
-          {/* Resource Center */}
-          <ResourceCenter />
-        </main>
-      </div>
+        {/* Resource Center */}
+        <ResourceCenter />
+      </main>
+    </div>
   );
 };
 

@@ -1,0 +1,447 @@
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    border-radius: 15px;
+    margin: 1rem;
+    height: calc(100vh - 2rem);
+    font-family: 'Geist', sans-serif;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-header,
+.sidebar.collapsed .sidebar-nav,
+.sidebar.collapsed .sidebar-footer,
+.sidebar.collapsed .sidebar-icons,
+.sidebar.collapsed .logo-container {
+    display: none; /* Hide content in collapsed state */
+}
+
+/* Sidebar Toggle */
+.sidebar-toggle {
+    font-size: 1.2rem;
+    color: #fff;
+    background: #1a98ff;
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Adjust position for toggle button */
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Toggle (default for collapsed state) */
+.sidebar-toggle {
+    margin-top: 14px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #1a98ff;
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Default position for collapsed state */
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease, background 0.4s ease; /* Smooth transition */
+}
+
+/* Adjust styles when sidebar is open */
+.sidebar:not(.collapsed) .sidebar-toggle {
+    right: 250px; /* Adjust the position when open */
+    background: #2575fc; /* Optional: different background for open state */
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between; /* Space between user profile and icons */
+    align-items: center;
+    padding: 0px; /* Balanced padding for better spacing */
+    position: relative; /* For absolute positioning of dropdown or icons if needed */
+    border-bottom: 1px solid #e0e0e0; /* Divider for better visual structure */
+}
+
+/* Sidebar User Profile */
+.user-profile {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.user-profile h3 {
+    font-size: 1.4rem;
+    margin: 10px 0 5px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+
+.user-profile p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    font-family: 'Geist Mono', monospace;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.sidebar-nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 600;
+    padding-left: 5px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+    transform: translateX(5px);
+    padding-left: 10px;
+}
+
+.sidebar-nav .active a {
+    color: #edfaff;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Sidebar Footer */
+.sidebar-footer .upgrade-btn {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-family: 'Geist', sans-serif;
+}
+
+.sidebar-footer .upgrade-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Sidebar Icons */
+.sidebar-icons {
+    display: flex;
+    gap: 20px; /* Increased gap for better separation between icons */
+    align-items: center;
+    margin-left: auto; /* Push icons to the right */
+}
+
+.icon {
+    width: 28px; /* Slightly larger icon for visibility */
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease; /* Smooth animation */
+}
+
+.icon:hover {
+    transform: scale(1.15); /* More noticeable hover effect */
+    filter: brightness(1.3); /* Subtle glow on hover */
+}
+.icon-2 {
+    width: 35px; /* Slightly larger icon for visibility */
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease; /* Smooth animation */
+}
+
+.icon-2:hover {
+    transform: scale(1.15); /* More noticeable hover effect */
+    filter: brightness(1.3); /* Subtle glow on hover */
+}
+/* Notification Bell with Red Dot */
+.notification-bell {
+    position: relative; /* For positioning the red dot */
+}
+
+.notification-dot {
+    position: absolute;
+    top: -4px; /* Fine-tuned position for better alignment */
+    right: -4px;
+    width: 12px; /* Slightly larger dot for emphasis */
+    height: 12px;
+    background: linear-gradient(135deg, #ff6f61, #ff3b30); /* Gradient for a vibrant red */
+    border-radius: 50%; /* Circular shape */
+    box-shadow: 0 0 6px rgba(255, 59, 48, 0.5); /* Enhanced glow effect */
+}
+
+/* Notifications Dropdown */
+.notifications-dropdown {
+    position: absolute;
+    top: 60px; /* Adjusted to align neatly below the bell icon */
+    right: 10px; /* Aligned with bell icon */
+    background: #ffffff; /* Clean white background */
+    width: 280px; /* Slightly wider for readability */
+    border-radius: 12px; /* Smoother corner radius */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* Softer shadow for a modern look */
+    padding: 15px;
+    z-index: 100;
+    animation: fade-in 0.2s ease-in-out; /* Smooth dropdown animation */
+}
+
+.notifications-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px; /* Limit height for long lists */
+    overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.notifications-dropdown li {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+    color: #333;
+}
+
+.notifications-dropdown li:hover {
+    background: #f7fbff;
+    cursor: pointer;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;  /* Space between icon and text */
+}
+
+.nav-item img {
+    width: 24px;  /* Or whatever size matches your other icons */
+    height: 24px;
+    object-fit: contain;  /* Maintains aspect ratio */
+}
+
+.nav-item span {
+    line-height: 24px;  /* Matches icon height */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;  /* Vertically centers items */
+    gap: 12px;  /* Consistent spacing between icon and text */
+}
+
+.nav-icon {
+    width: 24px;  /* Consistent icon size */
+    height: 24px;
+    object-fit: contain;
+}
+
+.nav-link span {
+    line-height: 24px;  /* Matches icon height */
+}
+
+.nav-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px; /* Space between text and icon */
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    font-family: 'Geist Mono', monospace;
+}
+
+.dropdown-menu button:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+}
+
+/* Overview specific styling */
+.sidebar-nav li:first-child a {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-family: 'Geist Mono', monospace;
+    background: transparent;
+    background: linear-gradient(to right, #2575fc, #1a98ff, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 0px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar-nav li:first-child a:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    -webkit-text-fill-color: white;
+    color: white;
+    padding-left: 10px;
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0 0 0px;
+    position: relative;
+}
+
+.logo {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.upgrade-btn {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+    border: none;
+    padding: 10% ;
+    border-radius: 8px;
+    margin-left: 10% !important;
+}
+
+/* Dark mode styles */
+.sidebar.dark {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.sidebar.dark .sidebar-nav a {
+    color: #ffffff;
+}
+
+.sidebar.dark .sidebar-nav a:hover {
+    filter: brightness(1) invert(1);
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+
+}
+
+.sidebar.dark .user-profile h3 {
+    color: #ffffff;
+}
+
+.sidebar.dark .user-profile p {
+    color: #a0a0a0;
+}
+
+.sidebar.dark .dropdown-menu {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.sidebar.dark .dropdown-menu button {
+    color: #ffffff;
+}
+
+.sidebar.dark .dropdown-menu button:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: white;
+}
+
+/* Preserve gradient effects in dark mode */
+.sidebar.dark .sidebar-nav li:first-child a {
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar.dark .sidebar-nav li:first-child a:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    -webkit-text-fill-color: white;
+    color: white;
+}
+
+/* Dark mode icon adjustments */
+.sidebar.dark .icon {
+    filter: brightness(0.8);
+}
+
+.sidebar.dark .icon:hover {
+    filter: brightness(1) ;
+}
+
+.sidebar-toggle.dark {
+    filter: brightness(1) ;
+}

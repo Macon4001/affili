@@ -13,6 +13,9 @@ const GraphSection: React.FC = () => {
     const [maxRevenue, setMaxRevenue] = useState<number>(0);
     const [maxEarnings, setMaxEarnings] = useState<number>(0);
 
+    // State for tracking closest data point
+    const [closestIndex, setClosestIndex] = useState<number | null>(null);
+
     useEffect(() => {
         const maxRev = Math.max(...data.map((point: DataPoint) => point.revenue));
         const maxEarn = Math.max(...data.map((point: DataPoint) => point.earnings));
@@ -47,13 +50,47 @@ const GraphSection: React.FC = () => {
         return '';
     };
 
+    // Handler for mouse movement over the chart
+    const handleMouseMove = (event: React.MouseEvent) => {
+        // Get the bounding rectangle of the chart container
+        const bounds = event.currentTarget.getBoundingClientRect();
+        // Calculate mouse X position relative to the chart (not the page)
+        const mouseXPosition = event.clientX - bounds.left;
+
+        // Initialize variables for finding closest point
+        let minDist = Infinity;
+        let closest = null;
+
+        // Loop through each data point to find the closest one to mouse position
+        data.forEach((_, index) => {
+            // Get the x-coordinate of current data point
+            const pointX = xScale(index);
+            // Calculate distance between mouse and this point
+            const dist = Math.abs(mouseXPosition - pointX);
+
+            // If this point is closer than previous closest, update it
+            if (dist < minDist) {
+                minDist = dist;
+                closest = index;
+            }
+        });
+
+        // Update state with the index of closest point
+        setClosestIndex(closest);
+    };
+
     return (
-        <div className="graph-section">
+        <div className="graph-section" id="revenue-section">
             <header className="graph-header">
                 <h2>Revenue and Earnings Overview</h2>
             </header>
             <div className="line-chart-container">
-                <svg className="line-chart" viewBox={`0 0 ${width} ${height}`}>
+                <svg
+                    className="line-chart"
+                    viewBox={`0 0 ${width} ${height}`}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={() => setClosestIndex(null)} // Reset closest point when mouse leaves
+                >
                     {/* Axes */}
                     <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#ccc" />
                     <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#ccc" />
@@ -187,47 +224,31 @@ const GraphSection: React.FC = () => {
                     ))}
                 </svg>
 
-                {/* Hover Tooltip */}
-                {hoveredIndex !== null && (
+                {/* Tooltip that follows mouse position */}
+                {closestIndex !== null && (
                     <div
                         className="line-tooltip"
                         style={{
-                            left: `${100 + hoveredIndex * 150}px`,
-                            top: `${350 - (data[hoveredIndex].revenue / 2000) * 60 - 50}px`,
+                            left: `${xScale(closestIndex)}px`, // Position tooltip at closest point's x coordinate
+                            top: `${yScale(data[closestIndex].revenue)}px`, // Position at revenue value height
+                            transform: "translate(-50%, -120%)", // Center tooltip and offset upwards
                         }}
                     >
                         <div className="tooltip-section">
+                            {/* Left side of tooltip showing date and revenue */}
                             <div className="tooltip-left">
-                                <p style={{ fontWeight: 'bold', marginBottom: '5px' }}>{data[hoveredIndex].date}</p>
-                                <p style={{ color: '#fff', fontWeight: 'bold', margin: 0 }}>
-                                    +$
-                                    {data
-                                        .slice(0, hoveredIndex + 1)
-                                        .reduce((total, point) => total + point.revenue, 0)}
+                                <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+                                    {data[closestIndex].date}
+                                </p>
+                                <p style={{ color: "#fff", fontWeight: "bold", margin: 0 }}>
+                                    +${data[closestIndex].revenue}
                                 </p>
                             </div>
+                            {/* Right side of tooltip showing earnings */}
                             <div className="tooltip-right">
-                                <div
-                                    style={{
-                                        borderLeft: `2px solid #1a98ff`,
-                                        paddingLeft: '8px',
-                                        marginBottom: '5px',
-                                    }}
-                                >
-                                    <p style={{ color: '#1a98ff', fontWeight: 'bold', margin: 0 }}>
-                                        +${data[hoveredIndex].revenue}
-                                    </p>
-                                </div>
-                                <div
-                                    style={{
-                                        borderLeft: `2px solid #50ccff`,
-                                        paddingLeft: '8px',
-                                    }}
-                                >
-                                    <p style={{ color: '#50ccff', fontWeight: 'bold', margin: 0 }}>
-                                        +${data[hoveredIndex].earnings}
-                                    </p>
-                                </div>
+                                <p style={{ color: "#50ccff", fontWeight: "bold", margin: 0 }}>
+                                    +${data[closestIndex].earnings}
+                                </p>
                             </div>
                         </div>
                     </div>

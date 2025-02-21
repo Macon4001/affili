@@ -17,29 +17,71 @@
 
 /* Section Layout */
 .how-it-works {
-    padding: 2%;
-    background: #f5f5f5; /* Light gradient background */
-    text-align: center;
+    background: #f5f5f5;
 }
 
 .how-it-works-title {
-  margin-bottom: 50px;
-  font-size: 3rem;
-  color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: 'Geist', sans-serif;
-  transition: color 0.3s ease;
-}
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 3rem;
+    color: #1a98ff; /* Soft vibrant blue *//* Soft vibrant blue for the title */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Geist', sans-serif;
+    transition: color 0.3s ease;
+  }
 
 /* Grid Layout */
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 30%));
+    gap: 2.7rem;
+    max-width:100%;
+    margin: 0 auto;
+}
+
+.step-item {
+    position: relative;
     align-items: center;
-    justify-items: center; /* Center tiles */
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-10px);
+}
+
+.step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.step-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-overlay p {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
 }
 
 /* Step Tiles */
@@ -47,10 +89,9 @@
     position: relative;
     font-family: 'Geist', sans-serif;
     height: 400px;
-    width: 750px; 
+    width: 100%;  /* Take full width of grid column */
     padding: 10px;
-    margin: 20px;
-    max-width: 110%; /* Restrict max width for consistency */
+    margin: 0px 10px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,8 +102,6 @@
     text-align: center;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* On Hover */
@@ -104,7 +143,7 @@
   border: 1.5px solid #50ccff; /* Subtle border to complement the background */
   border-radius: 16px; /* More rounded for a modern touch */
   margin: 1rem;
-  max-width: 90%; /* Ensures it doesn't exceed the layout */
+  max-width: 100%; /* Ensures it doesn't exceed the layout */
   backdrop-filter: blur(8px); /* Maintain sleek blur */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add depth with subtle shadow */
@@ -164,9 +203,10 @@
 }
 /* Long Tile for Benefits Section */
 .benefits-tile {
+    grid-column: 1 / -1;  /* Ensure it spans all columns */
+    width: 100%;
     margin-top: 40px;
-    width: 103%;
-    grid-column: 1 / -1; /* Spans the entire width of the grid */
+    margin-left: 10px;
     background: linear-gradient(to right, #1a98ff, #50ccff); /* Gradient background */
     border-radius: 16px;
     color: #fff;
@@ -223,14 +263,14 @@
     max-width: 400px; /* Restrict maximum width */
     margin-left: auto; /* Push the image to the right */
     margin-top: -330px; /* Move the image upwards */
-    margin-right: 50px;
+    margin-right: -80px;
     position: relative; /* Necessary for using top */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Apple-like animation */
   }
   
   .HIW-benefits-image img {
-    width: 100%; /* Ensure the image fits within its container */
+    width: 80%; /* Ensure the image fits within its container */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation for scaling */
   }
   
@@ -333,11 +373,10 @@
 
   .steps-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 
   .step-tile {
-    height: 300px;
+    height: 300px;  /* Reduce height on mobile */
   }
 
   .step-title {

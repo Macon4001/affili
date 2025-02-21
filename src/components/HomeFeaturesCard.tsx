@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from './LazyImage';
 import '../styles/HomeFeaturesCard.css'; // Ensure the CSS file contains your updated styles
 
 // Define prop types for HomeFeaturesCard component
@@ -11,27 +12,25 @@ interface HomeFeaturesCardProps {
 }
 
 const HomeFeaturesCard: React.FC<HomeFeaturesCardProps> = ({
-                                                               title,
-                                                               subtitle,
-                                                               description,
-                                                               image,
-                                                               onClick,
-                                                           }) => {
+    title,
+    subtitle,
+    description,
+    image,
+    onClick
+}) => {
     return (
-        <div
-            className="feature-card"
-            style={{ backgroundImage: `url(${image})` }} // Dynamically set the background image
-            onClick={onClick}
-        >
-            {/* Content box */}
+        <div className="feature-card" onClick={onClick}>
+            <LazyImage
+                src={image}
+                alt={title}
+                className="feature-image"
+                cacheControl="public, max-age=31536000, immutable"
+            />
             <div className="feature-card-content">
                 <h3>{title}</h3>
                 <h4>{subtitle}</h4>
                 <p>{description}</p>
             </div>
-
-            {/* Learn More Button */}
-            <button className="feature-card-button">Learn More</button>
         </div>
     );
 };

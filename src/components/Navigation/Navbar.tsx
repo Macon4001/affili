@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; // Import NavLink
 import '../../styles/Navigation_styles/Navbar.css';
+import { useAffiliatePreload } from '../../hooks/PreLoading/AffiliateHomePreLoad';
+import { useBusinessPreload } from '../../hooks/PreLoading/BusinessHomePreLoad';
+import { useHomePreload } from '../../hooks/PreLoading/HomePreLoad';
 
 const Navbar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50); // Change to scrolled state after 50px
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Initialize preload hooks
+  useAffiliatePreload();
+  useBusinessPreload();
+  useHomePreload();
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -26,16 +23,30 @@ const Navbar: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 0) {
+        navbar?.classList.add('scrolled');
+      } else {
+        navbar?.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      {/* Logo on the Left */}
+    <nav className="navbar shadow-md">
+      {/* Left Section - Logo */}
       <div className="navbar-left">
         <NavLink to="/" className="logo">
           <img src="/4.png" alt="NexAffil Logo" className="logo-image" />
         </NavLink>
       </div>
 
-      {/* Navigation Links in Center */}
+      {/* Center Section - Navigation Links */}
       <div className="navbar-center">
         <ul className="nav-links">
           <li>
@@ -45,7 +56,10 @@ const Navbar: React.FC = () => {
           </li>
           <div className="divider"></div>
           <li>
-            <NavLink to="/affiliates" className={({ isActive }) => (isActive ? 'nav active' : 'nav')}>
+            <NavLink 
+              to="/affiliates" 
+              className={({ isActive }) => (isActive ? 'nav active' : 'nav')}
+            >
               Affiliates
             </NavLink>
           </li>
@@ -64,7 +78,7 @@ const Navbar: React.FC = () => {
         </ul>
       </div>
 
-      {/* Dark Mode Toggle and Profile on Right */}
+      {/* Right Section - Dark Mode & Profile */}
       <div className="navbar-right">
         <button className="toggle-dark-mode" onClick={toggleDarkMode}>
           <img

@@ -1,3 +1,20 @@
+/* General Page Styles */
+@font-face {
+    font-family: 'Geist';
+    src: url('../font/Geist-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('../font/GeistMono-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
 /* General Reset */
 body, h1, h3, p, ul, li, a {
     margin: 0;
@@ -27,10 +44,30 @@ body {
 }
 
 .affiliate-home__container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.dark .affiliate-home__container {
+  background-color: #000000;
+}
+
+
+/* Container Wrapper */
+.affiliate-home__wrapper {
+
+    padding: 20px 2.1%;
+    margin: 20px 2.1%;
+}
+
+/* Section Container */
+.affiliate-section-container,
+.affiliate-home__hero,
+.affiliate-home__about,
+.affiliate-home__overview,
+.affiliate-home__cta {
+    padding: 20px 8%;
+    text-align: left;
+    background: #ffffff;
 }
 
 /* Hero Section */
@@ -43,10 +80,12 @@ body {
     text-align: left; /* Ensure text is aligned to the left */
     height: 100vh; /* Full viewport height */
     color: #fff;
-    padding: 0 5rem; /* Add padding for left alignment */
+    padding: 20px 8%;
     overflow: hidden;
     background: linear-gradient(180deg, #1a98ff 0%, #50ccff 100%);
     perspective: 1000px; /* Enable 3D effects */
+    border-radius: 15px;
+    margin: 30px 2.1% 20px 2.1%;
 }
 
 /* Background Video */
@@ -58,8 +97,8 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -2;
-    filter: brightness(50%);
-    opacity: 1;
+    filter: brightness(75%);
+    opacity: 0.5;
     transition: opacity 1.5s ease;
 }
 
@@ -103,6 +142,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: transform 0.5s ease, font-size 0.5s ease; /* Smooth scaling transition */
+    font-family: 'Geist', sans-serif;
+    text-align: left;
 }
 
 /* Hero Description */
@@ -112,46 +153,55 @@ body {
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease, font-size 0.5s ease; /* Smooth scaling transition */
+    font-family: 'Geist Mono', monospace;
+    text-align: left;
 }
 
 /* Call to Action Buttons */
 .affiliate-home__cta-buttons {
     display: flex;
+    justify-content: center;
     gap: 1.5rem;
-    justify-content: flex-start; /* Align buttons to the left */
 }
 
 .affiliate-home__btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.8rem 2rem;
     border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     text-transform: uppercase;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-align: center;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .affiliate-home__btn--primary {
-    background: #fff;
+    background-color: #fff;
     color: #1a98ff;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--primary:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
-    background: #e6f4ff;
+    background-color: #e6f4ff;
+    color: #1a78d6;
+    transform: translateY(-3px);
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--secondary {
-    background: transparent;
-    border: 2px solid #fff;
+    background-color: transparent;
     color: #fff;
+    border: 2px solid #fff;
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: none;  /* Removed glow */
 }
 
 /* Responsive Design */
@@ -182,54 +232,58 @@ body {
     }
 }
 
-
 /* About Section */
 .affiliate-home__about {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 6rem 2rem;
-    background: linear-gradient(180deg, #f9f9f9 70%, #eef4ff 100%);
-    overflow: hidden;
+    align-items: center;
+    gap: 4rem;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px 8%;
+    margin: 30px 2.1% 20px 2.1%;
+    border: 1px solid #cccccc;
 }
 
-/* About Container */
-.affiliate-home__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
-}
-
-/* Text Content */
 .affiliate-home__about-content {
+    flex: 1;
     max-width: 50%;
-    animation: fadeInLeft 1s ease-out;
 }
 
 .affiliate-home__about-title {
     font-size: 3rem;
-    margin-top: -3rem;
     margin-bottom: 1rem;
-    color: #1a98ff; /* Vibrant blue for title */
+    color: #1a98ff;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-family: 'Geist', sans-serif;
+    text-align: center;
 }
 
 .affiliate-home__about-description {
-    font-family: var(--mono-font);
-    margin-top: 2rem;
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
     color: #555;
     line-height: 1.8;
-    letter-spacing: -0.01em;
-    opacity: 0.9;
-    margin-left: 15px;
+    font-family: 'Geist Mono', monospace;
+    text-align: left;
+}
+
+.affiliate-home__about-image-wrapper {
+    flex: 1;
+    display: flex;
+    margin-top: 2%;
+    padding-top: 2%;; 
+    height: 90%;
+    justify-content: flex-end;
+}
+
+.affiliate-home__about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 /* Hover Effect for Descriptions */
@@ -265,61 +319,17 @@ body {
     box-shadow: 0 8px 20px rgba(26, 152, 255, 0.4);
 }
 
-/* Image Section */
-.affiliate-home__about-image-wrapper {
-    position: relative;
-    width: 50%;
-    perspective: 1500px;
-    animation: fadeInRight 1s ease-out;
-}
-
-.affiliate-home__about-image {
-    margin-left : 30px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    transform-origin: center;
-    transform: scale(1) rotateY(0deg);
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.affiliate-home__about-image:hover {
-    transform: scale(1.03);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .affiliate-home__about {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 4rem 1.5rem;
-    }
-
-    .affiliate-home__about-content {
-        max-width: 100%;
-    }
-
-    .affiliate-home__about-image-wrapper {
-        width: 100%;
-        margin-top: 2rem;
-    }
-}
-
 /* Call to Action Section */
 .affiliate-home__cta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 6rem 2rem;
+    padding: 20px 7%;
     background: linear-gradient(135deg, #1a98ff, #50ccff);
     color: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
+    border-radius: 15px;
+    margin: 30px 2.1% 50px 2.1%;
 }
 
 /* Content Container */
@@ -327,6 +337,7 @@ body {
     max-width: 45%;
     z-index: 1;
     text-align: left;
+    padding: 20px 7%;
 }
 
 .affiliate-home__cta-title {
@@ -335,7 +346,8 @@ body {
     font-weight: 700;
     line-height: 1.3;
     color: #fff;
-    margin-left: -20%;
+    text-align: left;
+    font-family: 'Geist', sans-serif;
 }
 
 .affiliate-home__cta-description {
@@ -343,6 +355,8 @@ body {
     margin-bottom: 2rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    font-family: 'Geist Mono', monospace;
 }
 
 /* Buttons */
@@ -362,28 +376,28 @@ body {
     background-color: #fff;
     color: #1a98ff;
     border: 2px solid transparent;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--primary:hover {
     background-color: #e6f4ff;
     color: #1a78d6;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--secondary {
     background-color: transparent;
     color: #fff;
     border: 2px solid #fff;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    box-shadow: none;  /* Removed glow */
 }
 
 .affiliate-home__btn--secondary:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: none;  /* Removed glow */
 }
 
 /* CTA Image Container */
@@ -392,7 +406,7 @@ body {
     display: flex;
     justify-content: flex-end;
     z-index: 1;
-    margin-right: 5%;
+    padding: 20px 7%;
 }
 
 .affiliate-home__cta-img {
@@ -428,28 +442,19 @@ body {
 @media (max-width: 1024px) {
     .affiliate-home__cta {
         flex-direction: column;
-        padding: 4rem 1.5rem;
+        padding: 20px 7%;
     }
 
     .affiliate-home__cta-content {
         max-width: 100%;
-        text-align: center;
+        text-align: left;
+        padding: 20px 7%;
     }
 
     .affiliate-home__cta-image {
         width: 100%;
         justify-content: center;
-        margin-top: 2rem;
-    }
-
-    .affiliate-home__cta-img {
-        width: 80%;
-        max-width: 300px;
-    }
-
-    .affiliate-home__btn {
-        font-size: 1rem;
-        padding: 0.6rem 1.5rem;
+        padding: 20px 7%;
     }
 }
 
@@ -457,44 +462,53 @@ body {
 
 /* General Section Styling */
 .affiliate-home__overview {
-    background: linear-gradient(135deg, #ffffff, #f9f9f9);
-    padding: 50px 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    margin-top: 5% !important;
+    margin: 30px 2.1% 20px 2.1%;
+    padding: 20px 8%;
+    border: 1px solid #cccccc;
     text-align: center;
 }
 
 .affiliate-home__overview-title {
     font-size: 3rem;
-    margin-top: -1rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     color: #1a98ff; /* Vibrant blue for title */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-family: 'Geist', sans-serif;
     text-align: center;
 }
 
 /* Grid Layout */
 .affiliate-home__reasons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-    padding: 0 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 20px 0;
+    margin: 30px -3% 0 -3%;  /* Negative margins to pull content outward */
+    width: 106%;  /* Slightly wider to account for negative margins */
 }
 
 /* Individual Reason Styling */
 .affiliate-home__reason {
-    background: #fff;
-    border-radius: 12px;
+    background: #ffffff;
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 15px 2% 30px 2%;  /* Increased bottom padding */
     text-align: center;
+    border: 1px solid #cccccc;
+    min-width: 0;
+    height: 100%;  /* Ensure all boxes are same height */
+    justify-content: flex-start;  /* Align content to top */
 }
 
 .affiliate-home__reason:hover {
@@ -504,23 +518,23 @@ body {
 
 /* Reason Image Styling */
 .affiliate-home__reason-img {
-    width: 100%;
+    width: 95%;
     height: auto;
     max-height: 150px;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: 25px;  /* Increased margin */
     border-radius: 8px;
 }
 
 /* Reason Title Styling */
 .affiliate-home__reason-title {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: #1a98ff; /* Vibrant blue for title */
+    font-size: 1.1rem;
+    margin-bottom: 20px;  /* Increased margin */
+    color: #1a98ff;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    font-family: 'Geist', sans-serif;
     text-align: center;
 }
 
@@ -530,39 +544,87 @@ body {
     color: #666;
     line-height: 1.6;
     margin: 0;
+    font-family: 'Geist Mono', monospace;
+    text-align: left;
+    padding: 0 10px;  /* Added padding */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .affiliate-home__overview-title {
-        font-size: 2rem;
+    .affiliate-home__reasons-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;  /* Even smaller gap on mobile */
+        padding: 20px 1%;
     }
-
-    .affiliate-home__reason-title {
-        font-size: 1.1rem;
-    }
-
-    .affiliate-home__reason-description {
-        font-size: 0.95rem;
+    
+    .affiliate-home__reason {
+        padding: 15px 2%;
     }
 }
 
 /* Add Wave Shape to Section Bottom */
 .wave-divider {
     position: relative;
-    background: linear-gradient(280deg, #eef4ff, #f9f9f9); /* Section background */
+    background: #ffffff;
     z-index: 1;
+    margin-top: 5% !important;
     padding-bottom: 5rem; /* Ensure there's space for the wave */
 }
 
-.wave-divider::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px; /* Height of the wave */
-    background: #ffffff; /* The color of the next section */
-    z-index: -1;
-    clip-path: polygon(0 70%, 50% 100%, 100% 70%, 100% 100%, 0 100%);
+
+/* Maintain responsive adjustments */
+@media (max-width: 768px) {
+    .affiliate-home__wrapper {
+        padding: 2.5%;
+    }
+    
+    .affiliate-section-container {
+        margin: 15px 5px;
+        padding: 2.5%;
+    }
+}
+
+/* Margin utility classes */
+.mt-40 {
+    margin-top: 53px !important;
+}
+
+/* Dark mode styles */
+.dark .affiliate-home__reason {
+    background: #000000;
+    border: 1px solid #333333;
+}
+
+.dark .affiliate-home__reason-title {
+    color: #ffffff;
+}
+
+.dark .affiliate-home__reason-description {
+    color: #ffffff;
+}
+
+.dark .affiliate-home__overview {
+    background: #000000;
+    border: 1px solid #333333;
+}
+
+.dark .affiliate-home__overview-title {
+    color: #ffffff;
+}
+
+.dark .affiliate-home__about {
+    background: #000000;
+    border: 1px solid #333333;
+}
+
+.dark .affiliate-home__about-title {
+    color: #ffffff;
+}
+
+.dark .affiliate-home__about-description {
+    color: #ffffff;
+}
+
+.dark .affiliate-home__reason:hover {
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
 }

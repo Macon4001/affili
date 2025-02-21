@@ -4,9 +4,9 @@
   padding: 25px 30px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3.5%;
+  margin-bottom: 3%;
   animation: fade-in 0.8s ease;
-  height: 130%;
+  height: 70%;
 }
 
 /* Header */
@@ -23,6 +23,7 @@
   color: #1a1a2e;
   background: linear-gradient(to right, #6211cb, #2575fc,#50ccff); /* Gradient text */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -135,9 +136,13 @@
 }
 
 .widget-value {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #1a98ff;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  background: linear-gradient(to right, #50ccff, #1a98ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Animations */
@@ -248,7 +253,7 @@
 font-weight: bold;
 color: #1a1a2e;
 background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient text */
--webkit-background-clip: text;
+background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 
@@ -276,21 +281,12 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
   margin-bottom: 10px;
 }
 
-.widget-value {
-  font-size: 1.8rem;
-  color: #333;
-  font-weight: 700;
-  background: linear-gradient(to right, #50ccff, #1a98ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .date-range{
     font-size: 1.5rem;
     color: #333;
     font-weight: 700;
     background: linear-gradient(to right, #50ccff, #1a98ff);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -314,4 +310,103 @@ background: linear-gradient(to right, #1139cb, #2575fc,#50ccff); /* Gradient tex
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Dark mode styles */
+.dark .graph-section {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Header in dark mode */
+.dark .graph-header h2 {
+    color: #ffffff;
+    background: linear-gradient(to right, #6211cb, #2575fc, #50ccff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Graph container in dark mode */
+.dark .line-chart-container {
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure axis labels are white in dark mode */
+.dark .line-chart text {
+    fill: #ffffff !important;
+}
+
+/* Ensure axis lines are visible in dark mode */
+.dark .line-chart line {
+    stroke: #ffffff !important;
+}
+
+
+/* Tooltip in dark mode */
+.dark .line-tooltip {
+    background: #333333;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .tooltip-date {
+    color: #888888;
+}
+
+.dark .tooltip-section p {
+    color: #ffffff;
+}
+
+/* Bottom section in dark mode */
+.dark .graph-summary {
+    color: #ffffff;
+}
+
+.dark .widget {
+    background: linear-gradient(to bottom right, #2a2a2a, #1a1a1a);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .widget-title {
+    color: #1a98ff;
+}
+
+.dark .widget-value {
+    background: linear-gradient(to right, #50ccff, #1a98ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark .date-range {
+    background: linear-gradient(to right, #50ccff, #1a98ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Button styles in dark mode */
+.dark .refresh-btn,
+.dark .options-btn {
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+.dark .refresh-btn:hover,
+.dark .options-btn:hover {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+}
+
+/* Options dropdown in dark mode */
+.dark .options-dropdown {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Interactive elements in dark mode */
+.dark .interactive-dot:hover {
+    filter: brightness(1.2);
 }

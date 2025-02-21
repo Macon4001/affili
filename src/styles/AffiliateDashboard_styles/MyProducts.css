@@ -1,0 +1,158 @@
+/* General Layout */
+.product-marketplace {
+    padding: 60px;
+    background:  #ffffff ;
+    border-radius: 25px;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Section Heading */
+.product-marketplace h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #6a11cb, #2575fc, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-cycle 3s infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Grid Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
+    justify-items: center;
+}
+
+.dark .product-info p, 
+.dark .product-description, 
+.dark .product-details p {
+    color: #ffffff !important;
+}
+
+.dark p {
+    color: #ffffff !important;
+}
+
+.dark .product-marketplace {
+    background: #121212; /* Darker background for better contrast */
+}
+
+
+/* Dark mode styles */
+.dark .product-marketplace {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Heading in dark mode */
+.dark .product-marketplace h2 {
+    color: #ffffff;
+    background: linear-gradient(to right, #6a11cb, #2575fc, #50ccff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Product cards in dark mode */
+.dark .product-card {
+    background: #2a2a2a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+.dark .product-card:hover {
+    background: #333333;
+    transform: translateY(-5px);
+}
+
+.dark .product-info h3 {
+    color: #ffffff !important;
+}
+
+.dark .product-info p {
+    color: #ffffff !important;
+}
+
+.dark .product-price {
+    color: #ffffff !important;
+}
+
+.dark .product-commission {
+    color: #4caf50;
+}
+
+/* Product stats in dark mode */
+.dark .product-stats {
+    background: #2a2a2a;
+    border-top: 1px solid #333;
+}
+
+.dark .stat-item {
+    color: #ffffff;
+}
+
+.dark .stat-value {
+    color: #ffffff;
+}
+
+/* Action buttons in dark mode */
+.dark .action-button {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: #ffffff;
+}
+
+.dark .action-button:hover {
+    box-shadow: 0 4px 12px rgba(26, 152, 255, 0.3);
+}
+
+/* Filter section in dark mode */
+.dark .filter-section {
+    background: #2a2a2a;
+    border: 1px solid #333;
+}
+
+.dark .filter-input {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #404040;
+}
+
+.dark .filter-input::placeholder {
+    color: #ffffff;
+}
+
+/* Pagination in dark mode */
+.dark .pagination {
+    background: #2a2a2a;
+}
+
+.dark .page-number {
+    color: #ffffff;
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.dark .page-number.active {
+    background: linear-gradient(45deg, #1a98ff, #50ccff);
+    color: #ffffff;
+}
+
+/* Loading state in dark mode */
+.dark .loading-spinner {
+    border-color: #333;
+    border-top-color: #1a98ff;
+}
+
+/* Empty state in dark mode */
+.dark .empty-state {
+    color: #888888;
+}
