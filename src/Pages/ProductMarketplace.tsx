@@ -9,7 +9,8 @@ interface Product {
     price: number;
     category: string;
     image: string;
-    conversionRate: string;
+    conversionRate: number;
+    isBoosted?: boolean;
 }
 
 interface ProductMarketplaceProps {
@@ -29,8 +30,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 40,
             price: 199,
             category: 'Education',
-            image: '/course-image.jpg',
-            conversionRate: '12%'
+            image: '/ProductImages/course-image.jpg',
+            conversionRate: 12
         },
         {
             id: '2',
@@ -39,8 +40,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 50,
             price: 299,
             category: 'Education',
-            image: '/webdev-bootcamp.jpg',
-            conversionRate: '10%'
+            image: '/ProductImages/webdev-bootcamp.jpg',
+            conversionRate: 10
         },
         {
             id: '3',
@@ -49,8 +50,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 30,
             price: 49.99,
             category: 'Finance',
-            image: '/ai-trading-bot.jpg',
-            conversionRate: '15%'
+            image: '/ProductImages/ai-trading-bot.jpg',
+            conversionRate: 15
         },
         {
             id: '4',
@@ -59,8 +60,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 35,
             price: 79.99,
             category: 'Health & Fitness',
-            image: '/fitness-plan.jpg',
-            conversionRate: '18%'
+            image: '/ProductImages/fitness-plan.jpg',
+            conversionRate: 18
         },
         {
             id: '5',
@@ -69,8 +70,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 45,
             price: 129,
             category: 'Marketing',
-            image: '/social-growth.jpg',
-            conversionRate: '14%'
+            image: '/ProductImages/social-growth.jpg',
+            conversionRate: 14
         },
         {
             id: '6',
@@ -79,8 +80,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 20,
             price: 249.99,
             category: 'Technology',
-            image: '/smart-security.jpg',
-            conversionRate: '8%'
+            image: '/ProductImages/smart-security.jpg',
+            conversionRate: 8
         },
         {
             id: '7',
@@ -89,8 +90,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 25,
             price: 89.99,
             category: 'Beauty',
-            image: '/skincare-set.jpg',
-            conversionRate: '20%'
+            image: '/ProductImages/skincare-set.jpg',
+            conversionRate: 20
         },
         {
             id: '8',
@@ -99,8 +100,8 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 50,
             price: 149,
             category: 'Business',
-            image: '/freelancer-kit.jpg',
-            conversionRate: '16%'
+            image: '/ProductImages/freelancer-kit.jpg',
+            conversionRate: 16
         },
         {
             id: '9',
@@ -109,8 +110,9 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 30,
             price: 99.99,
             category: 'Gaming',
-            image: '/gaming-headset.jpg',
-            conversionRate: '12%'
+            image: '/ProductImages/gaming-headset.jpg',
+            conversionRate: 12,
+            isBoosted: true
         },
         {
             id: '10',
@@ -119,15 +121,80 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             commission: 40,
             price: 39.99,
             category: 'Food & Nutrition',
-            image: '/vegan-meal.jpg',
-            conversionRate: '22%'
+            image: '/ProductImages/vegan-meal.jpg',
+            conversionRate: 22
         }
-    ];
+    ].sort((a, b) => b.conversionRate - a.conversionRate);
+
+    const boostedProducts = products.filter(product => product.isBoosted);
+
+    // Example HOT products
+    const hotProducts: Product[] = [
+        ...boostedProducts, // ✅ Ensure boosted products appear first
+        {
+            id: '1',
+            name: 'Digital Marketing Course',
+            description: 'Comprehensive course covering all aspects of digital marketing',
+            commission: 40,
+            price: 199,
+            category: 'Education',
+            image: '/ProductImages/course-image.jpg',
+            conversionRate: 12
+        },
+        {
+            id: '2',
+            name: 'Web Development Bootcamp',
+            description: 'Learn full-stack web development with hands-on projects',
+            commission: 50,
+            price: 299,
+            category: 'Education',
+            image: '/ProductImages/webdev-bootcamp.jpg',
+            conversionRate: 10
+        },
+        {
+            id: '3',
+            name: 'AI Trading Bot Subscription',
+            description: 'Automated AI-driven trading bot with market insights',
+            commission: 30,
+            price: 49.99,
+            category: 'Finance',
+            image: '/ProductImages/ai-trading-bot.jpg',
+            conversionRate: 15
+        },
+        {
+            id: '4',
+            name: 'Premium Fitness Plan',
+            description: 'Customized workout and nutrition plan for optimal results',
+            commission: 35,
+            price: 79.99,
+            category: 'Health & Fitness',
+            image: '/ProductImages/fitness-plan.jpg',
+            conversionRate: 18
+        },
+        {
+            id: '5',
+            name: 'Social Media Growth Package',
+            description: 'Increase your followers and engagement organically',
+            commission: 45,
+            price: 129,
+            category: 'Marketing',
+            image: '/ProductImages/social-growth.jpg',
+            conversionRate: 14
+        }
+    ].sort((a, b) => b.conversionRate - a.conversionRate);
+
+
+
+    // Add copy affiliate link functionality
+    const copyAffiliateLink = (link: string) => {
+        navigator.clipboard.writeText(link);
+        alert('Affiliate link copied to clipboard!');
+    };
 
     return (
         <div className="marketplace-container">
             <div className="marketplace-header">
-                <h1 className='marketplace-title'>Affiliate Marketplace</h1>
+                <h1 className="marketplace-title">Affiliate Marketplace</h1>
                 <div className="search-filter-container">
                     <input
                         type="text"
@@ -143,36 +210,73 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
                     >
                         <option value="All">All Categories</option>
                         <option value="Education">Education</option>
-                        <option value="Software">Software</option>
-                        <option value="Services">Services</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
                     </select>
                 </div>
             </div>
-
-            <div className="products-grid">
-                {products.map(product => (
-                    <div key={product.id} className="product-card">
-                        <img src={product.image} alt={product.name} className="product-image" />
-                        <div className="product-info">
-                            <h3>{product.name}</h3>
-                            <p>{product.description}</p>
-                            <div className="product-stats">
-                                <span className="commission">{product.commission}% Commission</span>
-                                <span className="price">${product.price}</span>
-                                <span className="conversion">{product.conversionRate} Conv. Rate</span>
-                            </div>
-                            <button 
-                                className="add-button"
-                                onClick={() => addToMyProducts(product)}
+    
+            {/* ✅ HOT & BOOSTED SECTION - Moved Outside the Grid */}
+            <div className="hot-and-boosted-section">
+                {/* HOT PRODUCTS CAROUSEL */}
+                <div className="hot-carousel">
+                    <h2>Trending Now</h2>
+                    <div className="carousel">
+                        {hotProducts.map(product => (
+                            <div 
+                                key={product.id} 
+                                className={`carousel-item ${product.isBoosted ? "boosted-product" : "hot-product"}`}
                             >
-                                Add to My Products
-                            </button>
-                        </div>
+                                {/* Show "HOT" badge for regular hot products */}
+                                {!product.isBoosted && <span className="hot-badge">🔥 HOT</span>}
+                                
+                                {/* Show "BOOSTED" badge for boosted products */}
+                                {product.isBoosted && <span className="boosted-badge">⚡ BOOSTED</span>}
+            
+                                <img src={product.image} alt={product.name} />
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
+            </div>
+
+        
+    
+            {/* ✅ MAIN PRODUCT GRID */}
+            <div className="products-grid">
+                {products.map(product => {
+                    const affiliateLink = `https://affiliate.example.com/product/${product.id}`;
+                    const payoutPerSale = ((product.commission * product.price) / 100).toFixed(2);
+    
+                    return (
+                        <div key={product.id} className={`product-card ${product.conversionRate >= 15 ? 'top-product' : ''}`}>
+                            <img src={product.image} alt={product.name} className="product-image" />
+                            {product.conversionRate >= 15 && <span className="top-product-badge">⬆️ Top Product</span>}
+                            <div className="product-info">
+                                <h3>{product.name}</h3>
+                                <p>{product.description}</p>
+                                <div className="product-stats">
+                                    <span className="commission">💰 {product.commission}% Commission</span>
+                                    <span className="payout">💵 Avg. Payout: ${payoutPerSale}</span>
+                                    <span className="conversion">📈 {product.conversionRate}% Conv. Rate</span>
+                                </div>
+                                <div className="affiliate-link-container">
+                                    <input type="text" value={affiliateLink} readOnly className="affiliate-link" />
+                                    <button className="copy-link-button" onClick={() => copyAffiliateLink(affiliateLink)}>
+                                        <img src="/Copy.png" alt="Copy" className="copy-icon" />
+                                    </button>
+                                </div>
+                                <button className="promote-button" onClick={() => addToMyProducts(product)}>
+                                    🚀 Promote This
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
+    
 };
 
 export default ProductMarketplace;

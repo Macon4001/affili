@@ -37,7 +37,7 @@ interface Product {
   price: number;
   category: string;
   image: string;
-  conversionRate: string;
+  conversionRate: number;
 }
 
 interface User {
