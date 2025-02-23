@@ -3,17 +3,45 @@ interface Product {
     id: string;
     name: string;
     description: string;
-    price: string;
-    commission: string;
+    price: number;
+    commission: number;
+    category: string;
     image: string;
-    imageUrl: string;
+    conversionRate: number;
 }
 
 // Mock products data
-const mockProducts: Product[] = [
-    { id: "1", name: "Wireless Earbuds", description: "High-quality sound", price: "$50", commission: "10%", image: "/Airbuds.jpg", imageUrl: "https://example.com/image1.jpg" },
-    { id: "2", name: "Smart Watch", description: "Track fitness", price: "$100", commission: "15%", image: "/smartwatch.jpg", imageUrl: "https://example.com/image2.jpg" },
-    { id: "3", name: "Gaming Mouse", description: "Precision gaming", price: "$75", commission: "12%", image: "/mouse.jpg", imageUrl: "https://example.com/image3.jpg" },
+const Product: Product[] = [
+    {
+        id: "1",
+        name: "Wireless Earbuds",
+        description: "High-quality sound",
+        price: 50,
+        commission: 10,
+        category: "Electronics",
+        image: "/Airbuds.jpg",
+        conversionRate: 8,
+    },
+    {
+        id: "2",
+        name: "Smart Watch",
+        description: "Track fitness",
+        price: 100,
+        commission: 15,
+        category: "Wearables",
+        image: "/smartwatch.jpg",
+        conversionRate: 10,
+    },
+    {
+        id: "3",
+        name: "Gaming Mouse",
+        description: "Precision gaming",
+        price: 75,
+        commission: 12,
+        category: "Gaming",
+        image: "/mouse.jpg",
+        conversionRate: 9,
+    },
 ];
 
-export default mockProducts;
+export default Product;

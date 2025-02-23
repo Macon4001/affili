@@ -1,38 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProductCard from "../AffiliateMarketplace/ProductCard";
 import "../../styles/AffiliateDashboard_styles/MyProducts.css";
-import mockProducts from "../../data/fakeproductdata";
+import AffiliateDashboard from "../../Pages/AffiliateDashboard";
 
 // Define Product type
 interface Product {
     id: string;
     name: string;
     description: string;
-    price: string;
-    commission: string;
+    commission: number;
+    price: number;
+    category: string;
     image: string;
-    imageUrl: string;
+    conversionRate: number;
+    isBoosted?: boolean;
 }
 
 // Define props for ProductMarketplace
 interface MyProductsProps {
-    onGenerateLink: (productId: string) => void;  // Expect productId as number
+    products: Product[];
+    onGenerateLink: (productId: string) => void;  // Expect productId as string
 }
 
-const MyProducts: React.FC<MyProductsProps> = ({ onGenerateLink }) => {
-    const [products, setProducts] = useState<Product[]>([]);
-
-    // Simulate API call to fetch products
-    useEffect(() => {
-        setProducts(mockProducts);
-    }, []);
-
+const MyProducts: React.FC<MyProductsProps> = ({ products, onGenerateLink }) => {
     return (
         <div className="product-marketplace">
             <h2>My Products</h2>
             <div className="product-grid">
                 {products.map((product) => (
-                    // Assign key to the outer element only, not passed as a prop
                     <div key={product.id}>
                         <ProductCard product={product} onGenerateLink={onGenerateLink} />
                     </div>

@@ -16,8 +16,17 @@ interface ActiveLinksProps {
     links: Link[];
 }
 
-
 const ActiveLinks: React.FC<ActiveLinksProps> = ({ links }) => {
+    // Use a Map to ensure only one link per product
+    const uniqueLinks = Array.from(
+        links.reduce((map, link) => {
+            if (!map.has(link.productName)) {
+                map.set(link.productName, link);
+            }
+            return map;
+        }, new Map<string, Link>())
+    ).map(([_, link]) => link);
+
     return (
         <section className="active-links-section">
             <h2>Active Links</h2>
@@ -33,8 +42,8 @@ const ActiveLinks: React.FC<ActiveLinksProps> = ({ links }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {links.length > 0 ? (
-                            links.map((link) => (
+                        {uniqueLinks.length > 0 ? (
+                            uniqueLinks.map((link) => (
                                 <tr key={link.id}>
                                     <td>{link.productName}</td>
                                     <td>

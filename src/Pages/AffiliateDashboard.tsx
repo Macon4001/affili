@@ -65,7 +65,7 @@ const AffiliateDashboard: React.FC = () => {
 
   const [currentOfferIndex, setCurrentOfferIndex] = useState<number>(0);
   const [activeLinks, setActiveLinks] = useState<ActiveLink[]>([]);
-  const [myProducts, setMyProducts] = useState<Product[]>([]); // Store user-added products
+  const [promotedProducts, setPromotedProducts] = useState<Product[]>([]);
 
   // Automatically rotate offers every 5 seconds
   useEffect(() => {
@@ -78,22 +78,37 @@ const AffiliateDashboard: React.FC = () => {
 
   // Function to add products to "My Products"
   const addToMyProducts = (product: Product) => {
-    setMyProducts((prevProducts) => [...prevProducts, product]);
+    setPromotedProducts((prevProducts) => {
+      // Check if the product is already in the list
+      if (!prevProducts.some((p) => p.id === product.id)) {
+        return [...prevProducts, product];
+      }
+      return prevProducts;
+    });
   };
 
   // Function to generate a tracking link
   const handleGenerateLink = (productId: string) => {
-    const newLink: ActiveLink = {
-      id: activeLinks.length + 1,
-      productName: `Product ${productId}`,
-      url: `https://affiliate.example.com/product/${productId}?ref=12345`,
-      clicks: 0,
-      conversions: 0,
-      revenue: 0,
-    };
+    // Check if a link for this product already exists
+    const existingLink = activeLinks.find(link => link.productName === productId);
+    if (existingLink) {
+        console.log(`Link for product ID: ${productId} already exists.`);
+        return; // Exit the function if a link already exists
+    }
 
-    setActiveLinks((prevLinks) => [...prevLinks, newLink]);
-  };
+    const product = promotedProducts.find(p => p.id === productId);
+    if (product) {
+        const newLink: ActiveLink = {
+            id: activeLinks.length + 1,
+            productName: product.name,
+            url: `https://example.com/product/${productId}`, // Example URL
+            clicks: 0,
+            conversions: 0,
+            revenue: 0,
+        };
+        setActiveLinks([...activeLinks, newLink]);
+    }
+};
 
   return (
     <div className={`dashboard-layout ${isDarkMode ? 'dark' : ''}`}>
@@ -171,7 +186,7 @@ const AffiliateDashboard: React.FC = () => {
 
             {/* My Products */}
             <section>
-              <MyProducts onGenerateLink={handleGenerateLink} />
+              <MyProducts onGenerateLink={handleGenerateLink} products={promotedProducts} />
             </section>
 
             {/* Active Links */}
@@ -195,22 +210,6 @@ const AffiliateDashboard: React.FC = () => {
             <ResourceCenter />
           </>
         )}
-        <section>
-          <h2>My Products</h2>
-          <div className="products-list">
-            {myProducts.length > 0 ? (
-              myProducts.map((product) => (
-                <div key={product.id} className="product-card">
-                  <h3>{product.name}</h3>
-                  <p>{product.description}</p>
-                  <button onClick={() => handleGenerateLink(product.id)}>Generate Link</button>
-                </div>
-              ))
-            ) : (
-              <p>No products added yet.</p>
-            )}
-          </div>
-        </section>
 
       </main>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/ProductMarketplace_styles/ProductMarketplace.css';
 
 interface Product {
@@ -20,6 +20,11 @@ interface ProductMarketplaceProps {
 const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 16; // ✅ Best balance of speed & UX
+    const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(false);
+
 
     // Example products (replace with real data)
     const products: Product[] = [
@@ -123,6 +128,36 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
             category: 'Food & Nutrition',
             image: '/ProductImages/vegan-meal.jpg',
             conversionRate: 22
+        },
+        {
+            id: "11",
+            name: "Wireless Earbuds",
+            description: "High-quality sound",
+            price: 50, // Converted to number
+            commission: 10, // Converted to number
+            category: "Electronics", // Added category
+            image: "/Airbuds.jpg",
+            conversionRate: 8, // Added conversion rate
+        },
+        {
+            id: "12",
+            name: "Smart Watch",
+            description: "Track fitness",
+            price: 100, // Converted to number
+            commission: 15, // Converted to number
+            category: "Wearables", // Added category
+            image: "/smartwatch.jpg",
+            conversionRate: 10, // Added conversion rate
+        },
+        {
+            id: "13",
+            name: "Gaming Mouse",
+            description: "Precision gaming",
+            price: 75, // Converted to number
+            commission: 12, // Converted to number
+            category: "Gaming", // Added category
+            image: "/mouse.jpg",
+            conversionRate: 9, // Added conversion rate
         }
     ].sort((a, b) => b.conversionRate - a.conversionRate);
 
@@ -183,7 +218,25 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
         }
     ].sort((a, b) => b.conversionRate - a.conversionRate);
 
+    // ✅ Filter & Paginate Products Dynamically
+    useEffect(() => {
+        setLoading(true);
 
+        let filtered = products.filter(product =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+            (selectedCategory === 'All' || product.category === selectedCategory)
+        );
+
+        setFilteredProducts(filtered.slice(0, currentPage * productsPerPage));
+        setLoading(false);
+    }, [searchTerm, selectedCategory, currentPage]);
+
+    // ✅ Load More Products (Lazy Load)
+    const loadMoreProducts = () => {
+        if (currentPage * productsPerPage < products.length) {
+            setCurrentPage(prevPage => prevPage + 1);
+        }
+    };
 
     // Add copy affiliate link functionality
     const copyAffiliateLink = (link: string) => {
@@ -244,7 +297,7 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
     
             {/* ✅ MAIN PRODUCT GRID */}
             <div className="products-grid">
-                {products.map(product => {
+                {filteredProducts.map(product => {
                     const affiliateLink = `https://affiliate.example.com/product/${product.id}`;
                     const payoutPerSale = ((product.commission * product.price) / 100).toFixed(2);
     
@@ -274,9 +327,15 @@ const ProductMarketplace: React.FC<ProductMarketplaceProps> = ({ addToMyProducts
                     );
                 })}
             </div>
+                        {/* ✅ Load More Button */}
+                        {currentPage * productsPerPage < products.length && (
+                <button className="load-more-button" onClick={loadMoreProducts}>
+                    {loading ? "Loading..." : "Load More Products"}
+                </button>
+            )}
         </div>
     );
-    
 };
+
 
 export default ProductMarketplace;
