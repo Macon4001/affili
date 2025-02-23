@@ -1,7 +1,6 @@
 import React from "react";
 import ProductCard from "../AffiliateMarketplace/ProductCard";
 import "../../styles/AffiliateDashboard_styles/MyProducts.css";
-import AffiliateDashboard from "../../Pages/AffiliateDashboard";
 
 // Define Product type
 interface Product {
