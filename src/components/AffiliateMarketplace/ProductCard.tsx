@@ -35,8 +35,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onGenerateLink }) =>
         <h3>{product.name}</h3>
         <p>{truncateDescription(product.description, 47)}</p>
         <p>Price: {product.price}</p>
-        <p>Commission: {product.commission}</p>
-        <p>Conversion Rate: {product.conversionRate}</p>  
+        <p>Commission: {product.commission}%</p>
+        <p>Conversion Rate: {product.conversionRate}%</p>  
         <p>Category: {product.category}</p>
       </div>
       <button
